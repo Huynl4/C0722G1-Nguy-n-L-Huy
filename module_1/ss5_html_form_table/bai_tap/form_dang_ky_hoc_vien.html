@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Form đơn giản</title>
+</head>
+<body>
+<form>
+<h1 style="text-align: center; background-color: greenyellow">Đăng ký học viên</h1>
+<table>
+    <tr>
+        <td style="color: blue">Họ và tên:</td>
+        <td><input type="text" name="name"></td>
+    </tr>
+    <tr>
+        <td style="color: blue">Ngày sinh:</td>
+        <td><input type="text" name="day_of_birth"></td>
+    </tr>
+    <tr>
+<td style="color: blue">Giới tính</td>
+        <td>
+            <input type="radio" name="gender">Nam
+            <input type="radio" name="gender">Nữ
+        </td>
+    </tr>
+
+</table>
+<table>
+    <tr>
+        <td style="color: blue">Địa chỉ:</td>
+        <td><textarea cols="30" rows="5"></textarea></td>
+    </tr>
+</table>
+    <table>
+        <tr>
+            <td style="color: blue">Lớp:</td>
+            <td>
+                <select name="class">
+                    <option value="chọn lớp">chọn lớp</option>
+                <option value="lớp 1">lớp 1</option>
+                <option value="lớp 2">lớp 2</option>
+                <option value="lớp 3">lớp 3</option>
+            </select></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td style="color: blue">Email:</td>
+            <td><input type="text" name="Email"></td>
+        </tr>
+        <tr>
+            <td style="color: blue">Điện thoại</td>
+            <td><input type="phone" name="phone"></td>
+        </tr>
+    </table>
+    <input type="submit" value="Đăng ký">
+    <input type="reset" value="Nhập lại">
+</form>
+</body>
+</html>
