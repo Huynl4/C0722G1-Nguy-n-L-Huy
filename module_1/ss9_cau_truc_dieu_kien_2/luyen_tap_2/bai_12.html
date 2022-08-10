@@ -8,7 +8,9 @@
 <!--Số tiền lãi = Số tiền gửi x lãi suất (%năm)/12 x số tháng gửi.-->
 </body>
 <script>
-    let money= +prompt('số tiền gởi');
-    let lai =
+    let money= +prompt('số tiền gởi:');
+    let lai = +prompt('lãi xuất(%năm/12):');
+    let thang = +prompt('số tháng gởi:');
+    alert('Số tiền lãi là:'+(money * lai *(thang/12)));
 </script>
 </html>
