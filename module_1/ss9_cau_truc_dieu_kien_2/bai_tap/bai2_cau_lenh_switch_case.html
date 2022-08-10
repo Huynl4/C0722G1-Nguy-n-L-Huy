@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra số ngày trong tháng</title>
+</head>
+<body>
+<h1>Kiểm tra số ngày trong tháng</h1>
+<input type="number" id="month">
+<input type="button" value="kiểm tra" onclick="kiemtra()">
+<p id="thang"></p>
+</body>
+<script>
+    function kiemtra() {
+
+        let a = parseInt(document.getElementById('month').value);
+        switch (a) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                document.getElementById('thang').innerHTML = 'có 31 ngày';
+                break;
+
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                document.getElementById('thang').innerHTML = 'có 30 ngày';
+                break;
+            case 2:
+                document.getElementById('thang').innerHTML = 'có 28 hoặc 29 ngày';
+                break;
+                default:
+                    document.getElementById('thang').innerHTML = 'không có tháng này'
+
+
+
+
+
+        }
+
+    }
+</script>
+</html>

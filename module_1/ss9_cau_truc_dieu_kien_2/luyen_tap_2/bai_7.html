@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Phương trình bậc 2</title>
+</head>
+<body>
+</body>
+<script>
+    let a = prompt('Nhập vào số a: ');
+    let b = prompt('Nhập vào số b: ');
+    let c = prompt('Nhập vào số c: ');
+    let delta = (b * b - 4 * a * c);
+    if (delta < 0) {
+        alert('Phương trình vô nghiệm.');
+    } else if (delta == 0) {
+        alert('Phương tình có nghiệm kép là: ' + (-b / 2 * a));
+    } else {
+        alert('Phương trình có hai nghiệm là: x1= ' + ((-b + Math.sqrt(delta)) / (2 * a)) + ' và x2=  ' + ((-b - Math.sqrt(delta)) / (2 * a)));
+
+    }
+</script>
+</html>

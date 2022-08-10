@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chỉ số cân nặng cơ thể</title>
+</head>
+<body>
+<h1>Tính chỉ số cân nặng</h1>
+<p>Nhập Cân Nặng:(kg) <input type="text" id="kg"></p>
+<p>Nhập Chiều Cao:(m) <input type="text" id="m"></p>
+<input type="button" value="kiểm tra" onclick="kiemtra()">
+<p id="chỉ số BMI:"></p>
+</body>
+<script>
+    function kiemtra() {
+        let kg = document.getElementById('kg').value;
+        let m = document.getElementById('m').value;
+        let bmi = kg / (m * m);
+        if (bmi < 18) {
+            document.getElementById('chỉ số BMI:').innerHTML = 'Underweight'
+
+        } else if (bmi < 25.0) {
+            document.getElementById('chỉ số BMI:').innerHTML = 'Normal'
+        } else if (bmi < 30.0) {
+            document.getElementById('chỉ số BMI:').innerHTML = 'Overweight'
+
+        } else
+            document.getElementById('chỉ số BMI:').innerHTML = 'Obese'
+    }
+</script>
+</html>
