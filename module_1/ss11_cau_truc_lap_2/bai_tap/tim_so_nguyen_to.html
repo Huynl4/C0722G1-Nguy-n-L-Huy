@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Huy Nờ lờ</title>
+</head>
+<body>
+
+</body>
+<script>
+    let number =20;
+    let count = 0;// Số lượng số nguyên tố
+    let n = 2; //số nguyên tố
+    while (count <= number) {
+        let giatri = 0;
+        for (let j = 2; j < n; j++) {
+            if (n % j == 0) {
+                giatri += 1;
+            }
+        }
+        if (giatri == 0) {
+            document.write(n + "<br>");
+            count++;
+        }
+        n++;
+    }
+
+
+</script>
+</html>

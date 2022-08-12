@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>số đầu tiên trong dãy fibonacci chia hết cho 5</title>
+</head>
+<body>
+
+</body>
+<script>
+    // let n1 = 0;
+    // let n2 = 1;
+    // let fiBo = 0;
+    // for (let i = 0; ; i++) {
+    //     fiBo = n2 + n1;
+    //     n1 = n2;
+    //     n2 = fiBo;
+    //     if (fiBo % 5 === 0) {
+    //         alert(fiBo)
+    //         break;
+    //     }
+    // }
+
+    let n1 = 0;
+    let n2 = 1;
+    let num = 0;
+    for (let i = 0; i < 20; i++) {
+        num = n1 + n2;
+
+        n1 = n2;
+        n2 = num;
+        if (num % 5 === 0) {
+            document.write(num);
+        }
+    }
+</script>
+</html>

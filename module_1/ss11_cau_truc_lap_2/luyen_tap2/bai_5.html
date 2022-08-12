@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lãi mệ lãi con</title>
+</head>
+<body>
+
+</body>
+<script>
+    let tienGoc= +prompt("số tiền gởi vào");
+    let thangGoi= +prompt(" số tháng gởi");
+    let lai = +prompt("số tiền lãi");
+    for (let i = 0; i < thangGoi ; i++) {
+        tienGoc+=tienGoc*lai/100;
+        // tienGoc= tienGoc +lai;
+    }
+    document.write("tổng tiền sau khi gởi bank: "+ tienGoc);
+</script>
+</html>

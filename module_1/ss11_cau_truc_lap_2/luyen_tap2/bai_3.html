@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let num = parseInt(prompt('nhập cạnh cho tam giác'));
+    let i, j;
+    let star = '';
+
+    for (i = 1; i <= num; i++) {
+        for (j = 1; j <= i; j++) {
+            star = star + '+';
+        }
+        star = star + '<br>';
+    }
+    document.write(star);
+
+    document.write('<br>');
+    document.write('<br>');
+
+    star = '';
+    for (i = num; i >= 1; i--) {
+        for (j = 1; j <= i; j++) {
+            star = star + '+';
+        }
+        star = star + '<br>';
+    }
+    document.write(star);
+
+    document.write('<br>');
+    document.write('<br>');
+
+    star='';
+    for (i = 1; i <= num; i++) {
+        for (j = 1; j <= num - i; j++) {
+            star = star + '&nbsp&nbsp';
+        }
+        for (j = 1; j <= i; j++) {
+            star = star + '+';
+        }
+        star = star + '<br>';
+    }
+    document.write(star);
+
+    document.write('<br>');
+    document.write('<br>');
+
+    star='';
+    for (i = 0; i <= num; i++) {
+        for (j =1; j <=  i; j++) {
+            star = star + '&nbsp&nbsp';
+        }
+        for (j = 1; j <=num-i; j++) {
+            star = star + '+';
+        }
+        star = star + '<br>';
+    }
+    document.write(star);
+
+</script>
+</html>
