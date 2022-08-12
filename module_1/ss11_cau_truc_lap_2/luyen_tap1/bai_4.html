@@ -26,11 +26,11 @@
     let num = 0;
     for (let i = 0; i < 20; i++) {
         num = n1 + n2;
-
         n1 = n2;
         n2 = num;
         if (num % 5 === 0) {
-            document.write(num);
+            document.write('số chia hết cho 5 trong fibonacci:'+ num);
+            break;
         }
     }
 </script>

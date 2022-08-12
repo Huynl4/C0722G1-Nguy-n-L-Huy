@@ -7,6 +7,15 @@
 <body>
 </body>
 <script>
+    let n1 = 0;
+    let n2 = 1;
+    let num;
+    for (let i = 0; i < 20; i++) {
+        num = n1 + n2;
+        n1 = n2;
+        n2 = num;
+    }
+    document.write('tổng của 20 số đầu tiền trong dãy fibonacci:' + num);
 
 </script>
 </html>
