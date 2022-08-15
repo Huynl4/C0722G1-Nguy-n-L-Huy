@@ -2,9 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Huy Nờ Lờ</title>
 </head>
 <body>
-$END$
+<!--Bài 1: Viết chương trình nhận vào một số từ hộp thoại, việc nhập kết thúc khi người dùng nhập vào giá trị -1. Mỗi giá trị nhập được sẽ được hiển thị ra và thực hiện tính tổng các giá trị đó.-->
 </body>
+<script>
+    // let numBer = parseInt(prompt('nhập số'));
+    // let tong = 0;
+    // while (numBer !== -1) {
+    //     numBer = parseInt(prompt("nhập số"))
+    //     tong = tong + numBer;
+    //     tong += numBer;
+    // }
+    // document.write('tổng là :' + tong)
+
+    let total = 0;
+    let num;
+    do {
+        num = +prompt('enter number');
+        alert('số vừa nhập là: ' + num);
+        if (num !== -1) {
+            total += num;
+            alert('tổng: ' + total);
+        }
+    } while (num !== -1);
+    alert(' tổng là :' + total)
+</script>
 </html>

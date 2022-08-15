@@ -5,6 +5,7 @@
     <title>Huy Nờ Lờ</title>
 </head>
 <body>
+<!--Bài 11: Viết chương trình tính thuế thu nhập cá nhân.-->
 <!--Bậc 1: 4 triệu đồng/tháng 0%;-->
 <!--Bậc 2: Trên 4 - 6 triệu đồng/tháng: 5%;-->
 <!--Bậc 3: Trên 6 - 9 triệu đồng: 10%;-->
@@ -15,23 +16,23 @@
 <!--Bậc 8: Trên 84 triệu đồng: 35%.-->
 </body>
 <script>
-let thuNhap= +prompt('nhập thu nhập cá nhân(triệu)');
-if (thuNhap == 4){
-    alert('không cần nộp');
-} else if ( thuNhap > 4 && thuNhap < 6 ){
-    alert('nộp thuế 5%')
-}else if (thuNhap > 6 && thuNhap < 9){
-    alert('nộp thuế 10%')
-}else  if ( thuNhap > 9 && thuNhap < 14){
-    alert(' nộp thuế 15%')
-}else if ( thuNhap > 14 && thuNhap < 24){
-    alert('nộp thuế 20%')
-}else if ( thuNhap > 24 && thuNhap < 44){
-    alert('nộp thuế 25%')
-}else if ( thuNhap > 44 && thuNhap < 84){
-    alert('nộp thuế 30%')
-} else if ( thuNhap > 84) {
-    alert(' nộp thuế 35%')
-}
+    let thuNhap = +prompt('nhập thu nhập cá nhân(triệu)');
+    if (thuNhap == 4) {
+        alert('không cần nộp');
+    } else if (thuNhap > 4 && thuNhap < 6) {
+        alert('nộp thuế 5%')
+    } else if (thuNhap > 6 && thuNhap < 9) {
+        alert('nộp thuế 10%')
+    } else if (thuNhap > 9 && thuNhap < 14) {
+        alert(' nộp thuế 15%')
+    } else if (thuNhap > 14 && thuNhap < 24) {
+        alert('nộp thuế 20%')
+    } else if (thuNhap > 24 && thuNhap < 44) {
+        alert('nộp thuế 25%')
+    } else if (thuNhap > 44 && thuNhap < 84) {
+        alert('nộp thuế 30%')
+    } else if (thuNhap > 84) {
+        alert(' nộp thuế 35%')
+    }
 </script>
 </html>

@@ -21,16 +21,16 @@
         let giaTri = document.getElementById('giaTri').value;
         let from = document.getElementById('from').value;
         let to = document.getElementById('to').value;
-       let sotien;
-        if (from=="usd"&&to=="vnd"){
-           sotien=("ket qua : "+(giaTri*23000));
-       }
-        if (from=="vnd"&&to=="usd"){
-           sotien=("ket qua : "+(giaTri/23000));
+        let soTien;
+        if (from == "usd" && to == "vnd") {
+            soTien = ("ket qua : " + (giaTri * 23000));
         }
-        document.getElementById("ket qua").innerHTML=sotien;
+        if (from == "vnd" && to == "usd") {
+            soTien = ("ket qua : " + (giaTri / 23000));
+        }
+        document.getElementById("ket qua").innerHTML = soTien;
     }
 
- </script>
+</script>
 </body>
 </html>
