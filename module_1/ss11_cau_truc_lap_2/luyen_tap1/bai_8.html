@@ -5,6 +5,31 @@
     <title>Title</title>
 </head>
 <body>
-
+<button onclick="playGame()">Bắt đầu</button>
 </body>
+<script>
+    function playGame() {
+        let number = parseInt(prompt('Nhập vào bạn muốn đoán trong khoảng lớn nhất là bao nhiêu?'));
+        let numberRandom = parseInt(Math.random() * number);
+        let numberGuess;
+        let count = 5;
+        alert(numberRandom)
+        do {
+            numberGuess = +prompt('Nhập số bạn đoán');
+            if (numberGuess > numberRandom) {
+                alert('Số bạn đoán lớn hơn');
+            } else if (numberGuess < numberRandom) {
+                alert('Số bạn đoán bé hơn');
+            } else {
+                alert('Bạn đã đoán đúng');
+                break;
+            }
+            if (count === 5) {
+                alert('Bạn đã hết lượt');
+                break;
+            }
+            count++;
+        } while (numberGuess !== numberRandom);
+    }
+</script>
 </html>

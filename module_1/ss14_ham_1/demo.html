@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Nhập mảng n độ dài của màng-->
+<!--Khai báo mảng gồm n phần tử-->
+<!--Dùng for nhập giá trị cho các phân tử-->
+<!--Tính giá trị trung bình của các phần tử lẻ  và ở vị trí chẵn-->
+</body>
+<script>
+    let num = parseInt(prompt("nhập độ dài của mảng"));
+    let x = new Array(num);
+    let tong=0;
+    let count=0;
+    for (let i = 0; i < x.length; i++) {
+        x[i] = parseInt(prompt("nhập phần tử"));
+    }
+    document.write(x);
+    for (let i = 0; i < x.length; i++) {
+        if (x[i] % 2 != 0 && i % 2 == 0) {
+            tong = tong + x[i]
+            count++;
+        }
+    }
+    document.write(" giá trị trung bình là :" + tong / count)
+</script>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Bài 7- Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử, nhập/tạo phần tử số nguyên V.-->
+<!--Chương trình kiểm tra xem V có thuộc mảng đã cho không,-->
+<!--nếu V thuộc mảng đã cho xoá V khỏi mảng (Bản chất việc xoá ở đây tức là dịch phần tử ở bên phải V sang vị trí của V,-->
+<!--và gán 0 cho phần tử cuối cùng của mảng)-->
+</body>
+<script>
+    // let num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    // let V = parseInt(prompt("nhập số nguyên V"));
+    // num.unshift(V);
+    // document.write(num + "<br>");
+    // for (let i = 1; i < 10; i++) {
+    //     if (num[i] == V) {
+    //         num.shift(V);
+    //         num.push(0);
+    //         break;
+    //     }
+    // }
+    // document.write(num);
+
+
+    let numbers = [15,4,1,9,9,8];
+    let v = parseInt(prompt("Nhập vào số nguyên cần kiểm tra: "));
+    let dem = 0;
+    for (let i = 0; i < numbers.length; i++) {
+        if (v == numbers[i]) {
+            dem++;
+            for (let j = i; j < numbers.length-1; j++) {
+                numbers[j] = numbers[j + 1];
+
+            }
+            numbers[numbers.length - 1] = 0;
+        }
+    }
+    document.write(numbers.toString() + "<br><br>");
+    if (dem == 0) {
+        document.write(v + "số nhập vào không thuộc mảng.");
+    } else {
+        document.write(v + "số nhập vào thuộc mảng.");
+    }
+</script>
+</html>

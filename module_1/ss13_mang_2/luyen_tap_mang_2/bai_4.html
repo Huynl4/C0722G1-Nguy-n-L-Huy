@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Bài 4: Viết một chương trình để đếm số từ trong một chuỗi-->
+</body>
+<script>
+    let n = prompt("nhập chuỗi");
+    let count = 0;
+    let mang = n.split(' ');
+    for (let i = 0; i < mang.length; i++) {
+        if (mang[i] != '') {
+            count++;
+        }
+    }
+    document.write("số từ trong 1 chuỗi :" + count);
+</script>
+</html>

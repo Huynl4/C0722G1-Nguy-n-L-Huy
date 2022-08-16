@@ -2,9 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Từ Điển</title>
 </head>
 <body>
-$END$
+<h1>Dịch từ điển</h1>
+<label> Nhập từ tiếng Việt :</label>
+<input type="text" id="input">
+<button onclick="nhanvao()">Dịch</button>
+<!--<button onclick="huynl()">chuyen lai</button>-->
 </body>
 </html>
+<p id="result"></p>
+<script>
+
+    function nhanvao() {
+        let English = ['apple', 'banana', 'orange','sir'];
+        let Vietnamese = ['táo', 'chuối', 'cam', 'sếp'];
+        let dich;
+        let count =0;
+        dich = document.getElementById("input").value;
+        for (let i = 0; i < Vietnamese.length; i++) {
+            if (Vietnamese[i] == dich) {
+                dich = English[i];
+            } else {
+                count++;
+            }
+        }
+        document.getElementById('result').innerHTML = dich;
+        if (count== Vietnamese.length){
+       document.write("không tìm thấy");
+}
+}
+</script>

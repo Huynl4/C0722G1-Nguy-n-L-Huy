@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Bài 3- Viết chương trình khởi tạo mảng số nguyên.-->
+<!--Hiển hiện giá trị lớn nhất trong mảng đó. In ra giá trị trung bình của các phần tử trong mảng.-->
+</body>
+</html>
+<script>
+    // let num = [15, 4, 2];
+    // let tong;
+    // let max = num[0];
+    // for (let i = 0; i <= 10; i++) {
+    //     if (num[i] >= max) {
+    //         max = num[i];
+    //         tong = (num[0] + num[1] + num[2]) / 3;
+    //
+    //     }
+    // }
+    // document.write("giá trị lớn nhất là:" + max + '<br>');
+    //
+    // document.write('trung bình của các phần tử là:'+ tong);
+
+    let numbers = [15, 4, 2];
+    let tong = 0
+    let max = [0];
+    for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] > max) {
+            max = numbers[i]
+        }
+    }
+    for (let i = 0; i < numbers.length; i++) {
+        tong = tong + numbers[i]
+    }
+    document.write('giá trị lớn nhất là: ' + max)
+    document.write('trung bình cộng của các phần tử là :' + (tong / numbers.length))
+
+</script>
