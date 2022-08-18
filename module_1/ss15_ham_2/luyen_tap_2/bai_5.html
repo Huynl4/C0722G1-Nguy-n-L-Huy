@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Bài 5: Viết hàm nhận vào 3 số nguyên bất kỳ, trả về số nguyên có giá trị nhỏ nhất.-->
+</body>
+<script>
+    let num1 = parseInt(prompt("nhập số thứ nhất"));
+    let num2 = parseInt(prompt("nhập số thứ hai"));
+    let num3 =parseInt(prompt("nhập số thứ ba"));
+    function check(num1,num2,num3) {
+        if (num1 < num2 && num1 < num3 ){
+            return num1;
+        }else if (num2 < num3){
+            return num2;
+        }else {
+            return num3;
+        }
+    }
+    alert(check(num1,num2,num3));
+</script>
+</html>

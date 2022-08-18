@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Bài 8: Viết hàm truyền vào mảng số nguyên bất kỳ, sau đó đảo ngược mảng số nguyên đó-->
+</body>
+<script>
+
+    let lengthArr = +prompt("nhập chiều dài mảng");
+    let array = [];
+
+    function daoNguoc(lengthArr, array) {
+
+
+        for (let i = 0; i < lengthArr; i++) {
+            array[i] = +prompt("Nhập số thứ: " + (i + 1));
+        }
+        let viTriDau = 0;
+        let viTriCuoi = array.length - 1;
+        for (let j = 0; j < array.length / 2; j++) {
+            let x = array[viTriDau];
+            array[viTriDau] = array[viTriCuoi - j];
+            array[viTriCuoi - j] = x;
+            viTriDau++;
+        }
+        alert(array);
+    }
+
+    daoNguoc(lengthArr, array);
+
+</script>
+</html>
