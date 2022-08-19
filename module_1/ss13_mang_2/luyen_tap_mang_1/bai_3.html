@@ -25,17 +25,15 @@
     // document.write('trung bình của các phần tử là:'+ tong);
 
     let numbers = [15, 4, 2];
-    let tong = 0
+    let tong = 0;
     let max = [0];
     for (let i = 0; i < numbers.length; i++) {
         if (numbers[i] > max) {
-            max = numbers[i]
+            max = numbers[i];
+            tong = tong + numbers[i];
         }
     }
-    for (let i = 0; i < numbers.length; i++) {
-        tong = tong + numbers[i]
-    }
-    document.write('giá trị lớn nhất là: ' + max)
-    document.write('trung bình cộng của các phần tử là :' + (tong / numbers.length))
+    document.write('giá trị lớn nhất là: ' + max);
+    document.write('trung bình cộng của các phần tử là :' + (tong / numbers.length));
 
 </script>
