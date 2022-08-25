@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Bài 5: Giả sử menu của chúng ta có các loại thức uống như sau:-->
+<!--Cafe-->
+<!--Cam vắt-->
+<!--Nước ép cà rốt-->
+<!--Nước ép cà chua-->
+<!--Nước lọc-->
+<!--Nước dừa-->
+<!--Viết một chương trình gọi thức uống đơn giản.-->
+<!--Gợi ý: Trước tiên in ra màn hinh danh sách các loại thức uống cho người dùng chọn lựa-->
+<!--Đánh dấu theo thứ tự 1 (cafe), 2 (cam vắt), 3(nước ép cà rốt), 4(nước ép cà chua), 5(nước lọc), 6(nước dừa), 7(thoát gọi món)-->
+<!--Khi người dùng lựa chọn 1 trong số các thức uống, chương trình sẽ hiện đơn giá của thức uống đó và cho phép người dùng nhập
+số lượng. Cuối cùng hiển thị tổng số tiền người dùng cần phải trả.-->
+<!--Sử dụng vòng lặp do while lặp lại cho người dùng đặt thức uống, kết thúc quá trình đặt thức uống khi người nhấn số 7-->
+</body>
+<script>
+    let choose;
+    let sum = 0;
+    let price = 1;
+    let count = 0;
+    let total = 0;
+    do {
+        choose = +prompt(" Nhập lựa chọn tương ứng để chọn thức uống: \n" +
+            "1.Cafe \n" +
+            "2.Cam vắt \n" +
+            "3.Nước ép cà rốt \n" +
+            "4.Nước ép cà chua \n" +
+            "5.Nước lọc \n" +
+            "6.Nước dừa \n" +
+            "7.Thoát gọi món"
+        )
+
+        switch (choose) {
+            case 1:
+                price = 30.000;
+                alert(" Cafe có giá 30.000VNĐ");
+                count = +prompt("Nhập số lượng: ");
+                sum = price * count;
+                alert("Số tiền phải trả cho " + count + " ly cà phê là: " + sum + ".000VNĐ");
+                total += sum;
+                break;
+            case 2:
+                price = 30.000;
+                alert(" Cam vắt có giá 30.000VNĐ");
+                count = prompt("Nhập số lượng: ");
+                sum = price * count;
+                alert("Số tiền phải trả cho " + count + " ly cam vắt là: " + sum + ".000VNĐ");
+                total += sum;
+                break;
+            case 3:
+                price = 35.000;
+                alert(" Nước ép cà rốt có giá 35.000VNĐ");
+                count = prompt("Nhập số lượng: ");
+                sum = price * count;
+                alert("Số tiền phải trả cho " + count + " ly nước ép cà rốt là: " + sum + ".000VNĐ");
+                total += sum;
+                break;
+            case 4:
+                price = 36.000;
+                alert(" Nước ép cà chua có giá là 36.000VNĐ");
+                count = prompt("Nhập số lượng: ");
+                sum = price * count;
+                alert("Số tiền phải trả cho " + count + " ly nước ép cà chua là: " + sum + ".000VNĐ");
+                total += sum;
+                break;
+            case 5:
+                price = 20.000;
+                alert(" Nước lọc có giá là 20.000VNĐ");
+                count = prompt("Nhập số lượng: ");
+                sum = price * count;
+                alert("Số tiền phải trả cho " + count + " ly nước lọc là: " + sum + ".000VNĐ");
+                total += sum;
+                break;
+            case 6:
+                price = 35.000;
+                alert(" Nước dừa có giá trị là 35.000VNĐ");
+                count = prompt("Nhập số lượng: ");
+                sum = price * count;
+                alert("Số tiền phải trả cho " + count + " ly nước dừa là: " + sum + ".000VNĐ");
+                total += sum;
+                break;
+            default:
+        }
+    }
+    while (choose != 7)
+
+    alert("Tổng số tiền phải trả cho hóa đơn là: " + total + ".000VNĐ");
+
+
+</script>
+
+</html>

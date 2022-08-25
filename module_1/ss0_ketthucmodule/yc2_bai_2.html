@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Viết chương trình kiểm tra một ký tự trong bảng chữ cái tiếng anh là nguyên âm hay phụ âm. -->
+<!--Ký tự là bất kỳ được nhập từ bàn phím. -->
+<!--Các ký tự nguyên âm bao gồm: 'o', 'u', 'i', 'a', 'e' hoặc 'O', 'U', 'I', 'A', 'E'-->
+</body>
+<script>
+    // let a = prompt("nhập kí tự từ bàn phím");
+    // if (a == 'o' || a == 'u' || a == 'i' || a == 'a' || a == 'e') {
+    //     alert(a + " là nguyên âm");
+    //
+    // } else {
+    //     alert("là phụ âm");
+    // }
+    let nhapKiTu = prompt('nhập một từ bất kì vào đây');
+    if (nhapKiTu === 'o', 'u', 'i', 'a', 'e', 'O', 'U', 'U', 'I', 'A', 'E') {
+        switch (nhapKiTu) {
+            case 'o':
+            case 'O':
+            case 'u':
+            case 'U':
+            case 'i':
+            case 'I':
+            case 'a':
+            case 'A':
+            case 'e':
+            case 'E':
+                alert(nhapKiTu + " là nguyên âm");
+                break;
+            default:
+                alert(nhapKiTu + " là phụ âm");
+        }
+    }
+
+    // let kiTu = prompt("Nhập 1 ký tự vào đây");
+    // let bangNguyenAm = ['o', 'u', 'i', 'a', 'e', 'O', 'U', 'U', 'I', 'A', 'E']
+    // let check = false;
+    // for (i = 0; i < bangNguyenAm.length; i++) {
+    //     if (kiTu === bangNguyenAm[i]) {
+    //         check = true;
+    //     }
+    // }
+    // if (check === false){
+    //     alert("đứng");
+    // } else {alert("nằm")}
+</script>
+</html>
