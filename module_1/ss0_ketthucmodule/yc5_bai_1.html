@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Bài 1: Viết hàm tính tổng các số chẵn trong ma trận có kích thước m*n. Với m, n là các số nhập từ bàn phím.-->
+</body>
+<script>
+    let m = +prompt("nhập số từ bàn phím");
+    let n = +prompt("nhập số từ bàn phím");
+    let sum = 0;
+    let a = [];
+    for (let i = 0; i < m; i++) {
+        a[i] = [];
+        for (let j = 0; j < n; j++) {
+            a[i][j] = +prompt('nhập á');
+            if (a[i][j] % 2 == 0) {
+                sum += a[i][j];
+            }
+        }
+    }
+    alert(sum);
+</script>
+</html>

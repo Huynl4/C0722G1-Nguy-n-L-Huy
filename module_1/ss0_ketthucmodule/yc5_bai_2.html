@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Bài 2: Viết hàm liệt kê các số nguyên tố trong mảng 2 chiều, đếm các số nguyên tố có trong mảng đó.-->
+</body>
+<script>
+    let arr = [[0, 1, 2, 3], [4, 5, 6, 7]];
+    let a = 2;
+
+    function check(so) {
+        if (so < 2) {
+            return false;
+        } else {
+            for (let i = 2; i < so - 1; i++) {
+                if (so % i == 0) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    function dem(array) {
+        let count = 0;
+
+        for (let i = 0; i < array.length; i++) {
+            for (let j = 0; j < array[i].length; j++) {
+
+                if (check(array[i][j]) == true) {
+                    document.write(array[i][j] + "<br>");
+                    count++;
+                }
+            }
+        }
+        document.write('số phần tử số nguyên tố ' + count);
+    }
+
+    dem(arr);
+</script>
+</html>
+

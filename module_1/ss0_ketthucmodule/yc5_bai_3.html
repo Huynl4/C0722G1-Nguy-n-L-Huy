@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Bài 3: Viết hàm tìm giá trị lớn nhất, nhỏ nhất trong mảng 2 chiều-->
+</body>
+<script>
+    let arr = [[15, 1, 2, 3], [4, 5, 6, 7]];
+
+    function checkMax(mang) {
+        let max = mang[0][0];
+        for (let i = 0; i < mang.length; i++) {
+            for (let j = 0; j < mang[i].length; j++) {
+                if (mang[i][j] > max) {
+                    max = mang[i][j];
+                }
+            }
+        }
+        document.write('GTLN ' + max + "<br>");
+    }
+
+    checkMax(arr);
+
+    function checkMin(mang1) {
+        let min = mang1[1][0];
+        for (let i = 0; i < mang1.length; i++) {
+            for (let j = 0; j < mang1[i].length; j++) {
+                if (mang1[i][j] < min) {
+                    min = mang1[i][j];
+                }
+
+            }
+        }
+        document.write('GTNN ' + min);
+    }
+
+    checkMin(arr);
+</script>
+</html>

@@ -11,20 +11,19 @@
 
 </body>
 <script>
-    function check() {
-        let a = ['abcab'];
-        let ketQua = [];
-        let arr = a.splice(" ");
-        let count = 0;
-        for (let i = 0; i < a.length; i++) {
-            ketQua[i] = 0;
-            for (let j = 0; j < arr.length; j++) {
-                if (arr[j]!== a[i] ) {
-                    count++;
-                }
-            }
+    let a = prompt("nhập chuỗi");
+    let arr = a.split("");
+    let mang = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (mang.indexOf(arr[i]) === -1) {
+            mang.push(arr[i]);
         }
-        document.write(ketQua);
+        // if(mang.includes(arr[i])===false){
+        //     mang.push(arr[i]);
+        // }
+
     }
+    alert(mang);
+    alert(mang.length);
 </script>
 </html>
