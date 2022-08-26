@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Viết 1 hàm truyền vào 1 tham số(với tham số là 1 chuỗi),-->
+<!--(checkString(str)). Hàm trả về mảng các kí tự không phải là -->
+<!--số[0,...9] và không phải kí tự alphabe[a..z,A...Z].-->
+</body>
+<script>
+    let arr = prompt('nhập vào 1 chuỗi');
+    // let number = ['0','1','2','3','4','5','6','7','8','9','10'];
+    // let kiTu = ['a','b','c','d','e','f','g','h']
+    let kiTu = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890';
+    // let kiTu1 = kiTu.split("");
+    // alert(kiTu1);
+    let a = arr.split("");
+    // alert(a);
+    let b = [];
+    for (let i = 0; i < kiTu.length; i++) {
+        if (kiTu.includes(arr[i]) === false) {
+            b.push(a[i]);
+        }
+    }
+    alert(b);
+</script>
+</html>
