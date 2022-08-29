@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Bài 1: Nhập từ bàn phím mảng số nguyên gồm n phần tử (n<=50).
+Hiển thị ra màn hình danh sách các phần tử của mảng,-->
+<!--hiện thị giá trị trung bình của các phần tử chia hết cho 5 ở vị trí chia hết cho 3
+( phần tử có index chia hết cho 3)-->
+<!--Ví dụ: [15,2,3,5,10,15,7,8,9,10].
+ Kết quả sau khi thực hiện là: (15+5+10)/3) = 10-->
+</body>
+<script>
+    let size = prompt("nhập độ dài của mảng số nguyên");
+    let arr = [];
+    for (let i = 0; i < size; i++) {
+        arr[i] = +prompt("nhập phần tử n");
+    }
+    document.write(arr + "<br>");
+
+    let array = [];
+
+    for (let j = 0; j < arr.length; j++) {
+        if (arr[j] % 5 == 0 && j % 3 == 0) {
+            array.push(arr[j]);
+        }
+
+    }
+    document.write(array + '<br>');
+
+
+    let tong = 0;
+    let sum = 0;
+    for (let i = 0; i < array.length; i++) {
+        tong = tong + array[i];
+        sum = tong / array.length;
+    }
+    document.write("trung bình= " + sum);
+
+</script>
+</html>

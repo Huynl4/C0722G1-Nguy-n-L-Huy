@@ -10,20 +10,45 @@
 <!--số[0,...9] và không phải kí tự alphabe[a..z,A...Z].-->
 </body>
 <script>
-    let arr = prompt('nhập vào 1 chuỗi');
-    // let number = ['0','1','2','3','4','5','6','7','8','9','10'];
-    // let kiTu = ['a','b','c','d','e','f','g','h']
-    let kiTu = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890';
-    // let kiTu1 = kiTu.split("");
-    // alert(kiTu1);
-    let a = arr.split("");
-    // alert(a);
-    let b = [];
-    for (let i = 0; i < kiTu.length; i++) {
-        if (kiTu.includes(arr[i]) === false) {
-            b.push(a[i]);
+    // function checkString(str) {
+    //     let chuoiKiTu = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890';
+    //     let mangKiTu = chuoiKiTu.split("");
+    //     let mangMoi = [];
+    //     let mangKiTuDauVao = str.split("");
+    //     for (let i = 0; i < mangKiTuDauVao.length; i++) {
+    //         if (mangKiTu.includes(mangKiTuDauVao[i]) === false) {
+    //             mangMoi.push(mangKiTuDauVao[i]);
+    //         }
+    //         if (mangKiTu.includes(mangKiTuDauVao[i]) === true) {
+    //             mangMoi.push(mangKiTuDauVao[i]);
+    //         }
+    //
+    //         for (let j = 0; j < mangKiTu.length; j++) {
+    //             if (mangKiTuDauVao[i] !== mangKiTu[j]) {
+    //                 mangMoi.push(mangKiTuDauVao[i]);
+    //             }
+    //         }
+    //     }
+    //     return document.write(mangMoi + "");
+    // }
+    //
+    // checkString(prompt("Nhập vào 1 chuỗi"));
+
+
+    function checkString(str) {
+        let chuoiKiTu = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890';
+        let mangKiTu = chuoiKiTu.split("");
+        let mangMoi = [];
+        let mangKiTuDauVao = str.split("");
+        for (let i = 0; i < mangKiTuDauVao.length; i++) {
+            if (mangKiTu.includes(mangKiTuDauVao[i]) === false) {
+                mangMoi.push(mangKiTuDauVao[i]);
+            }
         }
+        return document.write(mangMoi + "");
     }
-    alert(b);
+
+    checkString(prompt("Nhập vào 1 chuỗi"))
+
 </script>
 </html>

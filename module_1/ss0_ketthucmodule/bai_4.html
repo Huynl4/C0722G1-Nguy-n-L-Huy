@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<input type="text" id="name" placeholder="nhập tên máy tính">
+<input type="text" id="code" placeholder="nhập mã máy">
+<input type="text" id="origin" placeholder="tên hãng sản xuất">
+<input type="text" id="price" placeholder="giá bán">
+<input type="button" onclick="addNewComputer()" value="Thêm mới máy tính">
+<p id="display"></p>
+<script>
+    class Computer {
+        constructor(name, code, origin, price) {
+
+            this.name = name;
+            this.code = code;
+            this.origin = origin;
+            this.price = price;
+        }
+
+
+        setName(name) {
+            this.name = name;
+        }
+
+        setCode(code) {
+            this.code = code;
+        }
+
+        setOrigin(origin) {
+            this.origin = origin;
+        }
+
+        setPrice(price) {
+            this.price = price;
+        }
+
+
+        getName() {
+            return this.name;
+        }
+
+        getCode() {
+            return this.code;
+        }
+
+        getOrigin() {
+            return this.origin;
+        }
+
+        getPrice() {
+            return this.price;
+        }
+    }
+
+    let computer1 = new Computer("Dell", "dell", "China", 20);
+    let computer2 = new Computer("Acer", "Acer", "Spain", 30);
+    let computer3 = new Computer("Apple", "apple", "Vietnam", 40);
+    let computer4 = new Computer("Asus", "asus", "Laos", 50);
+    let computerList = [computer1, computer2, computer3, computer4];
+    display(computerList);
+
+    // hiện thị danh sách
+    function display(list) {
+        let tableString = '<table border="1">\n' +
+            '    <tr>\n' +
+            '        <th>STT</th>\n' +
+            '        <th>Name</th>\n' +
+            '        <th>Code</th>\n' +
+            '        <th>Origin</th>\n' +
+            '        <th>Price</th>\n' +
+            '    </tr>';
+        for (let i = 0; i < list.length; i++) {
+            tableString += '<tr>\n' +
+                '        <td>' + (i + 1) + '</td>\n' +
+                '        <td>' + list[i].getName() + '</td>\n' +
+                '        <td>' + list[i].getCode() + '</td>\n' +
+                '        <td>' + list[i].getOrigin() + '</td>\n' +
+                '        <td>' + list[i].getPrice() + '</td>\n' +
+                '        <td><input type="button" onclick="editComputerById(' + i + ')" value="Edit"></td>\n' +
+                '    </tr>';
+        }
+
+        tableString += '</table>';
+        document.getElementById("display").innerHTML = tableString;
+        display(computerList)
+    }
+
+
+    function editComputerById(index) {
+        let editName = prompt("nhập tên mới:");
+        let editCode = prompt("nhập mã mới:");
+        let editOrigin = prompt("nhập hãng sản xuất:");
+        let editPrice = prompt("nhập giá bán:");
+        computerList[index].setName(editName);
+        computerList[index].setCode(editCode);
+        computerList[index].setOrigin(editOrigin);
+        computerList[index].setPrice(editPrice);
+        display(computerList);
+
+    }
+
+    function addNewComputer() {
+        let name = document.getElementById("name").value;
+        let code = document.getElementById("code").value;
+        let origin = document.getElementById("origin").value;
+        let price = document.getElementById("price").value;
+        let newComputer = new Computer(name, code, origin, price);
+        computerList.push(newComputer);
+        display(computerList);
+        document.getElementById("name").value = "";
+        document.getElementById("code").value = "";
+        document.getElementById("origin").value = "";
+        document.getElementById("price").value = "";
+    }
+</script>
+</body>
+</html>

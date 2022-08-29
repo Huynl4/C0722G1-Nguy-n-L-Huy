@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Bài 3: Viết hàm có tham số truyền vào là một mảng ,tìm các số fibonaci có trong-->
+<!--mảng(số này đã làm bài tập ở jame). Hàm trả về 1 mảng số fibonaci được tìm thấy-->
+<!--trong mảng ( Yêu cầu sắp xếp tăng dần).-->
+<!--Gợi ý đây là dãy số fibonaci: 0,1,1,2,3,5,8,13,21,…..-->
+</body>
+<script>
+    let fibo = [0, 1, 1, 2, 3, 5, 8, 13, 21];
+    let size = +prompt("nhập độ dài mảng");
+    let arr = [];
+    let arr1 = [];
+    for (let i = 0; i < size; i++) {
+        arr1[i] = +prompt('nhập phần tử');
+    }
+
+
+    function kiemTra(arr2) {
+        for (let i = 0; i < fibo.length; i++) {
+            if (fibo.includes(arr2[i])) {
+                arr.push(arr2[i]);
+            }
+        }
+        return arr;
+    }
+
+    alert(kiemTra(arr1));
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--8.	Nhập 2 số nguyên dương a và b. Sau đó in ra ước chung lớn nhất và -->
+<!--bội chung nhỏ nhất của 2 số nguyên dương a và b đó.-->
+</body>
+<script>
+    let a = +prompt("nhập số nguyên a");
+    let b = +prompt("nhập số nguyên b");
+
+    function uocChungMax(num1, num2) {
+        let uocChung;
+        while (num1 != num2) {
+            if (num1 > num2) {
+                num1 = num1 - num2;
+            } else {
+                num2 -= num1;
+
+            }
+            uocChung = num1;
+
+
+        }
+        return uocChung;
+
+    }
+
+    document.write("ước chung lớn nhất là"+ uocChungMax(a, b) + "<br>");
+
+    document.write("bội chung nhỏ nhất là " + (a * b) / uocChungMax(a, b));
+
+
+</script>
+</html>

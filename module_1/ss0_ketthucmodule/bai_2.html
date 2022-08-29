@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Bài 2: Viết hàm có tham số truyền vào là một chuỗi các ký tự.Hàm thực hiện tạo ra một-->
+<!--cụm từ viết tắt-->
+<!-- - Nếu chuỗi có nhiều hơn hoặc bằng 2 từ trở lên thì hàm sẽ trả về 1 cụm từ viết tắt-->
+<!--là lấy các ký tự đầu tiên của từng từ và đổi sang in hoa.-->
+<!--Ví dụ: object Oriented programming =&gt; kết quả trả về :OOP-->
+<!-- - Nếu Chuỗi chỉ có duy nhất 1 từ thì kết quả trả về là 1 thông báo &quot;Chuỗi chỉ có 1-->
+<!--từ nên không cần viết tắc&quot;-->
+<!-- - Ví du: ObjectOriented =&gt; chuỗi này chỉ được tính chỉ có 1 từ-->
+</body>
+<script>
+
+    let string = prompt("nhập vào kí tự");
+
+    function chuyenDoi(str) {
+
+        if (!str.includes(" ")) {
+            alert('chuỗi này chỉ được tính chỉ có 1 từ');
+        } else {
+            let array = str.split(" ");
+            for (let i = 0; i < array.length; i++) {
+                if (array[i] != "") {
+                    array[i] = array[i][0].toUpperCase();
+                }
+            }
+            alert(array.join(""));
+        }
+    }
+
+    chuyenDoi(string);
+    // function tuVietTat(str) {
+    //     let mang = [];
+    //     for (let i = 0; i < str.length; i++) {
+    //         if (str.length == 1) {
+    //             return "mang co 1 ki tu khong can viet tat";
+    //         } else if (str[i] == " ") {
+    //             mang.push(str[i + 1]);
+    //         }
+    //     } return mang.join(" ")
+    // }
+    // let chuoiKiTu = prompt("nhập vào 1 chuỗi");
+    // let mangKiTu = chuoiKiTu.toUpperCase().split("");
+    // document.write( mangKiTu[0]+" "+tuVietTat(mangKiTu));
+
+
+</script>
+</html>

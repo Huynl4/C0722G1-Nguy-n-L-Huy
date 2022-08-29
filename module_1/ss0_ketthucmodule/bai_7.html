@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--7.	Tính tổng và tích các chữ số của một số nguyên dương m cho trước-->
+<!--(Ví dụ : m=234=> S=2+3+4=9, P=2*3*4=24)-->
+
+</body>
+<script>
+    let num = +prompt('nhập số');
+    let array = num.toString().split("");
+    alert(array);
+    let tong = 0;
+    let tich = 1;
+    for (let i = 0; i < array.length; i++) {
+        tong += parseInt(array[i]);
+        tich *= parseInt(array[i]);
+    }
+    alert(tong);
+    alert(tich);
+
+</script>
+</html>
