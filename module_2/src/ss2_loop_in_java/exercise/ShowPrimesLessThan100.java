@@ -3,7 +3,6 @@ package ss2_loop_in_java.exercise;
 public class ShowPrimesLessThan100 {
     public static void main(String[] args) {
         int number = 100;
-        int count = 0;
         int n = 2;
         while (n < number) {
             int value = 0;
@@ -14,7 +13,6 @@ public class ShowPrimesLessThan100 {
             }
             if (value == 0) {
                 System.out.println(n);
-                count++;
             }
             n++;
         }
