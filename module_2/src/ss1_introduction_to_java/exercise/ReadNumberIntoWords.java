@@ -1,7 +1,7 @@
 package ss1_introduction_to_java.exercise;
 
 import java.util.Scanner;
-
+//đọc số thành chữ
 public class ReadNumberIntoWords {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

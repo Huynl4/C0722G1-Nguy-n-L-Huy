@@ -1,7 +1,7 @@
 package ss1_introduction_to_java.exercise;
 
 import java.util.Scanner;
-
+//chuyển đổi tiền tệ
 public class MoneyConversion {
     public static void main(String[] args) {
         double vnd = 23000;

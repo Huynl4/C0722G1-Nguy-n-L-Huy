@@ -1,7 +1,7 @@
 package ss2_loop_in_java.practice;
 
 import java.util.Scanner;
-
+//tìm ước chung lớn nhất
 public class GreatestCommonDivisor {
     public static void main(String[] args) {
         int a;

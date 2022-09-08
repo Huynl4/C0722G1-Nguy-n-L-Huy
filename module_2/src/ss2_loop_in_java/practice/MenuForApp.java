@@ -1,7 +1,7 @@
 package ss2_loop_in_java.practice;
 
 import java.util.Scanner;
-
+//thiết kế menu cho ứng dụng
 public class MenuForApp {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);

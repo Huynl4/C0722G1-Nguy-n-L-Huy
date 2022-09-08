@@ -1,7 +1,7 @@
 package ss2_loop_in_java.practice;
 
 import java.util.Scanner;
-
+//ứng dụng tính tiền lãi cho vay
 public class LoanInterestApp {
     public static void main(String[] args) {
         double money = 1.0;

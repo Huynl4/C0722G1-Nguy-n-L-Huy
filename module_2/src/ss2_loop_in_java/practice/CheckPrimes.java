@@ -1,7 +1,7 @@
 package ss2_loop_in_java.practice;
 
 import java.util.Scanner;
-
+//kiểm tra số nguyên tố
 public class CheckPrimes {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
