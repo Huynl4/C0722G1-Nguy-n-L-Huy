@@ -1,7 +1,7 @@
 package ss3_arrays_and_methods_in_java.exercise;
 
 import java.util.Scanner;
-
+//đếm số lần xuất hiện của kí tự trong chuỗi
 public class CountOccurrencesOfACharacterInAString {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

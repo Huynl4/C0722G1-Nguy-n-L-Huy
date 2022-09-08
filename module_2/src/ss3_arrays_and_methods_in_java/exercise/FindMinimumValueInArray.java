@@ -2,7 +2,7 @@ package ss3_arrays_and_methods_in_java.exercise;
 
 import java.util.Arrays;
 import java.util.Scanner;
-
+//tìm giá trị nhỏ nhất trong mảng
 public class FindMinimumValueInArray {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
