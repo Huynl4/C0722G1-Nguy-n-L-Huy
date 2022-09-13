@@ -33,7 +33,7 @@ public class Circle {
     public String toString() {
         return "Circle{" +
                 "radius=" + radius +
-                ", color='" + color + '\'' +
+                ", color='" + color + ", Area=" + getArea() + '\'' +
                 '}';
     }
 }
