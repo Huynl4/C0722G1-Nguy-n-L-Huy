@@ -1,17 +1,17 @@
 package ss6_inheritance.practice;
 
-public class Circle extends Shape {
+public class Circle1 extends Shape {
     private double radius = 1.0;
 
-    public Circle() {
+    public Circle1() {
     }
 
-    public Circle(String color, boolean filled, double radius) {
+    public Circle1(String color, boolean filled, double radius) {
         super(color, filled);
         this.radius = radius;
     }
 
-    public Circle(double  radius) {
+    public Circle1(double  radius) {
         this.radius = radius;
     }
 
