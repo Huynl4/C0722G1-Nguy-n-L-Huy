@@ -1,0 +1,36 @@
+package ss0_exercise.mvc.model;
+
+public class Teacher extends Person {
+    private String technique;
+
+    public Teacher(String technique) {
+        this.technique = technique;
+    }
+
+    public Teacher() {
+    }
+
+    public Teacher(String code, String name, String gender, String technique) {
+        super(code, name, gender);
+        this.technique = technique;
+    }
+
+    public Teacher(String code, String name, Boolean gender, String technique) {
+
+    }
+
+    public String getTechnique() {
+        return technique;
+    }
+
+    public void setTechnique(String technique) {
+        this.technique = technique;
+    }
+
+    @Override
+    public String toString() {
+        return "Teacher{" +
+                "technique='" + technique + '\'' +
+                '}' + super.toString();
+    }
+}
