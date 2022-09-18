@@ -1,6 +1,5 @@
-package ss0_exercise.mvc.service.implTeacher;
+package ss0_exercise.mvc.service.impl_teacher;
 
-import ss0_exercise.mvc.model.Student;
 import ss0_exercise.mvc.model.Teacher;
 
 import java.util.ArrayList;

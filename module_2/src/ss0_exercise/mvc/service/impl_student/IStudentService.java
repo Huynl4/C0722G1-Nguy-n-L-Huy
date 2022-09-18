@@ -1,4 +1,4 @@
-package ss0_exercise.mvc.service.implStudent;
+package ss0_exercise.mvc.service.impl_student;
 
 import ss0_exercise.mvc.model.Student;
 

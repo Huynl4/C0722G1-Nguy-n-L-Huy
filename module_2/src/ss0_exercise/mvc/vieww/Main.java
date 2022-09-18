@@ -1,4 +1,4 @@
-package ss0_exercise.mvc.view;
+package ss0_exercise.mvc.vieww;
 
 import ss0_exercise.mvc.controller.PersonController;
 import ss0_exercise.mvc.controller.StudentController;

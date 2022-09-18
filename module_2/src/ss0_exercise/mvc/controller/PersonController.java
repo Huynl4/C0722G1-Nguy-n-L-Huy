@@ -1,7 +1,5 @@
 package ss0_exercise.mvc.controller;
 
-import ss0_exercise.mvc.model.Student;
-
 import java.util.Scanner;
 
 public class PersonController {
@@ -21,14 +19,13 @@ public class PersonController {
                     StudentController.menuStudent();
                     break;
                 case 2:
-                    TeacherController.menuStudent();
+                    TeacherController.menuTeacher();
                     break;
                 case 3:
                     System.exit(0);
                     break;
                 default:
                     System.out.println("Bạn nhập sai. Vui lòng nhập lại!");
-
             }
         }
     }

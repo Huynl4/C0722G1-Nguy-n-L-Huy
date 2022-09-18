@@ -1,7 +1,7 @@
 package ss0_exercise.mvc.controller;
 
-import ss0_exercise.mvc.service.implStudent.IStudentService;
-import ss0_exercise.mvc.service.implStudent.StudentService;
+import ss0_exercise.mvc.service.impl_student.IStudentService;
+import ss0_exercise.mvc.service.impl_student.StudentService;
 
 import java.util.Scanner;
 
@@ -11,8 +11,8 @@ public class StudentController {
 
     public static void menuStudent() {
         while (true) {
-            System.out.println("-------------------------------------------------");
-            System.out.println("Chào mừng bạn đến vơi trình quản lý CodyGym. ");
+            System.out.println("----------------------------------------------------");
+            System.out.println("Chào mừng bạn đến với chương trình quản lý CodyGym. ");
             System.out.println("1. Thêm mới học sinh.");
             System.out.println("2. Hiển thị danh sách học sinh. ");
             System.out.println("3. Xóa học sinh. ");
@@ -29,7 +29,7 @@ public class StudentController {
                     iStudentService.removeStudent();
                     break;
                 case 4:
-//                    System.exit(0);
+                    System.exit(1);
                     return;
             }
         }
