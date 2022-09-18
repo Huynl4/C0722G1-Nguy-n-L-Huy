@@ -1,11 +1,9 @@
-package ss0_exercise.mvc.controller;
+package ss0_exercise.mvc.controler;
 
 import java.util.Scanner;
 
 public class PersonController {
     private static Scanner scanner = new Scanner(System.in);
-    private static StudentController studentController = new StudentController();
-    private static TeacherController teacherController = new TeacherController();
 
     public static void menuPerson() {
         while (true) {

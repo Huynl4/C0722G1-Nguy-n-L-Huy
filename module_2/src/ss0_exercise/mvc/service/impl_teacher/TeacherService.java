@@ -54,13 +54,13 @@ public class TeacherService implements ITeacherService {
         String name = scanner.nextLine();
         System.out.println("Mời nhập giới tính giáo viên: ");
         String tempGender = scanner.nextLine();
-        Boolean gender;
+        String gender;
         if (tempGender.equals("Nam")) {
-            gender = true;
+            gender = "Nam";
         } else if (tempGender.equals("Nữ")) {
-            gender = false;
+            gender = "Nữ";
         } else {
-            gender = null;
+            gender = "Phi giới tính";
         }
 
         System.out.println("Mời bạn nhập chuyên môn Giáo viên: ");

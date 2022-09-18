@@ -9,5 +9,4 @@ public interface ITeacherService {
 
     void removeTeacher();
 
-    Teacher infoTeacher();
 }

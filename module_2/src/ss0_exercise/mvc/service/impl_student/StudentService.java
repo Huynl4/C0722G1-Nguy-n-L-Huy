@@ -47,7 +47,6 @@ public class StudentService implements IStudentService {
         }
     }
 
-    @Override
     public Student infoStudent() {
         System.out.println("Mời nhập mã học sinh: ");
         String code = scanner.nextLine();
@@ -55,13 +54,13 @@ public class StudentService implements IStudentService {
         String name = scanner.nextLine();
         System.out.println("Mời nhập giới tính học sinh: ");
         String tempGender = scanner.nextLine();
-        Boolean gender;
+        String gender;
         if (tempGender.equals("Nam")) {
-            gender = true;
+            gender = "Nam";
         } else if (tempGender.equals("Nữ")) {
-            gender = false;
+            gender = "Nữ";
         } else {
-            gender = null;
+            gender = "Phi giới tính";
         }
         System.out.println("Mời bạn nhập ten lớp: ");
         String nameClass = scanner.nextLine();

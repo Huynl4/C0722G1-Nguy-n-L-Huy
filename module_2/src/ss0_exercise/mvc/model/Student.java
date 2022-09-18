@@ -18,9 +18,6 @@ public class Student extends Person {
     public Student() {
     }
 
-    public Student(String code, String name, Boolean gender, String nameClass, double score) {
-    }
-
     public String getNameClass() {
         return nameClass;
     }

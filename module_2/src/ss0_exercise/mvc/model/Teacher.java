@@ -14,11 +14,6 @@ public class Teacher extends Person {
         super(code, name, gender);
         this.technique = technique;
     }
-
-    public Teacher(String code, String name, Boolean gender, String technique) {
-
-    }
-
     public String getTechnique() {
         return technique;
     }

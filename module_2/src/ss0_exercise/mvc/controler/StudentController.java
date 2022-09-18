@@ -1,4 +1,4 @@
-package ss0_exercise.mvc.controller;
+package ss0_exercise.mvc.controler;
 
 import ss0_exercise.mvc.service.impl_student.IStudentService;
 import ss0_exercise.mvc.service.impl_student.StudentService;
@@ -16,7 +16,8 @@ public class StudentController {
             System.out.println("1. Thêm mới học sinh.");
             System.out.println("2. Hiển thị danh sách học sinh. ");
             System.out.println("3. Xóa học sinh. ");
-            System.out.println("4. Thoát. ");
+            System.out.println("4. Quay lại Menu. ");
+            System.out.println("5. Thoát. ");
             int choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
                 case 1:
@@ -29,8 +30,12 @@ public class StudentController {
                     iStudentService.removeStudent();
                     break;
                 case 4:
-                    System.exit(1);
-                    return;
+                    PersonController.menuPerson();
+                    break;
+                case 5:
+                    System.exit(0);
+                default:
+                    System.out.println("Bạn đã nhập sai!Vui lòng nhập đúng!");
             }
         }
     }
