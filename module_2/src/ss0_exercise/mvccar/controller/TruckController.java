@@ -9,7 +9,7 @@ public class TruckController {
     private static ITruckService iTruckService = new TruckService();
     private static Scanner scanner = new Scanner(System.in);
 
-    public static void MenuTruck() {
+    public static void menuTruck() {
         while (true) {
             System.out.println("Quản lý phương tiện giao thông- Xe tải.");
             System.out.println("1. Thêm xe tải.");

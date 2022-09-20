@@ -11,7 +11,7 @@ public class CarController {
     private static ICarService iCarService = new CarService();
     private static Scanner scanner = new Scanner(System.in);
 
-    public static void MeNuCar() {
+    public static void menuCar() {
         while (true) {
             System.out.println("Quản lý phương tiện giao thông- xe oto");
             System.out.println("1. Thêm oto.");

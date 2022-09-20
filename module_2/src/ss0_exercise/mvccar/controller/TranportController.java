@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class TranportController {
     private static Scanner scanner = new Scanner(System.in);
 
-    public static void MenuTranport() {
+    public static void menuTranport() {
         while (true) {
             System.out.println("CHƯƠNG TRÌNH QUẢN LÝ PHƯƠNG TIỆN GIAO THÔNG");
             System.out.println("1. xe tải.");
@@ -17,13 +17,13 @@ public class TranportController {
             int choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
                 case 1:
-                    TruckController.MenuTruck();
+                    TruckController.menuTruck();
                     break;
                 case 2:
-                    CarController.MeNuCar();
+                    CarController.menuCar();
                     break;
                 case 3:
-                    MotorController.MenuMotor();
+                    MotorController.menuMotor();
                     break;
                 case 4:
                     System.exit(0);

@@ -9,7 +9,7 @@ public class MotorController {
     private static IMotorService iMotorService = new MotorService();
     private static Scanner scanner = new Scanner(System.in);
 
-    public static void MenuMotor() {
+    public static void menuMotor() {
         while (true) {
             System.out.println("Quản lý phương tiện giao thông- xe máy");
             System.out.println("1. Thêm xe máy.");
