@@ -47,6 +47,18 @@ public class TeacherService implements ITeacherService {
 
     }
 
+    @Override
+    public void searchTeacher() {
+        System.out.println("Nhập tên cần kiểm tra: ");
+        Scanner scanner = new Scanner(System.in);
+        String str = scanner.nextLine();
+        for (int i = 0; i < teacherList.size(); i++) {
+            if (teacherList.get(i).getName().contains(str)) {
+                System.out.println(teacherList.get(i));
+            }
+        }
+    }
+
     public Teacher infoTeacher() {
         System.out.println("Mời nhập mã giáo viên: ");
         String code = scanner.nextLine();

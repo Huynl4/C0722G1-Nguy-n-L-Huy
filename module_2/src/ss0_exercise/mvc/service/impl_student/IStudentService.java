@@ -4,6 +4,10 @@ import ss0_exercise.mvc.model.Student;
 
 public interface IStudentService {
     void addStudent();
+
     void displayAllStudent();
+
     void removeStudent();
+
+    void searchStudent();
 }

@@ -17,7 +17,8 @@ public class StudentController {
             System.out.println("2. Hiển thị danh sách học sinh. ");
             System.out.println("3. Xóa học sinh. ");
             System.out.println("4. Quay lại Menu. ");
-            System.out.println("5. Thoát. ");
+            System.out.println("5. Tìm kiếm. ");
+            System.out.println("6. Thoát. ");
             int choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
                 case 1:
@@ -33,6 +34,9 @@ public class StudentController {
                     PersonController.menuPerson();
                     break;
                 case 5:
+                    iStudentService.searchStudent();
+                    break;
+                case 6:
                     System.exit(0);
                 default:
                     System.out.println("Bạn đã nhập sai!Vui lòng nhập đúng!");
