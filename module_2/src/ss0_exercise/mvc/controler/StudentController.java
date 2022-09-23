@@ -18,7 +18,9 @@ public class StudentController {
             System.out.println("3. Xóa học sinh. ");
             System.out.println("4. Quay lại Menu. ");
             System.out.println("5. Tìm kiếm. ");
-            System.out.println("6. Thoát. ");
+            System.out.println("6. Sắp xếp");
+            System.out.println("7. Thoát. ");
+            System.out.println("8. Thêm data ảo. ");
             int choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
                 case 1:
@@ -37,9 +39,16 @@ public class StudentController {
                     iStudentService.searchStudent();
                     break;
                 case 6:
+                    iStudentService.sortStudent();
+                    break;
+                case 7:
                     System.exit(0);
+                case 8:
+                    iStudentService.addFakeData();
+                    break;
                 default:
                     System.out.println("Bạn đã nhập sai!Vui lòng nhập đúng!");
+                    return;
             }
         }
     }
