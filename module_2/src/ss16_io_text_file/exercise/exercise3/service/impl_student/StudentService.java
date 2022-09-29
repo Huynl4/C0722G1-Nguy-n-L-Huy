@@ -1,6 +1,6 @@
-package ss16_io_text_file.exercise.exercise3.mvc.service.impl_student;
+package ss16_io_text_file.exercise.exercise3.service.impl_student;
 
-import ss16_io_text_file.exercise.exercise3.mvc.model.Student;
+import ss16_io_text_file.exercise.exercise3.model.Student;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ public class StudentService implements IStudentService {
     }
 
     public void writeStudent() throws IOException {
-        File file1 = new File("src\\ss16_io_text_file\\exercise\\exercise3\\mvc\\data\\fileReadStudent.csv");
+        File file1 = new File("src\\ss16_io_text_file\\exercise\\exercise3\\data\\fileReadStudent.csv");
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file1));
         for (Student s : studentList) {
             bufferedWriter.write(s.getInfo());
@@ -121,7 +121,7 @@ public class StudentService implements IStudentService {
     }
 
     private List<Student> getAllStudent() throws IOException {
-        File file = new File("src\\ss16_io_text_file\\exercise\\exercise3\\mvc\\data\\fileReadStudent.csv");
+        File file = new File("src\\ss16_io_text_file\\exercise\\exercise3\\data\\fileReadStudent.csv");
         FileReader fileReader = new FileReader(file);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         String line;

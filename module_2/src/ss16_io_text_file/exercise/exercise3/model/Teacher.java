@@ -1,4 +1,4 @@
-package ss16_io_text_file.exercise.exercise3.mvc.model;
+package ss16_io_text_file.exercise.exercise3.model;
 
 public class Teacher extends Person {
     private String technique;

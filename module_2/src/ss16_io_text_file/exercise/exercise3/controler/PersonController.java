@@ -1,4 +1,4 @@
-package ss16_io_text_file.exercise.exercise3.mvc.controler;
+package ss16_io_text_file.exercise.exercise3.controler;
 
 import java.io.IOException;
 import java.util.Scanner;

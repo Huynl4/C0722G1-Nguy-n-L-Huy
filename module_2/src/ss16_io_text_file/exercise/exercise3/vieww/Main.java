@@ -1,6 +1,6 @@
-package ss16_io_text_file.exercise.exercise3.mvc.vieww;
+package ss16_io_text_file.exercise.exercise3.vieww;
 
-import ss16_io_text_file.exercise.exercise3.mvc.controler.PersonController;
+import ss16_io_text_file.exercise.exercise3.controler.PersonController;
 
 import java.io.IOException;
 

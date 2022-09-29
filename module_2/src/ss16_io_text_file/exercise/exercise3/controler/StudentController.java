@@ -1,7 +1,7 @@
-package ss16_io_text_file.exercise.exercise3.mvc.controler;
+package ss16_io_text_file.exercise.exercise3.controler;
 
-import ss16_io_text_file.exercise.exercise3.mvc.service.impl_student.IStudentService;
-import ss16_io_text_file.exercise.exercise3.mvc.service.impl_student.StudentService;
+import ss16_io_text_file.exercise.exercise3.service.impl_student.IStudentService;
+import ss16_io_text_file.exercise.exercise3.service.impl_student.StudentService;
 
 import java.io.IOException;
 import java.util.Scanner;

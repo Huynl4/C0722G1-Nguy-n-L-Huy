@@ -1,4 +1,4 @@
-package ss16_io_text_file.exercise.exercise3.mvc.service.impl_teacher;
+package ss16_io_text_file.exercise.exercise3.service.impl_teacher;
 
 import java.io.IOException;
 

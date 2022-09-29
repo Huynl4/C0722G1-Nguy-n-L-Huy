@@ -1,7 +1,6 @@
-package ss16_io_text_file.exercise.exercise3.mvc.service.impl_teacher;
+package ss16_io_text_file.exercise.exercise3.service.impl_teacher;
 
-import ss16_io_text_file.exercise.exercise3.mvc.model.Student;
-import ss16_io_text_file.exercise.exercise3.mvc.model.Teacher;
+import ss16_io_text_file.exercise.exercise3.model.Teacher;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -22,7 +21,7 @@ public class TeacherService implements ITeacherService {
     }
 
     public void writeTeacher() throws IOException {
-        File file1 = new File("src\\ss16_io_text_file\\exercise\\exercise3\\mvc\\data\\fileReadTeacher");
+        File file1 = new File("src\\ss16_io_text_file\\exercise\\exercise3\\data\\fileReadTeacher");
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file1));
         for (Teacher t : teacherList) {
             bufferedWriter.write(t.getInfo());
@@ -96,7 +95,7 @@ public class TeacherService implements ITeacherService {
     }
 
     private List<Teacher> getAllTeacher() throws IOException {
-        File file = new File("src\\ss16_io_text_file\\exercise\\exercise3\\mvc\\data\\fileReadTeacher");
+        File file = new File("src\\ss16_io_text_file\\exercise\\exercise3\\data\\fileReadTeacher");
         FileReader fileReader = new FileReader(file);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         String line;
