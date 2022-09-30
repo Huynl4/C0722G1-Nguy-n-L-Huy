@@ -6,17 +6,17 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        String linkInput = "src/ss17_io_binary_file_and_serialization/exercise/copy_file/data/input.csv";
-        String linkCoppy = "src/ss17_io_binary_file_and_serialization/exercise/copy_file/data/copy_input.csv";
+        String linkInput = "src\\ss17_io_binary_file_serialization\\exercise\\exercise2\\data\\input.csv";
+        String linkCoppy = "src\\ss17_io_binary_file_serialization\\exercise\\exercise2\\data\\output.csv";
         List<String> strings = new ArrayList<>();
         strings.add("Hello");
-        strings.add("World");
-        strings.add("Alo ola alolo");
+        strings.add("Huy-nl");
+        strings.add("HuyNL");
         writeFile(strings, linkInput);
         readFile(strings, linkInput);
         try {
-            FileInputStream input = new FileInputStream("src/ss17_io_binary_file_and_serialization/exercise/copy_file/data/input.csv");
-            FileOutputStream coppy = new FileOutputStream("src/ss17_io_binary_file_and_serialization/exercise/copy_file/data/copy_input.csv");
+            FileInputStream input = new FileInputStream("src\\ss17_io_binary_file_serialization\\exercise\\exercise2\\data\\input.csv");
+            FileOutputStream coppy = new FileOutputStream("src\\ss17_io_binary_file_serialization\\exercise\\exercise2\\data\\output.csv");
             byte[] bytes = new byte[200];
             int length;
             int count = 0;
