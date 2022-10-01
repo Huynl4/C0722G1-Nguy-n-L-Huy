@@ -3,6 +3,9 @@ package ss16_io_text_file.exercise.exercise3.service.impl_teacher;
 import ss16_io_text_file.exercise.exercise3.model.Teacher;
 
 import java.io.*;
+import java.time.DateTimeException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -87,10 +90,21 @@ public class TeacherService implements ITeacherService {
         } else {
             gender = "Phi giới tính";
         }
+        LocalDate dateOfBirth;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd//MM//yyyy");
+        while (true) {
+            try {
+                System.out.println("Nhập ngày tháng năm: ");
+                dateOfBirth = LocalDate.parse(scanner.nextLine(), formatter);
+                break;
+            } catch (DateTimeException e) {
+                System.out.println("Ngày sai định dạng, nhập lại.");
+            }
+        }
 
         System.out.println("Mời bạn nhập chuyên môn Giáo viên: ");
         String technique = scanner.nextLine();
-        Teacher teacher = new Teacher(code, name, gender, technique);
+        Teacher teacher = new Teacher(code, name, gender, dateOfBirth, technique);
         return teacher;
     }
 
@@ -104,7 +118,7 @@ public class TeacherService implements ITeacherService {
         Teacher teacher;
         while ((line = bufferedReader.readLine()) != null) {
             info = line.split(",");
-            teacher = new Teacher(info[0], info[1], info[2], info[3]);
+            teacher = new Teacher(info[0], info[1], info[2], LocalDate.parse(info[3], DateTimeFormatter.ofPattern("dd//MM//yyyy")), info[4]);
             teacherList.add(teacher);
         }
         bufferedReader.close();

@@ -1,8 +1,13 @@
 package ss16_io_text_file.exercise.exercise3.service.impl_student;
 
 import ss16_io_text_file.exercise.exercise3.model.Student;
+import ss16_io_text_file.exercise.exercise3.utils.exception.IllegalCodeException;
+import ss16_io_text_file.exercise.exercise3.utils.exception.IllegalNameException;
 
 import java.io.*;
+import java.time.DateTimeException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -13,7 +18,7 @@ public class StudentService implements IStudentService {
 
     @Override
     public void addStudent() throws IOException {
-        studentList= getAllStudent();
+        studentList = getAllStudent();
         Student student = this.infoStudent();
         studentList.add(student);
         System.out.println("Thêm mới thành công");
@@ -64,9 +69,9 @@ public class StudentService implements IStudentService {
         System.out.println("Nhập tên cần kiểm tra: ");
         Scanner scanner = new Scanner(System.in);
         String str = scanner.nextLine();
-        for (int i = 0; i < studentList.size(); i++) {
-            if (studentList.get(i).getName().contains(str)) {
-                System.out.println(studentList.get(i));
+        for (Student student : studentList) {
+            if (student.getName().contains(str)) {
+                System.out.println(student);
             }
         }
     }
@@ -98,10 +103,31 @@ public class StudentService implements IStudentService {
 
 
     public Student infoStudent() {
-        System.out.println("Mời nhập mã học sinh: ");
-        String code = scanner.nextLine();
-        System.out.println("Mời nhập tên học sinh: ");
-        String name = scanner.nextLine();
+        String code;
+        while (true) {
+            try {
+                System.out.println("Mời nhập mã học sinh: ");
+                code = scanner.nextLine();
+                IllegalCodeException.codeCheck(code);
+                break;
+            } catch (IllegalCodeException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+        String name;
+        while (true) {
+            try {
+                System.out.println("Mời nhập tên học sinh: ");
+                name = scanner.nextLine();
+                IllegalNameException.nameCheck(name);
+                break;
+            } catch (IllegalNameException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+
         System.out.println("Mời nhập giới tính học sinh: ");
         String tempGender = scanner.nextLine();
         String gender;
@@ -112,11 +138,23 @@ public class StudentService implements IStudentService {
         } else {
             gender = "Phi giới tính";
         }
+        LocalDate dateOfBirth;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        while (true) {
+            try {
+                System.out.println("Nhập ngày tháng năm: ");
+                dateOfBirth = LocalDate.parse(scanner.nextLine(), formatter);
+                break;
+            } catch (DateTimeException e) {
+                System.out.println("Ngày sai định dạng, nhập lại.");
+            }
+        }
+
         System.out.println("Mời bạn nhập ten lớp: ");
         String nameClass = scanner.nextLine();
         System.out.println("Mời bạn nhập điểm học sinh: ");
         double score = Double.parseDouble(scanner.nextLine());
-        Student student = new Student(code, name, gender, nameClass, score);
+        Student student = new Student(code, name, gender, dateOfBirth, nameClass, score);
         return student;
     }
 
@@ -130,21 +168,10 @@ public class StudentService implements IStudentService {
         Student student1;
         while ((line = bufferedReader.readLine()) != null) {
             info = line.split(",");
-            student1 = new Student(info[0], info[1], info[2], info[3], Double.parseDouble(info[4]));
+            student1 = new Student(info[0], info[1], info[2], LocalDate.parse(info[3], DateTimeFormatter.ofPattern("dd//MM//yyyy")), info[4], Double.parseDouble(info[5]));
             studentList.add(student1);
         }
         bufferedReader.close();
         return studentList;
     }
-
-//    public void writeStudent(List<Student> studentList1) throws IOException {
-//        File file1 = new File("src\\ss16_io_text_file\\exercise\\exercise3\\mvc\\data\\fileReadStudent.csv");
-//        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file1));
-//        for (Student s : studentList1) {
-//            bufferedWriter.write(s.getInfo());
-//            bufferedWriter.newLine();
-//        }
-//        bufferedWriter.close();
-//    }
-
 }

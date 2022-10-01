@@ -1,5 +1,7 @@
 package ss16_io_text_file.exercise.exercise3.model;
 
+import java.time.LocalDate;
+
 public class Teacher extends Person {
     private String technique;
 
@@ -10,8 +12,8 @@ public class Teacher extends Person {
     public Teacher() {
     }
 
-    public Teacher(String code, String name, String gender, String technique) {
-        super(code, name, gender);
+    public Teacher(String code, String name, String gender, LocalDate dateOfBirth, String technique) {
+        super(code, name, gender, dateOfBirth);
         this.technique = technique;
     }
 
@@ -31,6 +33,6 @@ public class Teacher extends Person {
     }
 
     public String getInfo() {
-        return String.format("%s,%s,%s,%s", this.getCode(), this.getName(), this.getGender(), this.getTechnique());
+        return String.format("%s,%s,%s,%s", this.getCode(), this.getName(), this.getGender(), this.getDateOfBirth(), this.getTechnique());
     }
 }
