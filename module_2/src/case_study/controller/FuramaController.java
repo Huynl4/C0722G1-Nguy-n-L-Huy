@@ -1,11 +1,12 @@
 package case_study.controller;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class FuramaController {
     private static Scanner scanner = new Scanner(System.in);
 
-    public static void menuFurama() {
+    public static void menuFurama() throws IOException {
         while (true) {
             System.out.println("Chào mừng đến với khu nghĩ dưỡng FURAMA, mời bạn nhập lựa chọn: ");
             System.out.println("1. Employee Management");

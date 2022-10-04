@@ -3,13 +3,14 @@ package case_study.controller;
 import case_study.service.impl_employee.EmployeeService;
 import case_study.service.impl_employee.IEmployeeService;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class EmployyeeManagementController {
     private static Scanner scanner = new Scanner(System.in);
       private static IEmployeeService iEmployeeService =new EmployeeService();
 
-    public static void menuEmployeeManagement() {
+    public static void menuEmployeeManagement() throws IOException {
         while (true) {
             System.out.println("Welcome to Employee Mangament- Quản lí nhân viên: ");
             System.out.println("1. Display list employees- Hiển thị danh sách nhân viên");
