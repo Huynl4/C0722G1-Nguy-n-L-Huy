@@ -3,15 +3,15 @@ package case_study.model.model_person;
 import java.time.LocalDate;
 
 public abstract class Person {
-    private int id;
+    private String id;
     private String name;
     private LocalDate dateOfBirth;
     private String gender;
-    private int idCard;
-    private int numberPhone;
+    private String idCard;
+    private String numberPhone;
     private String email;
 
-    public Person(int id, String name, LocalDate dateOfBirth, String gender, int idCard, int numberPhone, String email) {
+    public Person(String id, String name, LocalDate dateOfBirth, String gender, String idCard, String numberPhone, String email) {
         this.id = id;
         this.name = name;
         this.dateOfBirth = dateOfBirth;
@@ -21,11 +21,11 @@ public abstract class Person {
         this.email = email;
     }
 
-    public int getId() {
+    public String  getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -53,19 +53,19 @@ public abstract class Person {
         this.gender = gender;
     }
 
-    public int getIdCard() {
+    public String getIdCard() {
         return idCard;
     }
 
-    public void setIdCard(int idCard) {
+    public void setIdCard(String idCard) {
         this.idCard = idCard;
     }
 
-    public int getNumberPhone() {
+    public String getNumberPhone() {
         return numberPhone;
     }
 
-    public void setNumberPhone(int numberPhone) {
+    public void setNumberPhone(String numberPhone) {
         this.numberPhone = numberPhone;
     }
 

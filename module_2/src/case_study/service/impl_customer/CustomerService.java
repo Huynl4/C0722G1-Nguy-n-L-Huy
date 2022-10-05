@@ -1,7 +1,9 @@
 package case_study.service.impl_customer;
 
 import case_study.model.model_person.Customer;
+import case_study.utils.PersonException;
 import com.sun.xml.internal.ws.addressing.WsaActionUtil;
+import org.omg.CORBA.UserException;
 
 import java.io.*;
 import java.time.LocalDate;
@@ -14,7 +16,7 @@ import java.util.Scanner;
 public class CustomerService implements ICustomerService {
     public static List<Customer> customerList = new LinkedList<>();
     private static Scanner scanner = new Scanner(System.in);
-    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
 
     @Override
@@ -50,7 +52,7 @@ public class CustomerService implements ICustomerService {
     public void editCustomer() throws IOException {
         customerList = readFileCustomer();
         System.out.println("Nhập id cần sửa chữa;");
-        int id = Integer.parseInt(scanner.nextLine());
+        String id = scanner.nextLine();
         boolean check = false;
         for (int i = 0; i < customerList.size(); i++) {
             if (customerList.get(i).getId() == id) {
@@ -72,20 +74,87 @@ public class CustomerService implements ICustomerService {
     }
 
     public static Customer addCustomerr() {
-        System.out.println("Nhập id khách hàng");
-        int id = Integer.parseInt(scanner.nextLine());
-        System.out.println("Nhập tên khách hàng");
-        String name = scanner.nextLine();
-        System.out.println("Nhập ngày tháng năm sinh");
-        LocalDate dateOfBirth = LocalDate.parse(scanner.nextLine());
-        System.out.println("Nhập giới tính khách hàng");
-        String gender = scanner.nextLine();
-        System.out.println("Nhập CMND khách hàng");
-        int idCard = Integer.parseInt(scanner.nextLine());
-        System.out.println("Nhập số điện thoại khách hàng");
-        int numberPhone = Integer.parseInt(scanner.nextLine());
-        System.out.println("Nhập email khách hàng");
-        String email = scanner.nextLine();
+        String id;
+        while (true) {
+            try {
+                System.out.println("Nhập id khách hàng");
+                id = scanner.nextLine();
+                PersonException.idCheck(id);
+                break;
+            } catch (PersonException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        String name;
+        while (true) {
+            try {
+                System.out.println("Nhập tên khách hàng");
+                name = scanner.nextLine();
+                PersonException.nameCheck(name);
+                break;
+            } catch (PersonException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        LocalDate dateOfBirth;
+        while (true) {
+            try {
+                System.out.println("Nhập ngày tháng năm khách hàng");
+                dateOfBirth = LocalDate.parse(scanner.nextLine(), formatter);
+                PersonException.customerAgeCheck(dateOfBirth);
+                break;
+            } catch (PersonException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+        String gender;
+        while (true) {
+            try {
+                System.out.println("Nhập giới tính khách hàng");
+                gender = scanner.nextLine();
+                PersonException.genderCheck(gender);
+                break;
+            } catch (PersonException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        String idCard;
+        while (true) {
+            try {
+                System.out.println("Nhập CMND khách hàng");
+                idCard = scanner.nextLine();
+                PersonException.idCardCheck(idCard);
+                break;
+            } catch (PersonException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+        String numberPhone;
+        while (true) {
+            try {
+                System.out.println("Nhập số điện thoại khách hàng");
+                numberPhone = scanner.nextLine();
+                PersonException.PhoneCheck(numberPhone);
+                break;
+            } catch (PersonException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+        String email;
+        while (true) {
+            try {
+                System.out.println("Nhập email khách hàng");
+                email = scanner.nextLine();
+                PersonException.emailCheck(email);
+                break;
+            } catch (PersonException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
         System.out.println("Nhập loại khách hàng");
         String typeOfGuest = scanner.nextLine();
         System.out.println("Nhập địa chỉ khách hàng");
@@ -104,7 +173,7 @@ public class CustomerService implements ICustomerService {
         Customer customer;
         while ((line = bufferedReader.readLine()) != null) {
             info = line.split(",");
-            customer = new Customer(Integer.parseInt(info[0]), info[1], LocalDate.parse(info[2]), info[3], Integer.parseInt(info[4]), Integer.parseInt(info[5]), info[6], info[7], info[8]);
+            customer = new Customer(info[0], info[1], LocalDate.parse(info[2]), info[3], info[4], info[5], info[6], info[7], info[8]);
             customerList.add(customer);
         }
         bufferedReader.close();

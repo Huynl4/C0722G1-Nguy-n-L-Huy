@@ -9,12 +9,12 @@ public class FuramaController {
     public static void menuFurama() throws IOException {
         while (true) {
             System.out.println("Chào mừng đến với khu nghĩ dưỡng FURAMA, mời bạn nhập lựa chọn: ");
-            System.out.println("1. Employee Management");
-            System.out.println("2. Customer Management");
-            System.out.println("3. Facility Management ");
-            System.out.println("4. Booking Management");
-            System.out.println("5. Promotion Management");
-            System.out.println("6. Exit");
+            System.out.println("1. Employee Management-Quản lý nhân viên");
+            System.out.println("2. Customer Management-Quản lý khách hàng");
+            System.out.println("3. Facility Management-Quản lý cơ sở vật chất");
+            System.out.println("4. Booking Management-Quản lý đặt phòng");
+            System.out.println("5. Promotion Management-Quản lý khuyến mãi");
+            System.out.println("6. Exit-Thoát");
             int choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
                 case 1:

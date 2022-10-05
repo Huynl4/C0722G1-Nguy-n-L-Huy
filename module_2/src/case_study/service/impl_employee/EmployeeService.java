@@ -3,6 +3,7 @@ package case_study.service.impl_employee;
 import case_study.controller.EmployyeeManagementController;
 import case_study.model.model_person.Employee;
 import case_study.model.model_person.Person;
+import case_study.utils.PersonException;
 import ss16_io_text_file.exercise.exercise3.model.Student;
 import ss16_io_text_file.practice.practice1.ReadFileExample;
 
@@ -39,10 +40,10 @@ public class EmployeeService implements IEmployeeService {
     public void editEmployee() throws IOException {
         employeeList = readFile();
         System.out.println("Nhập id cần sửa chữa;");
-        int id = Integer.parseInt(scanner.nextLine());
+        String id = scanner.nextLine();
         boolean check = false;
         for (int i = 0; i < employeeList.size(); i++) {
-            if (employeeList.get(i).getId() == id) {
+            if (employeeList.get(i).getId().equals(id)) {
                 System.out.println("Bạn có muốn sữa chữa  nhân viên hay không? y= Yes , n = No");
                 String choice = scanner.nextLine();
                 if (choice.equals("y")) {
@@ -61,20 +62,85 @@ public class EmployeeService implements IEmployeeService {
     }
 
     public static Employee addToEmployee() {
-        System.out.println("Nhập id nhân viên");
-        int id = Integer.parseInt(scanner.nextLine());
-        System.out.println("Nhập tên nhân viên");
-        String name = scanner.nextLine();
-        System.out.println("Nhập ngày tháng năm sinh nhân viên");
-        LocalDate dateOfBirth = LocalDate.parse(scanner.nextLine(), formatter);
-        System.out.println("Nhập giới tính nhân viên");
-        String gender = scanner.nextLine();
-        System.out.println("Nhập CMND nhân viên");
-        int idCard = Integer.parseInt(scanner.nextLine());
-        System.out.println("Nhập số điện thoại");
-        int numberPhone = Integer.parseInt(scanner.nextLine());
-        System.out.println("Nhập email nhân viên");
-        String email = scanner.nextLine();
+        String id;
+        while (true) {
+            try {
+                System.out.println("Nhập id nhân viên");
+                id = scanner.nextLine();
+                PersonException.idCheck(id);
+                break;
+            } catch (PersonException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        String name;
+        while (true) {
+            try {
+                System.out.println("Nhập tên nhân viên");
+                name = scanner.nextLine();
+                PersonException.nameCheck(name);
+                break;
+            } catch (PersonException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        LocalDate dateOfBirth;
+        while (true) {
+            try {
+                System.out.println("Nhập ngày tháng năm sinh nhân viên");
+                dateOfBirth = LocalDate.parse(scanner.nextLine(), formatter);
+                PersonException.customerAgeCheck(dateOfBirth);
+                break;
+            } catch (PersonException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+        String gender;
+        while (true) {
+            try {
+                System.out.println("Nhập giới tính nhân viên");
+                gender = scanner.nextLine();
+                PersonException.genderCheck(gender);
+                break;
+            } catch (PersonException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        String idCard;
+        while (true) {
+            try {
+                System.out.println("Nhập CMND nhân viên");
+                idCard = scanner.nextLine();
+                PersonException.idCardCheck(idCard);
+                break;
+            } catch (PersonException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        String numberPhone;
+        while (true) {
+            try {
+                System.out.println("Nhập số điện thoại");
+                numberPhone = scanner.nextLine();
+                PersonException.PhoneCheck(numberPhone);
+                break;
+            } catch (PersonException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        String email;
+        while (true) {
+            try {
+                System.out.println("Nhập email nhân viên");
+                email = scanner.nextLine();
+                PersonException.emailCheck(email);
+                break;
+            } catch (PersonException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
         System.out.println("Nhập trình độ nhân viên");
         String lever = scanner.nextLine();
         System.out.println("Nhâp vị trí nhân viên");
@@ -95,7 +161,7 @@ public class EmployeeService implements IEmployeeService {
         Employee employee;
         while ((line = bufferedReader.readLine()) != null) {
             info = line.split(",");
-            employee = new Employee(Integer.parseInt(info[0]), info[1], LocalDate.parse(info[2], formatter), info[3], Integer.parseInt(info[4]), Integer.parseInt(info[5]), info[6], info[7], info[8], Double.parseDouble(info[9]));
+            employee = new Employee(info[0], info[1], LocalDate.parse(info[2], formatter), info[3], info[4], info[5], info[6], info[7], info[8], Double.parseDouble(info[9]));
             employeeList.add(employee);
         }
         bufferedReader.close();

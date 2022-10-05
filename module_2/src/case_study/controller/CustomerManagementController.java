@@ -3,13 +3,14 @@ package case_study.controller;
 import case_study.service.impl_customer.CustomerService;
 import case_study.service.impl_customer.ICustomerService;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class CustomerManagementController {
     private static Scanner scanner = new Scanner(System.in);
     private static ICustomerService iCustomerService = new CustomerService();
 
-    public static void menuCustomerManagement() {
+    public static void menuCustomerManagement() throws IOException {
         while (true) {
             System.out.println("Welcome to Customer Management- Quản lí khách hàng");
             System.out.println("1. Display lis customer- Hiển thị danh sách khách hàng");
