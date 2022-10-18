@@ -98,7 +98,7 @@ create table dich_vu_di_kem(
                   );
                   
  create table hop_dong_chi_tiet(
-                  ma_hop_dong_chi_tiet int primary key,
+                  ma_hop_dong_chi_tiet int primary key auto_increment,
                   ma_hop_dong int,
                   ma_dich_vu_di_kem int,
                   so_luong int,
