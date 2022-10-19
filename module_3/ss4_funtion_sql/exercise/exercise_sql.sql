@@ -1,12 +1,12 @@
 use student_management;
 -- Hiển thị tất cả các thông tin môn học (bảng subject) có credit lớn nhất.
 select * from `subject`
-where credit=(select max(credit)from `subject`);
+where credit = (select max(credit) from `subject`);
  
 -- Hiển thị các thông tin môn học có điểm thi lớn nhất.
 select * from mark
 join `subject` on mark.sub_id=`subject`.sub_id
-where mark=(select max(mark) from mark)
+where mark = (select max(mark) from mark)
 group by mark.sub_id;
 
 -- Hiển thị các thông tin sinh viên và điểm trung bình của mỗi sinh viên, xếp hạng theo thứ tự điểm giảm dần
