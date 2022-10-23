@@ -227,46 +227,68 @@ WHERE
 -- 14.	Hiển thị thông tin tất cả các Dịch vụ đi kèm chỉ mới được sử dụng một lần duy nhất.
 --  Thông tin hiển thị bao gồm ma_hop_dong, ten_loai_dich_vu, ten_dich_vu_di_kem, so_lan_su_dung
 --  (được tính dựa trên việc count các ma_dich_vu_di_kem).
-SELECT hop_dong.ma_hop_dong,
- loai_dich_vu.ten_loai_dich_vu, 
- dich_vu_di_kem.ten_dich_vu_di_kem , 
- COUNT(hop_dong_chi_tiet.ma_dich_vu_di_kem) AS so_lan_su_dung
-FROM hop_dong
-JOIN dich_vu ON dich_vu.ma_dich_vu = hop_dong.ma_dich_vu
-JOIN loai_dich_vu on loai_dich_vu.ma_loai_dich_vu = dich_vu.ma_loai_dich_vu
-JOIN hop_dong_chi_tiet ON hop_dong_chi_tiet.ma_hop_dong = hop_dong.ma_hop_dong
-JOIN dich_vu_di_kem ON dich_vu_di_kem.ma_dich_vu_di_kem = hop_dong_chi_tiet.ma_dich_vu_di_kem
-GROUP BY hop_dong_chi_tiet.ma_dich_vu_di_kem HAVING so_lan_su_dung = 1
+SELECT 
+    hop_dong.ma_hop_dong,
+    loai_dich_vu.ten_loai_dich_vu,
+    dich_vu_di_kem.ten_dich_vu_di_kem,
+    COUNT(hop_dong_chi_tiet.ma_dich_vu_di_kem) AS so_lan_su_dung
+FROM
+    hop_dong
+        JOIN
+    dich_vu ON dich_vu.ma_dich_vu = hop_dong.ma_dich_vu
+        JOIN
+    loai_dich_vu ON loai_dich_vu.ma_loai_dich_vu = dich_vu.ma_loai_dich_vu
+        JOIN
+    hop_dong_chi_tiet ON hop_dong_chi_tiet.ma_hop_dong = hop_dong.ma_hop_dong
+        JOIN
+    dich_vu_di_kem ON dich_vu_di_kem.ma_dich_vu_di_kem = hop_dong_chi_tiet.ma_dich_vu_di_kem
+GROUP BY hop_dong_chi_tiet.ma_dich_vu_di_kem
+HAVING so_lan_su_dung = 1
 ; 
 
  
 -- 15.	Hiển thi thông tin của tất cả nhân viên bao gồm ma_nhan_vien, ho_ten, ten_trinh_do,
 --  ten_bo_phan, so_dien_thoai, dia_chi mới chỉ lập được tối đa 3 hợp đồng từ năm 2020 đến 2021.
 
-SELECT nhan_vien.ma_nhan_vien,
-	nhan_vien.ho_ten,
+SELECT 
+    nhan_vien.ma_nhan_vien,
+    nhan_vien.ho_ten,
     trinh_do.ten_trinh_do,
     bo_phan.ten_bo_phan,
-	nhan_vien.so_dien_thoai,
+    nhan_vien.so_dien_thoai,
     nhan_vien.dia_chi,
     COUNT(hop_dong.ma_nhan_vien),
     hop_dong.ngay_lam_hop_dong
-FROM nhan_vien
-JOIN hop_dong ON hop_dong.ma_nhan_vien =  nhan_vien.ma_nhan_vien
-JOIN trinh_do ON trinh_do.ma_trinh_do = nhan_vien.ma_trinh_do
-JOIN bo_phan ON bo_phan.ma_bo_phan = nhan_vien.ma_bo_phan
+FROM
+    nhan_vien
+        JOIN
+    hop_dong ON hop_dong.ma_nhan_vien = nhan_vien.ma_nhan_vien
+        JOIN
+    trinh_do ON trinh_do.ma_trinh_do = nhan_vien.ma_trinh_do
+        JOIN
+    bo_phan ON bo_phan.ma_bo_phan = nhan_vien.ma_bo_phan
 GROUP BY hop_dong.ma_nhan_vien
-HAVING COUNT(hop_dong.ma_nhan_vien) < 3  AND (year(hop_dong.ngay_lam_hop_dong) BETWEEN '2020' AND '2021' );
+HAVING COUNT(hop_dong.ma_nhan_vien) < 3
+    AND (YEAR(hop_dong.ngay_lam_hop_dong) BETWEEN '2020' AND '2021');
 
 -- 16.	Xóa những Nhân viên chưa từng lập được hợp đồng nào từ năm 2019 đến năm 2021.
 
 
-SELECT nhan_vien.ho_ten AS nhan_vien_can_xoa
-FROM nhan_vien
-LEFT JOIN hop_dong ON hop_dong.ma_nhan_vien = nhan_vien.ma_nhan_vien
-WHERE nhan_vien.ma_nhan_vien NOT IN ( SELECT nhan_vien.ma_nhan_vien  FROM nhan_vien
-                                    JOIN hop_dong ON hop_dong.ma_nhan_vien = nhan_vien.ma_nhan_vien
-                                         WHERE year(hop_dong.ngay_lam_hop_dong) BETWEEN 2019 AND 2021  );
+SELECT 
+    nhan_vien.ho_ten AS nhan_vien_can_xoa
+FROM
+    nhan_vien
+        LEFT JOIN
+    hop_dong ON hop_dong.ma_nhan_vien = nhan_vien.ma_nhan_vien
+WHERE
+    nhan_vien.ma_nhan_vien NOT IN (SELECT 
+            nhan_vien.ma_nhan_vien
+        FROM
+            nhan_vien
+                JOIN
+            hop_dong ON hop_dong.ma_nhan_vien = nhan_vien.ma_nhan_vien
+        WHERE
+            YEAR(hop_dong.ngay_lam_hop_dong) BETWEEN 2019 AND 2021);
 
 
 SET SQL_SAFE_UPDATES = 0;
@@ -275,37 +297,59 @@ FROM nhan_vien
 WHERE nhan_vien.ma_nhan_vien not in (SELECT hop_dong.ma_nhan_vien
 FROM hop_dong
 WHERE year(hop_dong.ngay_lam_hop_dong) BETWEEN 2019 AND 2021  );
-SELECT nhan_vien.ma_nhan_vien, nhan_vien.ho_ten 
-FROM nhan_vien;
+SELECT 
+    nhan_vien.ma_nhan_vien, nhan_vien.ho_ten
+FROM
+    nhan_vien;
 
 
 -- 17.	Cập nhật thông tin những khách hàng có ten_loai_khach từ Platinum lên Diamond,
 --  chỉ cập nhật những khách hàng đã từng đặt phòng với Tổng Tiền thanh toán trong năm 2021 là lớn hơn 10.000.000 VNĐ.
 
-SELECT khach_hang.ma_khach_hang, khach_hang.ho_ten, khach_hang.ma_loai_khach , sum(dich_vu.chi_phi_thue + (hop_dong_chi_tiet.so_luong * dich_vu_di_kem.gia)) AS tong_tien_thanh_toan
-FROM khach_hang
-JOIN hop_dong ON khach_hang.ma_khach_hang = hop_dong.ma_khach_hang
-JOIN dich_vu ON hop_dong.ma_dich_vu = dich_vu.ma_dich_vu
-JOIN hop_dong_chi_tiet ON hop_dong.ma_hop_dong = hop_dong_chi_tiet.ma_hop_dong 
-JOIN dich_vu_di_kem ON hop_dong_chi_tiet.ma_dich_vu_di_kem = dich_vu_di_kem.ma_dich_vu_di_kem
- WHERE  year(hop_dong.ngay_lam_hop_dong) = 2021
+SELECT 
+    khach_hang.ma_khach_hang,
+    khach_hang.ho_ten,
+    khach_hang.ma_loai_khach,
+    SUM(dich_vu.chi_phi_thue + (hop_dong_chi_tiet.so_luong * dich_vu_di_kem.gia)) AS tong_tien_thanh_toan
+FROM
+    khach_hang
+        JOIN
+    hop_dong ON khach_hang.ma_khach_hang = hop_dong.ma_khach_hang
+        JOIN
+    dich_vu ON hop_dong.ma_dich_vu = dich_vu.ma_dich_vu
+        JOIN
+    hop_dong_chi_tiet ON hop_dong.ma_hop_dong = hop_dong_chi_tiet.ma_hop_dong
+        JOIN
+    dich_vu_di_kem ON hop_dong_chi_tiet.ma_dich_vu_di_kem = dich_vu_di_kem.ma_dich_vu_di_kem
+WHERE
+    YEAR(hop_dong.ngay_lam_hop_dong) = 2021
 GROUP BY khach_hang.ma_khach_hang
-having tong_tien_thanh_toan > 10000000;
+HAVING tong_tien_thanh_toan > 10000000;
 
 
 set sql_safe_updates =0;
 UPDATE loai_khach
-JOIN khach_hang on loai_khach.ma_loai_khach = khach_hang.ma_loai_khach
-SET loai_khach.ten_loai_khach = 'Diamond'
-where loai_khach.ma_loai_khach in (SELECT khach_hang.ma_loai_khach 
-FROM khach_hang
-JOIN hop_dong ON khach_hang.ma_khach_hang = hop_dong.ma_khach_hang
-JOIN dich_vu ON hop_dong.ma_dich_vu = dich_vu.ma_dich_vu
-JOIN hop_dong_chi_tiet ON hop_dong.ma_hop_dong = hop_dong_chi_tiet.ma_hop_dong 
-JOIN dich_vu_di_kem ON hop_dong_chi_tiet.ma_dich_vu_di_kem = dich_vu_di_kem.ma_dich_vu_di_kem
- WHERE  year(hop_dong.ngay_lam_hop_dong) = 2021
-GROUP BY khach_hang.ma_khach_hang
-having sum(dich_vu.chi_phi_thue + (hop_dong_chi_tiet.so_luong * dich_vu_di_kem.gia)) > 10000000);
+        JOIN
+    khach_hang ON loai_khach.ma_loai_khach = khach_hang.ma_loai_khach 
+SET 
+    loai_khach.ten_loai_khach = 'Diamond'
+WHERE
+    loai_khach.ma_loai_khach IN (SELECT 
+            khach_hang.ma_loai_khach
+        FROM
+            khach_hang
+                JOIN
+            hop_dong ON khach_hang.ma_khach_hang = hop_dong.ma_khach_hang
+                JOIN
+            dich_vu ON hop_dong.ma_dich_vu = dich_vu.ma_dich_vu
+                JOIN
+            hop_dong_chi_tiet ON hop_dong.ma_hop_dong = hop_dong_chi_tiet.ma_hop_dong
+                JOIN
+            dich_vu_di_kem ON hop_dong_chi_tiet.ma_dich_vu_di_kem = dich_vu_di_kem.ma_dich_vu_di_kem
+        WHERE
+            YEAR(hop_dong.ngay_lam_hop_dong) = 2021
+        GROUP BY khach_hang.ma_khach_hang
+        HAVING SUM(dich_vu.chi_phi_thue + (hop_dong_chi_tiet.so_luong * dich_vu_di_kem.gia)) > 10000000);
 
 -- 18.	Xóa những khách hàng có hợp đồng trước năm 2021 (chú ý ràng buộc giữa các bảng).
    DELETE
