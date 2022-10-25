@@ -256,20 +256,19 @@ SELECT
     trinh_do.ten_trinh_do,
     bo_phan.ten_bo_phan,
     nhan_vien.so_dien_thoai,
-    nhan_vien.dia_chi,
-    COUNT(hop_dong.ma_nhan_vien),
-    hop_dong.ngay_lam_hop_dong
+    nhan_vien.dia_chi
 FROM
-    nhan_vien
+    nhan_vien    
         JOIN
-    hop_dong ON hop_dong.ma_nhan_vien = nhan_vien.ma_nhan_vien
-        JOIN
-    trinh_do ON trinh_do.ma_trinh_do = nhan_vien.ma_trinh_do
+    trinh_do ON trinh_do.ma_trinh_do = nhan_vien.ma_trinh_do 
         JOIN
     bo_phan ON bo_phan.ma_bo_phan = nhan_vien.ma_bo_phan
-GROUP BY hop_dong.ma_nhan_vien
-HAVING COUNT(hop_dong.ma_nhan_vien) < 3
-    AND (YEAR(hop_dong.ngay_lam_hop_dong) BETWEEN '2020' AND '2021');
+        JOIN
+    hop_dong ON hop_dong.ma_nhan_vien = nhan_vien.ma_nhan_vien
+
+    WHERE YEAR(hop_dong.ngay_lam_hop_dong) BETWEEN '2020' AND '2021'
+GROUP BY nhan_vien.ma_nhan_vien
+HAVING COUNT(hop_dong.ma_hop_dong) <= 3;
 
 -- 16.	Xóa những Nhân viên chưa từng lập được hợp đồng nào từ năm 2019 đến năm 2021.
 
@@ -329,13 +328,12 @@ HAVING tong_tien_thanh_toan > 10000000;
 
 set sql_safe_updates =0;
 UPDATE loai_khach
-        JOIN
-    khach_hang ON loai_khach.ma_loai_khach = khach_hang.ma_loai_khach 
+        -- JOIN
+--     khach_hang ON loai_khach.ma_loai_khach = khach_hang.ma_loai_khach 
 SET 
     loai_khach.ten_loai_khach = 'Diamond'
 WHERE
-    loai_khach.ma_loai_khach IN (SELECT 
-            khach_hang.ma_loai_khach
+    loai_khach.ma_loai_khach IN (SELECT khach_hang.ma_loai_khach
         FROM
             khach_hang
                 JOIN
@@ -398,5 +396,76 @@ FROM
     khach_hang ;
 
 
+-- 21.	Tạo khung nhìn có tên là v_nhan_vien để lấy được thông
+--      tin của tất cả các nhân viên có địa chỉ là “Hải Châu” và
+--     đã từng lập hợp đồng cho một hoặc nhiều khách hàng bất kì với ngày lập hợp đồng là “12/12/2019”.
                                          
-                                         
+create view v_nhan_vien as
+ select nhan_vien.*   from nhan_vien
+join hop_dong on nhan_vien.ma_nhan_vien =  hop_dong.ma_nhan_vien
+ where (hop_dong.ngay_lam_hop_dong) between '2021-04-01' and '2021-04-30' and nhan_vien.dia_chi like '% Đà Nẵng' ;
+
+drop VIEW v_nhan_vien ;
+-- 22.	Thông qua khung nhìn v_nhan_vien thực hiện cập nhật địa chỉ thành “Liên Chiểu” 
+-- đối với tất cả các nhân viên được nhìn thấy bởi khung nhìn này.
+
+SET sql_safe_updates = 0;
+update v_nhan_vien 
+set  dia_chi = 'Liên Chiểu'
+where (SELECT*from (SELECT nhan_vien.ma_nhan_vien from v_nhan_vien) as a);
+
+drop v_nhan_vien 
+-- 23.	Tạo Stored Procedure sp_xoa_khach_hang dùng để xóa thông tin của một khách hàng 
+-- nào đó với ma_khach_hang được truyền vào như là 1 tham số của sp_xoa_khach_hang.
+
+DELIMITER //
+CREATE PROCEDURE sp_xoa_khach_hang(IN p_id INT)
+BEGIN
+delete from khach_hang
+WHERE khach_hang.ma_khach_hang = p_id;
+end//
+DELIMITER //;
+CALL sp_xoa_khach_hang(2) ;
+
+
+-- 24.	Tạo Stored Procedure sp_them_moi_hop_dong dùng để thêm mới vào bảng hop_dong với
+--  yêu cầu sp_them_moi_hop_dong phải thực hiện kiểm tra tính hợp lệ của dữ liệu bổ sung,
+--  với nguyên tắc không được trùng khóa chính và đảm bảo toàn vẹn tham chiếu đến các bảng liên quan.
+
+DELIMITER //
+create PROCEDURE sp_them_moi_hop_dong( ma_hop_dong int, ngay_lam_hop_dong DATETIME, ngay_ket_thuc  DATETIME, tien_dat_coc DOUBLE, ma_nhan_vien int, ma_khach_hang int, ma_dich_vu INT)
+BEGIN 
+INSERT INTO hop_dong 
+VALUES(ma_hop_dong, ngay_lam_hop_dong, ngay_ket_thuc, tien_dat_coc, ma_nhan_vien, ma_khach_hang, ma_dich_vu);
+end //
+DELIMITER // ;
+CALL sp_them_moi_hop_dong(1000, '2020-09-25', '2022-09-25', 1540000, 1, 1, 1);
+
+
+-- 25.	Tạo Trigger có tên tr_xoa_hop_dong khi xóa bản ghi trong bảng hop_dong thì 
+-- hiển thị tổng số lượng bản ghi còn lại có trong bảng hop_dong ra giao diện console của database.
+-- Lưu ý: Đối với MySQL thì sử dụng SIGNAL hoặc ghi log thay cho việc ghi ở console.
+SET FOREIGN_KEY_CHECKS=0;
+create table so_luong_hop_dong_sau_khi_xoa (
+so_luong int
+);
+delimiter //
+create trigger tr_xoa_hop_dong
+after delete on hop_dong for each row
+begin  
+insert into so_luong_hop_dong_sau_khi_xoa 
+select count(*) from hop_dong;
+end //
+delimiter ;
+drop  trigger tr_xoa_hop_dong;
+DELETE FROM hop_dong 
+WHERE
+    ma_hop_dong = 10;
+select * from  so_luong_hop_dong_sau_khi_xoa;
+
+
+
+
+
+
+
