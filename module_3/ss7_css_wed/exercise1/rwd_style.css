@@ -1,0 +1,116 @@
+body {
+    margin: 0px;
+}
+
+#header {
+    background-color: black;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#header ul, #header li {
+    padding: 0;
+    margin: 0;
+}
+
+#header li {
+    position: relative;
+    float: left;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#header li a {
+    width: 110px;
+    height: 30px;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    color: white;
+    background-color: black;
+    align-items: center;
+    flex-direction: column;
+}
+
+#header ul ul li a {
+    width: 200px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+#header li a:hover {
+    background-color:chocolate;
+}
+
+#header ul ul {
+    position: absolute;
+    top: 30px;
+    left: 15px;
+    visibility: hidden;
+}
+
+#header ul li:hover ul {
+    visibility: visible;
+}
+
+#sidebar1 {
+    background-color: bisque;
+    height: 615px;
+    width: 20%;
+    float: left;
+}
+
+#main {
+    background-color: cadetblue;
+    height: 615px;
+    width: 60%;
+    float: left;
+    box-sizing: content-box;
+}
+
+#sidebar2 {
+    background-color: bisque;
+    height: 615px;
+    width: 20%;
+    float: left;
+    box-sizing: content-box;
+}
+
+#sidebar2 li {
+    list-style: none;
+    width: 90%;
+    margin-left: 0%;
+    margin-right: 30%;
+    margin-top: 10%;
+    background-color: coral;
+    height: 90px;
+    line-height: 90px;
+    text-align: center;
+    border-radius: 15px;
+}
+
+#footer {
+    background-color: black;
+    height: 50px;
+    width: 100%;
+    clear: both;
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#login {
+    float: right;
+    color: black;
+    text-decoration: none;
+
+}
+
+#login:hover {
+    background-color: black;
+    color: white;
+}
