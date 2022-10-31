@@ -1,0 +1,10 @@
+
+/*.card{*/
+/*    margin: 10px;*/
+/*}*/
+*{
+    box-sizing: border-box;
+}
+.center-text>p{
+    text-align: center;
+}
