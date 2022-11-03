@@ -71,7 +71,7 @@
     </nav>
     <div style="height: 10% ;text-align: center;color: #0d6056;width: 100%" class="row">
         <div class="col-sm-12 col-md-10 ">
-            <h2>Facility</h2>
+            <h2>Customer</h2>
         </div>
         <div class="col-sm-12 col-md-2 ">
             <!-- Button trigger modal -->
@@ -84,7 +84,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Facility Create</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Customer Create</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div  class="modal-body">
@@ -95,39 +95,35 @@
                                     <input type="text" class="form-control" aria-describedby="idlHelp">
                                 </div>
                                 <div class="mb-3">
-                                    <label  class="form-label">Nhập Diện Tích</label>
+                                    <label  class="form-label">Nhập loại khách hàng</label>
                                     <input type="text" class="form-control">
                                 </div>
                                 <div class="mb-3">
-                                    <label  class="form-label">Nhập Gía</label>
+                                    <label  class="form-label">Nhập tên</label>
                                     <input type="text" class="form-control">
                                 </div>
                                 <div class="mb-3">
-                                    <label  class="form-label">Nhập Số người tối đa</label>
+                                    <label  class="form-label">Nhập ngày tháng năm sinh</label>
                                     <input type="text" class="form-control">
                                 </div>
                                 <div class="mb-3">
-                                    <label  class="form-label">Nhập Loại Thuê</label>
+                                    <label  class="form-label">Nhập giới tính</label>
                                     <input type="text" class="form-control">
                                 </div>
                                 <div class="mb-3">
-                                    <label  class="form-label">Nhập dịch vụ thuê</label>
+                                    <label  class="form-label">Nhập số CCCD</label>
                                     <input type="text" class="form-control">
                                 </div>
                                 <div class="mb-3">
-                                    <label  class="form-label">Nhập Tiêu Chuẩn Phòng</label>
+                                    <label  class="form-label">Nhập số điện thoại</label>
                                     <input type="text" class="form-control">
                                 </div>
                                 <div class="mb-3">
-                                    <label  class="form-label">Nhập Tên</label>
+                                    <label  class="form-label">Nhập Email</label>
                                     <input type="text" class="form-control">
                                 </div>
                                 <div class="mb-3">
-                                    <label  class="form-label">Nhập Tên</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                                <div class="mb-3">
-                                    <label  class="form-label">Nhập Tên</label>
+                                    <label  class="form-label">Nhập địa chỉ</label>
                                     <input type="text" class="form-control">
                                 </div>
                             </form>
@@ -135,7 +131,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save Facility New</button>
+                            <button type="button" class="btn btn-primary">Save Customer New</button>
                         </div>
                     </div>
                 </div>
@@ -145,121 +141,97 @@
 
     </div>
     <div>
-        <table class="table"; style="background-color: #FFDC75">
+        <table class="table"; style="background-color: #FFDC75;">
             <thead style="background-color:#D2A41C">
             <tr>
                 <th scope="col">id</th>
+                <th scope="col">customer_type</th>
                 <th scope="col">Name</th>
-                <th scope="col">Area</th>
-                <th scope="col">Cost double</th>
-                <th scope="col">Max people</th>
-                <th scope="col">rent_type_id</th>
-                <th scope="col">facility_type_id</th>
-                <th scope="col">standard_room</th>
-                <th scope="col">Description_other_convenience</th>
-                <th scope="col">Pool_area</th>
-                <th scope="col">Number_of_floors</th>
-                <th scope="col">Facility_free</th>
+                <th scope="col">Birthday</th>
+                <th scope="col">Gender</th>
+                <th scope="col">IdCard</th>
+                <th scope="col">phoneNumber</th>
+                <th scope="col">Email</th>
+                <th scope="col">Address</th>
             </tr>
             </thead>
             <tbody>
             <tr>
                 <th scope="row">1</th>
-                <td>Mark</td>
-                <td>2</td>
-                <td>4</td>
-                <td>15</td>
-                <td>7</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>ngoài trời</td>
-                <td>1</td>
-                <td>Phòng vip</td>
+                <td>VIP</td>
+                <td>Nguyễn Lê Huy</td>
+                <td>15-04-1998</td>
+                <td>Nam</td>
+                <td>123456789</td>
+                <td>0989999999</td>
+                <td>huynl4@gmail.com</td>
+                <td>Đà Nẵng</td>
             </tr>
             <tr>
                 <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>6</td>
-                <td>7</td>
-                <td>1</td>
-                <td>7</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>ngoài trời</td>
-                <td>9</td>
-                <td>Phòng vip</td>
+                <td>VIP</td>
+                <td>Trần Hữu Hiếu</td>
+                <td>15-03-1998</td>
+                <td>Nam</td>
+                <td>123456789</td>
+                <td>0989999999</td>
+                <td>huynl4@gmail.com</td>
+                <td>Quảng Nam</td>
             </tr>
             <tr>
                 <th scope="row">3</th>
-                <td>Larry</td>
-                <td>5</td>
-                <td>6</td>
-                <td>1</td>
-                <td>9</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>ngoài trời</td>
-                <td>3</td>
-                <td>Phòng vip</td>
+                <td>VIP</td>
+                <td>Nguyễn Thành Trung</td>
+                <td>01-04-1990</td>
+                <td>Nam</td>
+                <td>123456789</td>
+                <td>0989999999</td>
+                <td>huynl4@gmail.com</td>
+                <td>Trà Vinh</td>
             </tr>
             <tr>
                 <th scope="row">4</th>
-                <td>Huy</td>
-                <td>5</td>
-                <td>6</td>
-                <td>1</td>
-                <td>9</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>ngoài trời</td>
-                <td>5</td>
-                <td>Phòng vip</td>
+                <td>VIP</td>
+                <td>Nguyễn Thị Nở</td>
+                <td>07-09-2001</td>
+                <td>Nữ</td>
+                <td>123456789</td>
+                <td>0989999999</td>
+                <td>huynl4@gmail.com</td>
+                <td>Hà Nội</td>
             </tr>
             <tr>
                 <th scope="row">5</th>
-                <td>Hải</td>
-                <td>5</td>
-                <td>6</td>
-                <td>1</td>
-                <td>9</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>ngoài trời</td>
-                <td>2</td>
-                <td>Phòng vip</td>
+                <td>VIP</td>
+                <td>John Trần</td>
+                <td>22-11-1988</td>
+                <td>Nam</td>
+                <td>123456789</td>
+                <td>0989999999</td>
+                <td>huynl4@gmail.com</td>
+                <td>Canada</td>
             </tr>
             <tr>
                 <th scope="row">6</th>
-                <td>Trinh</td>
-                <td>5</td>
-                <td>6</td>
-                <td>1</td>
-                <td>9</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>ngoài trời</td>
-                <td>8</td>
-                <td>Phòng vip</td>
+                <td>VIP</td>
+                <td>Ngô Bá Khá</td>
+                <td>26-01-1988</td>
+                <td>Nam</td>
+                <td>123456789</td>
+                <td>0989999999</td>
+                <td>huynl4@gmail.com</td>
+                <td>Bắc Ninh</td>
             </tr>
             <tr>
                 <th scope="row">7</th>
-                <td>Ronaldo</td>
-                <td>5</td>
-                <td>6</td>
-                <td>1</td>
-                <td>9</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>ngoài trời</td>
-                <td>7</td>
-                <td>Phòng vip</td>
+                <td>VIP</td>
+                <td>Bùi Thị Loan</td>
+                <td>15-01-1991</td>
+                <td>Nữ</td>
+                <td>123456789</td>
+                <td>0989999999</td>
+                <td>huynl4@gmail.com</td>
+                <td>TP Hồ Chí Minh</td>
             </tr>
             </tbody>
         </table>

@@ -1,0 +1,16 @@
+.sidebar {
+    border: solid white  3px;
+    /*margin-left: 5px;*/
+    margin-top: 15px;
+    padding: 2px;
+    box-sizing: content-box;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+    color: black;
+}
+.sidebar:active{
+    color: white;
+    background-color: #D2A41C;
+}

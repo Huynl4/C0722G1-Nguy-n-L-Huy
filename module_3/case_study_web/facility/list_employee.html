@@ -71,7 +71,7 @@
     </nav>
     <div style="height: 10% ;text-align: center;color: #0d6056;width: 100%" class="row">
         <div class="col-sm-12 col-md-10 ">
-            <h2>Facility</h2>
+            <h2>Employee</h2>
         </div>
         <div class="col-sm-12 col-md-2 ">
             <!-- Button trigger modal -->
@@ -84,7 +84,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Facility Create</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Employee Create</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div  class="modal-body">
@@ -95,39 +95,43 @@
                                     <input type="text" class="form-control" aria-describedby="idlHelp">
                                 </div>
                                 <div class="mb-3">
-                                    <label  class="form-label">Nhập Diện Tích</label>
+                                    <label  class="form-label">Nhập tên</label>
                                     <input type="text" class="form-control">
                                 </div>
                                 <div class="mb-3">
-                                    <label  class="form-label">Nhập Gía</label>
+                                    <label  class="form-label">Nhập số CCCD</label>
                                     <input type="text" class="form-control">
                                 </div>
                                 <div class="mb-3">
-                                    <label  class="form-label">Nhập Số người tối đa</label>
+                                    <label  class="form-label">Nhập lương</label>
                                     <input type="text" class="form-control">
                                 </div>
                                 <div class="mb-3">
-                                    <label  class="form-label">Nhập Loại Thuê</label>
+                                    <label  class="form-label">Nhập số điện thoại</label>
                                     <input type="text" class="form-control">
                                 </div>
                                 <div class="mb-3">
-                                    <label  class="form-label">Nhập dịch vụ thuê</label>
+                                    <label  class="form-label">Nhập email</label>
                                     <input type="text" class="form-control">
                                 </div>
                                 <div class="mb-3">
-                                    <label  class="form-label">Nhập Tiêu Chuẩn Phòng</label>
+                                    <label  class="form-label">Nhập địa chỉ</label>
                                     <input type="text" class="form-control">
                                 </div>
                                 <div class="mb-3">
-                                    <label  class="form-label">Nhập Tên</label>
+                                    <label  class="form-label">Nhập Chức vụ</label>
                                     <input type="text" class="form-control">
                                 </div>
                                 <div class="mb-3">
-                                    <label  class="form-label">Nhập Tên</label>
+                                    <label  class="form-label">Nhập trình độ học vấn</label>
                                     <input type="text" class="form-control">
                                 </div>
                                 <div class="mb-3">
-                                    <label  class="form-label">Nhập Tên</label>
+                                    <label  class="form-label">Nhập nơi phân công làm việc</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label  class="form-label">Nhập tên tài khoản</label>
                                     <input type="text" class="form-control">
                                 </div>
                             </form>
@@ -135,7 +139,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save Facility New</button>
+                            <button type="button" class="btn btn-primary">Save Employee New</button>
                         </div>
                     </div>
                 </div>
@@ -145,121 +149,113 @@
 
     </div>
     <div>
-        <table class="table"; style="background-color: #FFDC75">
+        <table class="table"; style="background-color: #FFDC75;">
             <thead style="background-color:#D2A41C">
             <tr>
-                <th scope="col">id</th>
+                <th scope="col">Id</th>
                 <th scope="col">Name</th>
-                <th scope="col">Area</th>
-                <th scope="col">Cost double</th>
-                <th scope="col">Max people</th>
-                <th scope="col">rent_type_id</th>
-                <th scope="col">facility_type_id</th>
-                <th scope="col">standard_room</th>
-                <th scope="col">Description_other_convenience</th>
-                <th scope="col">Pool_area</th>
-                <th scope="col">Number_of_floors</th>
-                <th scope="col">Facility_free</th>
+                <th scope="col">Birthday</th>
+                <th scope="col">IdCard</th>
+                <th scope="col">Salary</th>
+                <th scope="col">phoneNumber</th>
+                <th scope="col">Email</th>
+                <th scope="col">Address</th>
+                <th scope="col">Position</th>
+                <th scope="col">Education_degree</th>
+                <th scope="col">User_name</th>
             </tr>
             </thead>
             <tbody>
             <tr>
                 <th scope="row">1</th>
-                <td>Mark</td>
-                <td>2</td>
-                <td>4</td>
-                <td>15</td>
-                <td>7</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>ngoài trời</td>
-                <td>1</td>
-                <td>Phòng vip</td>
+                <td>Nguyễn Lê Huy</td>
+                <td>15-04-1998</td>
+                <td>123456789</td>
+                <td>10$</td>
+                <td>0989999999</td>
+                <td>huynl4@gmail.com</td>
+                <td>Đà Nẵng</td>
+                <td>CEO</td>
+                <td>Đại Học</td>
+                <td>Huynl4</td>
             </tr>
             <tr>
                 <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>6</td>
-                <td>7</td>
-                <td>1</td>
-                <td>7</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>ngoài trời</td>
-                <td>9</td>
-                <td>Phòng vip</td>
+                <td>Nguyễn Thị Nở</td>
+                <td>15-04-1899</td>
+                <td>123456789</td>
+                <td>10$</td>
+                <td>0989999999</td>
+                <td>huynl4@gmail.com</td>
+                <td>Hoa Kỳ</td>
+                <td>CEO</td>
+                <td>Đại Học</td>
+                <td>Huynl4</td>
             </tr>
             <tr>
                 <th scope="row">3</th>
-                <td>Larry</td>
-                <td>5</td>
-                <td>6</td>
-                <td>1</td>
-                <td>9</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>ngoài trời</td>
-                <td>3</td>
-                <td>Phòng vip</td>
+                <td>Nguyễn Duy Dũng</td>
+                <td>15-04-2000</td>
+                <td>123456789</td>
+                <td>10$</td>
+                <td>0989999999</td>
+                <td>huynl4@gmail.com</td>
+                <td>Đà Nẵng</td>
+                <td>Founder</td>
+                <td>Cao Đẳng</td>
+                <td>Huynl4</td>
             </tr>
             <tr>
                 <th scope="row">4</th>
-                <td>Huy</td>
-                <td>5</td>
-                <td>6</td>
-                <td>1</td>
-                <td>9</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>ngoài trời</td>
-                <td>5</td>
-                <td>Phòng vip</td>
+                <td>Nguyễn Thị Cẩm Vân</td>
+                <td>15-04-1999</td>
+                <td>123456789</td>
+                <td>10$</td>
+                <td>0989999999</td>
+                <td>huynl4@gmail.com</td>
+                <td>Vũng Tàu</td>
+                <td>CEO</td>
+                <td>Đại Học</td>
+                <td>Huynl4</td>
             </tr>
             <tr>
                 <th scope="row">5</th>
-                <td>Hải</td>
-                <td>5</td>
-                <td>6</td>
-                <td>1</td>
-                <td>9</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>ngoài trời</td>
-                <td>2</td>
-                <td>Phòng vip</td>
+                <td>Nông Quốc Trung</td>
+                <td>15-11-1996</td>
+                <td>123456789</td>
+                <td>10$</td>
+                <td>0989999999</td>
+                <td>huynl4@gmail.com</td>
+                <td>Dak Lak</td>
+                <td>leader</td>
+                <td>Trung Cấp</td>
+                <td>Huynl4</td>
             </tr>
             <tr>
                 <th scope="row">6</th>
-                <td>Trinh</td>
-                <td>5</td>
-                <td>6</td>
-                <td>1</td>
-                <td>9</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>ngoài trời</td>
-                <td>8</td>
-                <td>Phòng vip</td>
+                <td>Lý Thy Sa</td>
+                <td>15-04-1991</td>
+                <td>123456789</td>
+                <td>30$</td>
+                <td>0989999999</td>
+                <td>huynl4@gmail.com</td>
+                <td>Hải Phòng</td>
+                <td>Senior</td>
+                <td>12/12</td>
+                <td>Huynl4</td>
             </tr>
             <tr>
                 <th scope="row">7</th>
-                <td>Ronaldo</td>
-                <td>5</td>
-                <td>6</td>
-                <td>1</td>
-                <td>9</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>ngoài trời</td>
-                <td>7</td>
-                <td>Phòng vip</td>
+                <td>Ngô Thành Phú</td>
+                <td>15-02-1998</td>
+                <td>123456789</td>
+                <td>15$</td>
+                <td>0989999999</td>
+                <td>huynl4@gmail.com</td>
+                <td>Huế</td>
+                <td>Leader</td>
+                <td>Đại Học</td>
+                <td>Huynl4</td>
             </tr>
             </tbody>
         </table>
@@ -271,11 +267,11 @@
                 <p style="margin-left: 40px">Khu nghỉ dưỡng Furama là cơ sở hàng đầu để khám phá một trong những điểm
                     đến hấp dẫn nhất Châu Á. Chỉ
                     cách Đà Nẵng một quãng lái xe ngắn là bốn Di sản Văn hóa Thế giới được UNESCO công nhận:</p>
-<!--                <button type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover"-->
-<!--                        data-bs-title="Popover title"-->
-<!--                        data-bs-content="And here's some amazing content. It's very engaging. Right?"-->
-<!--                        style="margin-left: 50px">Xem trên bản đồ-->
-<!--                </button>-->
+                <!--                <button type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover"-->
+                <!--                        data-bs-title="Popover title"-->
+                <!--                        data-bs-content="And here's some amazing content. It's very engaging. Right?"-->
+                <!--                        style="margin-left: 50px">Xem trên bản đồ-->
+                <!--                </button>-->
                 <form action="https://www.google.com/maps/place/Furama+Resort+Danang/@16.0399456,108.2488794,17z/data=!3m1!4b1!4m8!3m7!1s0x31420fdbc8cc38ef:0x9a6a3e31121225d2!5m2!4m1!1i2!8m2!3d16.0399456!4d108.2510681?hl=vi">
                     <button class="csw-btn-button" type="submit" style="background-color:#20c997; margin-left: 50px;border-radius: 200px">Xem trên bản đồ</button>
                 </form>
