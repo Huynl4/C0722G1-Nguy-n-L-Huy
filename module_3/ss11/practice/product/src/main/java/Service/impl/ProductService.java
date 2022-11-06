@@ -8,12 +8,14 @@ import Service.IProductService;
 import java.util.List;
 
 public class ProductService implements IProductService {
-    IProductRepository productRepository=new ProductRepository();
+   private IProductRepository productRepository = new ProductRepository();
+
     @Override
     public List<Product> display() {
         return productRepository.display();
     }
-    public void add(Product product){
+
+    public void add(Product product) {
         productRepository.add(product);
     }
 
@@ -24,7 +26,7 @@ public class ProductService implements IProductService {
 
     @Override
     public Product findById(int id) {
-       return productRepository.findById(id);
+        return productRepository.findById(id);
     }
 
     @Override

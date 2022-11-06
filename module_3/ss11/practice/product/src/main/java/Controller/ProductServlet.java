@@ -12,8 +12,8 @@ import java.util.List;
 
 @javax.servlet.annotation.WebServlet(name = "ProductServlet", value = "/product")
 public class ProductServlet extends javax.servlet.http.HttpServlet {
-    IProductService productService=new ProductService();
-    protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
+   private IProductService productService=new ProductService();
+    private void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         String action = request.getParameter("action");
         switch (action) {
             case "add":
