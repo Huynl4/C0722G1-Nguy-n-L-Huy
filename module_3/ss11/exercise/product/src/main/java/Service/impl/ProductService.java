@@ -29,4 +29,14 @@ public class ProductService implements IProductService {
     public Product findById(int id) {
         return productRepository.findById(id);
     }
+
+    @Override
+    public Product edit(int id, Product product) {
+        return productRepository.findById(id);
+    }
+
+    @Override
+    public void edit(int id) {
+
+    }
 }
