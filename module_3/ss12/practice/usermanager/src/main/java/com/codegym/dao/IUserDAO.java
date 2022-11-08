@@ -8,11 +8,28 @@ import java.util.List;
 public interface IUserDAO {
     void insertUser(User user) throws SQLException;
 
-     User selectUser(int id);
+    User selectUser(int id);
+
     List<User> selectAllUsers();
 
-     boolean deleteUser(int id) throws SQLException;
+    boolean deleteUser(int id) throws SQLException;
 
-     boolean updateUser(User user) throws SQLException;
-    List<User>  findByCountry(String country);
+    boolean updateUser(User user) throws SQLException;
+
+    List<User> findByCountry(String country);
+
+    User getUserById(int id);
+
+    void insertUserStore(User user) throws SQLException;
+
+    void addUserTransaction(User user, int[] permision);
+
+    public void insertUpdateWithoutTransaction();
+
+    public void insertUpdateUseTransaction();
+
+    List<User> selectUser();
+
+    boolean editUser(User user);
+    boolean deleteUserSp(int id);
 }
