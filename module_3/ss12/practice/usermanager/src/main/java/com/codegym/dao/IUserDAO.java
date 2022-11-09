@@ -24,9 +24,9 @@ public interface IUserDAO {
 
     void addUserTransaction(User user, int[] permision);
 
-    public void insertUpdateWithoutTransaction();
+    void insertUpdateWithoutTransaction();
 
-    public void insertUpdateUseTransaction();
+    void insertUpdateUseTransaction();
 
     List<User> selectUser();
 

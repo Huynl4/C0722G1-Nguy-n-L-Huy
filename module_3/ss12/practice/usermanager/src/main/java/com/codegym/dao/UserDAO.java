@@ -44,7 +44,7 @@ public class UserDAO implements IUserDAO {
     public UserDAO() {
     }
 
-    protected Connection getConnection() {
+    private Connection getConnection() {
         Connection connection = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -158,8 +158,8 @@ public class UserDAO implements IUserDAO {
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
                 String email = rs.getString("email");
-                String country1 = rs.getString("country");
-                userList.add(new User(id, name, email, country1));
+                String countryy = rs.getString("country");
+                userList.add(new User(id, name, email, countryy));
             }
         } catch (SQLException e) {
             printSQLException(e);
