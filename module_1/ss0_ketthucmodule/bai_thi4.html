@@ -2,9 +2,120 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
+
 <body>
-$END$
+<h1>Danh Sách Bệnh Nhân</h1>
+<!--<input type="text" id="id" placeholder="nhập id">-->
+<!--<input type="text" id="name" placeholder="nhập họ và tên">-->
+<!--<input type="text" id="age" placeholder="nhập tuổi">-->
+<!--<input type="text" id="address" placeholder="nhập địa chỉ">-->
+<!--<input type="text" id="number" placeholder="nhập số diện thoại">-->
+<p id="display"></p>
+<script>
+    class People {
+        constructor(name, age, address, number) {
+
+            this.name = name;
+            this.age = age;
+            this.address = address;
+            this.number = number;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        setAge(age) {
+            this.age = age;
+        }
+
+        setAddress(address) {
+            this.address = address;
+        }
+
+        setNumber(number) {
+            this.number = number;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        getAge() {
+            return this.age;
+        }
+
+        getAddress() {
+            return this.address;
+        }
+
+        getNumber() {
+            return this.number;
+        }
+    }
+
+    let people1 = new People("Nguyễn Lê Hoàng Oanh", 20, "Quảng Nam", "0923434564");
+    let people2 = new People("Nguyễn Trần Cảnh", 30, "Quảng Nam", "0943246324");
+    let people3 = new People("Hoàng Thanh Hùng", 15, "Quảng Nam", "0123451235");
+    let people4 = new People("Trần Lệ Quyên", 19, "Quảng Nam", "0923093748");
+    let peopleList = [people1, people2, people3, people4];
+    display(peopleList);
+
+    // hiện thị danh sách
+    function display(list) {
+        let tableString = '<table border="1">\n' +
+            '    <tr>\n' +
+            '        <th>STT</th>\n' +
+            '        <th>Name</th>\n' +
+            '        <th>Age</th>\n' +
+            '        <th>Address</th>\n' +
+            '        <th>Number</th>\n' +
+            '    </tr>';
+        for (let i = 0; i < list.length; i++) {
+            tableString += '<tr>\n' +
+                '        <td>' + (i + 1) + '</td>\n' +
+                '        <td>' + list[i].getName() + '</td>\n' +
+                '        <td>' + list[i].getAge() + '</td>\n' +
+                '        <td>' + list[i].getAddress() + '</td>\n' +
+                '        <td>' + list[i].getNumber() + '</td>\n' +
+                '    </tr>';
+        }
+
+        tableString += '</table>';
+        document.getElementById("display").innerHTML = tableString;
+        display(peopleList);
+
+    }
+
+    //
+    // function editComputerById(index) {
+    //     let editName = prompt("nhập tên mới:");
+    //     let editCode = prompt("nhập mã mới:");
+    //     let editOrigin = prompt("nhập hãng sản xuất:");
+    //     let editPrice = prompt("nhập giá bán:");
+    //     computerList[index].setName(editName);
+    //     computerList[index].setCode(editCode);
+    //     computerList[index].setOrigin(editOrigin);
+    //     computerList[index].setPrice(editPrice);
+    //     display(computerList);
+    //
+    // }
+    //
+    // function addNewComputer() {
+    //     let name = document.getElementById("name").value;
+    //     let code = document.getElementById("code").value;
+    //     let origin = document.getElementById("origin").value;
+    //     let price = document.getElementById("price").value;
+    //     let newComputer = new Computer(name, code, origin, price);
+    //     computerList.push(newComputer);
+    //     display(computerList);
+    //     document.getElementById("name").value = "";
+    //     document.getElementById("code").value = "";
+    //     document.getElementById("origin").value = "";
+    //     document.getElementById("price").value = "";
+    // }
+</script>
 </body>
 </html>

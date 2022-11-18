@@ -1,6 +1,7 @@
 package ss16_io_text_file.exercise.exercise3.model;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Student extends Person {
     private String nameClass;
@@ -15,9 +16,6 @@ public class Student extends Person {
     public Student(String nameClass, double score) {
         this.nameClass = nameClass;
         this.score = score;
-    }
-
-    public Student(String s, String s1, String s2, LocalDate parse, double v) {
     }
 
     public String getNameClass() {
@@ -44,7 +42,8 @@ public class Student extends Person {
                 '}' + super.toString();
     }
 
+    @Override
     public String getInfo() {
-        return String.format("%s,%s,%s,%s,%s", this.getCode(), this.getName(), this.getGender(), this.getDateOfBirth(), this.getNameClass(), this.getScore());
+        return String.format("%s,%s,%s,%s,%s,%s", this.getCode(), this.getName(), this.getGender(), this.getDateOfBirth().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")), this.getNameClass(), this.getScore());
     }
 }

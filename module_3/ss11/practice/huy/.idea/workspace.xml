@@ -2,16 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0e038ac1-3961-4e18-81bb-2834e891f52f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../exercise/product/src/main/java/Controller/ProductServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../exercise/product/src/main/java/Model/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../exercise/product/src/main/java/Repository/IProductRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../exercise/product/src/main/java/Repository/impl/ProductRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../exercise/product/src/main/java/Service/IProductService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../exercise/product/src/main/java/Service/impl/ProductService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../exercise/product/src/main/java/cofig/Filter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../exercise/product/src/main/webapp/view/product/create.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../exercise/product/src/main/webapp/view/product/list.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../exercise/product/src/main/webapp/view/product/remove.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Furama/furama/src/main/java/Servlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Furama/furama/src/main/java/config/FilterUTF8.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Furama/furama/src/main/java/controller/FuramaServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Furama/furama/src/main/java/model/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Furama/furama/src/main/java/responsitory/BaseResponsitory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Furama/furama/src/main/java/responsitory/ICustomerResponsitory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Furama/furama/src/main/java/responsitory/impl/CustomerResponsitory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Furama/furama/src/main/java/service/ICustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Furama/furama/src/main/java/service/impl/CustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Furama/furama/src/main/webapp/furama_home.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Furama/furama/src/main/webapp/view/create.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Furama/furama/src/main/webapp/view/delete.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Furama/furama/src/main/webapp/view/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Furama/furama/src/main/webapp/view/list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../home_work/untitled/src/main/java/config/Utf8Filter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../home_work/untitled/src/main/java/controller/CustomerServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../home_work/untitled/src/main/java/model/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../home_work/untitled/src/main/java/responsitory/BaseRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../home_work/untitled/src/main/java/responsitory/CustomerResponsitory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../home_work/untitled/src/main/java/responsitory/ICustomerResponsitory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../home_work/untitled/src/main/java/service/CustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../home_work/untitled/src/main/java/service/ICustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../home_work/untitled/src/main/webapp/customer/create.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../home_work/untitled/src/main/webapp/customer/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../home_work/untitled/src/main/webapp/customer/list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module3/practice/src/main/java/Config/Filter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module3/practice/src/main/java/Controller/Servlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module3/practice/src/main/java/Responsitory/BaseResponsitory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module3/practice/src/main/java/Responsitory/IResponsitory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module3/practice/src/main/java/Responsitory/impl/Responsitory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module3/practice/src/main/java/Service/IService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module3/practice/src/main/java/Service/impl/Service.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../module_1/ss0_ketthucmodule/bai_1.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module_1/ss0_ketthucmodule/bai_1.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../module_1/ss0_ketthucmodule/bai_10.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module_1/ss0_ketthucmodule/bai_10.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../module_1/ss0_ketthucmodule/bai_11.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module_1/ss0_ketthucmodule/bai_11.html" afterDir="false" />
@@ -76,9 +98,20 @@
       <change beforePath="$PROJECT_DIR$/../../../../module_2/src/ss9_huy_nl/service/TaiKhoanThanhToanService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module_2/src/ss9_huy_nl/service/TaiKhoanThanhToanService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../module_2/src/ss9_huy_nl/service/TaiKhoanTietKiemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module_2/src/ss9_huy_nl/service/TaiKhoanTietKiemService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../module_2/src/ss9_huy_nl/view/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module_2/src/ss9_huy_nl/view/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.68/webapps/ROOT/WEB-INF/classes/Calculator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.68/webapps/ROOT/WEB-INF/classes/CaluculatorServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.68/webapps/ROOT/WEB-INF/classes/com/codegym/config/FilterUTF8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.68/webapps/ROOT/WEB-INF/classes/com/codegym/controller/UserServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.68/webapps/ROOT/WEB-INF/classes/com/codegym/dao/IUserDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.68/webapps/ROOT/WEB-INF/classes/com/codegym/dao/UserDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.68/webapps/ROOT/WEB-INF/classes/com/codegym/model/User.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.68/webapps/ROOT/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../apache-tomcat-9.0.68/webapps/ROOT/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.68/webapps/ROOT/user/create.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.68/webapps/ROOT/user/edit.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.68/webapps/ROOT/user/list.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../apache-tomcat-9.0.68/webapps/ROOT/user/search.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study_web/Furama_web/furama.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study_web/Furama_web/furama.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study_web/contract/list_contract.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study_web/contract/list_contract.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study_web/customer/list_customer.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study_web/customer/list_customer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../case_study_web/employee/list_employee.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study_web/employee/list_employee.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../case_study_web/facility/list_facility.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study_web/facility/list_facility.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,7 +136,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -117,6 +150,7 @@
       <updated>1667662413593</updated>
       <workItem from="1667662419008" duration="55000" />
       <workItem from="1667662488028" duration="28000" />
+      <workItem from="1668066440867" duration="2000" />
     </task>
     <servers />
   </component>

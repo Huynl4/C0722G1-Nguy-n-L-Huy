@@ -1,8 +1,9 @@
 package ss16_io_text_file.exercise.exercise3.model;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
-public class Person {
+public abstract class Person {
     private String code;
     private String name;
     private String gender;
@@ -56,7 +57,8 @@ public class Person {
                 "code='" + code + '\'' +
                 ", name='" + name + '\'' +
                 ", gender='" + gender + '\'' +
-                ", dateOfBirth=" + dateOfBirth +
+                ", dateOfBirth=" + dateOfBirth.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) +
                 '}';
     }
+    public abstract String getInfo();
 }

@@ -2,9 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<!--10.	Nhập một chuổi ký tự tuỳ ý, sau đó thực hiện công việc sau:-->
+<!--a. In mỗi từ trên mỗi dòng-->
+<!--b. Đếm số từ có trong chuổi đã cho.-->
+<!--b. Đưa ra bảng tần số xuất hiện của các từ.-->
+
 </body>
+<script>
+    let array = prompt("nhập chuỗi kí tự");
+    let str = array.split(" ");
+    for (let i = 0; i < str.length; i++) {
+        document.write(str[i] + "<br>");
+    }
+    alert(str.length);
+
+    function check(arr) {
+        let arr1 = [];
+        let arr2 = [];
+        let c;
+        let arr4 = arr.split('').sort();
+        // document.write(arr4 + "<br>");
+        for (let i = 0; i < arr4.length; i++) {
+            if (arr4[i] !== c) {
+                arr1.push(arr4[i]);
+                arr2.push(1);
+            } else {
+                arr2[arr2.length - 1]++;
+            }
+            c = arr4[i];
+        }
+        return [arr1, arr2];
+    }
+
+    let count = check(array);
+    document.write(count[0] + '<br>' + count[1]);
+
+
+</script>
 </html>

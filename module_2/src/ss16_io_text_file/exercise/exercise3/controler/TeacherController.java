@@ -2,6 +2,7 @@ package ss16_io_text_file.exercise.exercise3.controler;
 
 import ss16_io_text_file.exercise.exercise3.service.impl_teacher.ITeacherService;
 import ss16_io_text_file.exercise.exercise3.service.impl_teacher.TeacherService;
+import ss16_io_text_file.exercise.exercise3.utils.exception.PersonException;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -10,7 +11,7 @@ public class TeacherController {
     private static ITeacherService iTeacherService = new TeacherService();
     private static Scanner scanner = new Scanner(System.in);
 
-    public static void menuTeacher() throws IOException {
+    public static void menuTeacher() throws IOException, PersonException {
         while (true) {
             System.out.println("---------------------------------------------------");
             System.out.println("Chào mừng bạn đến với chương trình quản lý CodyGym.");

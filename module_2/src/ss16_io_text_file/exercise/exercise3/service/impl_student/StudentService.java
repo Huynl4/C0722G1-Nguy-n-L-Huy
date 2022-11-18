@@ -1,11 +1,9 @@
 package ss16_io_text_file.exercise.exercise3.service.impl_student;
 
 import ss16_io_text_file.exercise.exercise3.model.Student;
-import ss16_io_text_file.exercise.exercise3.utils.exception.IllegalCodeException;
-import ss16_io_text_file.exercise.exercise3.utils.exception.IllegalNameException;
+import ss16_io_text_file.exercise.exercise3.utils.exception.PersonException;
 
 import java.io.*;
-import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -13,30 +11,24 @@ import java.util.List;
 import java.util.Scanner;
 
 public class StudentService implements IStudentService {
-    private static Scanner scanner = new Scanner(System.in);
-    private static List<Student> studentList = new ArrayList<>();
+    static Scanner scanner = new Scanner(System.in);
+    static List<Student> studentList = new ArrayList<>();
+
 
     @Override
-    public void addStudent() throws IOException {
-        studentList = getAllStudent();
+    public void addStudent() {
+        studentList = readStudent();
+
         Student student = this.infoStudent();
         studentList.add(student);
         System.out.println("Thêm mới thành công");
-        writeStudent();
+        writeStudent(studentList);
     }
 
-    public void writeStudent() throws IOException {
-        File file1 = new File("src\\ss16_io_text_file\\exercise\\exercise3\\data\\fileReadStudent.csv");
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file1));
-        for (Student s : studentList) {
-            bufferedWriter.write(s.getInfo());
-            bufferedWriter.newLine();
-        }
-        bufferedWriter.close();
-    }
 
     @Override
     public void displayAllStudent() {
+        studentList = readStudent();
         for (Student student : studentList) {
             System.out.println(student);
         }
@@ -44,6 +36,7 @@ public class StudentService implements IStudentService {
 
     @Override
     public void removeStudent() {
+        studentList = readStudent();
         System.out.println("Nhập mã học sinh cần xóa: ");
         String code = scanner.nextLine();
         boolean flagDelete = false;
@@ -62,10 +55,12 @@ public class StudentService implements IStudentService {
         if (!flagDelete) {
             System.out.println("Không tìm thấy học sinh cần xóa!");
         }
+        writeStudent(studentList);
     }
 
     @Override
     public void searchStudent() {
+        studentList = readStudent();
         System.out.println("Nhập tên cần kiểm tra: ");
         Scanner scanner = new Scanner(System.in);
         String str = scanner.nextLine();
@@ -108,45 +103,54 @@ public class StudentService implements IStudentService {
             try {
                 System.out.println("Mời nhập mã học sinh: ");
                 code = scanner.nextLine();
-                IllegalCodeException.codeCheck(code);
-                break;
-            } catch (IllegalCodeException e) {
+                PersonException.codeCheck(code);
+                if (PersonException.isCheckDuplicetedId(code, studentList)) {
+                    System.out.println("Id trùng lặp, nhập lại");
+                } else {
+                    break;
+                }
+            } catch (PersonException e) {
                 System.out.println(e.getMessage());
             }
         }
-
         String name;
         while (true) {
             try {
                 System.out.println("Mời nhập tên học sinh: ");
                 name = scanner.nextLine();
-                IllegalNameException.nameCheck(name);
+                PersonException.nameCheck(name);
                 break;
-            } catch (IllegalNameException e) {
+            } catch (PersonException e) {
                 System.out.println(e.getMessage());
             }
         }
-
-
-        System.out.println("Mời nhập giới tính học sinh: ");
-        String tempGender = scanner.nextLine();
         String gender;
-        if (tempGender.equals("Nam")) {
-            gender = "Nam";
-        } else if (tempGender.equals("Nữ")) {
-            gender = "Nữ";
-        } else {
-            gender = "Phi giới tính";
+        while (true) {
+            try {
+                System.out.println("Mời nhập giới tính học sinh: ");
+                gender = scanner.nextLine();
+                if (gender.equals("Nam")) {
+                    gender = "Nam";
+                } else if (gender.equals("Nữ")) {
+                    gender = "Nữ";
+                } else {
+                    gender = "Phi giới tính";
+                }
+                PersonException.genderCheck(gender);
+                break;
+            } catch (PersonException e) {
+                System.out.println("Nhập sai định dạng, nhập lại");
+            }
         }
         LocalDate dateOfBirth;
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         while (true) {
             try {
                 System.out.println("Nhập ngày tháng năm: ");
-                dateOfBirth = LocalDate.parse(scanner.nextLine(), formatter);
+                dateOfBirth = LocalDate.parse(scanner.nextLine(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+                PersonException.dateCheck(dateOfBirth);
                 break;
-            } catch (DateTimeException e) {
-                System.out.println("Ngày sai định dạng, nhập lại.");
+            } catch (PersonException e) {
+                System.out.println("Nhập sai");
             }
         }
 
@@ -154,24 +158,57 @@ public class StudentService implements IStudentService {
         String nameClass = scanner.nextLine();
         System.out.println("Mời bạn nhập điểm học sinh: ");
         double score = Double.parseDouble(scanner.nextLine());
-        Student student = new Student(code, name, gender, dateOfBirth, nameClass, score);
-        return student;
+        return new Student(code, name, gender, dateOfBirth, nameClass, score);
     }
 
-    private List<Student> getAllStudent() throws IOException {
-        File file = new File("src\\ss16_io_text_file\\exercise\\exercise3\\data\\fileReadStudent.csv");
-        FileReader fileReader = new FileReader(file);
-        BufferedReader bufferedReader = new BufferedReader(fileReader);
-        String line;
+    private List<Student> readStudent() {
         List<Student> studentList = new ArrayList<>();
-        String[] info;
-        Student student1;
-        while ((line = bufferedReader.readLine()) != null) {
-            info = line.split(",");
-            student1 = new Student(info[0], info[1], info[2], LocalDate.parse(info[3], DateTimeFormatter.ofPattern("dd//MM//yyyy")), info[4], Double.parseDouble(info[5]));
-            studentList.add(student1);
+        BufferedReader bufferedReader = null;
+        try {
+            File file = new File("src\\ss16_io_text_file\\exercise\\exercise3\\data\\fileReadStudent.csv");
+            FileReader fileReader = new FileReader(file);
+            bufferedReader = new BufferedReader(fileReader);
+            String line;
+            String[] info;
+            Student student1;
+            while ((line = bufferedReader.readLine()) != null) {
+                info = line.split(",");
+                student1 = new Student(info[0], info[1], info[2], LocalDate.parse(info[3], DateTimeFormatter.ofPattern("dd/MM/yyyy")), info[4], Double.parseDouble(info[5]));
+                studentList.add(student1);
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println(e.getMessage());
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        bufferedReader.close();
+        try {
+            if (bufferedReader != null) {
+                bufferedReader.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return studentList;
+    }
+
+    public void writeStudent(List<Student> studentList) {
+        BufferedWriter bufferedWriter = null;
+        try {
+            File file1 = new File("src\\ss16_io_text_file\\exercise\\exercise3\\data\\fileReadStudent.csv");
+            bufferedWriter = new BufferedWriter(new FileWriter(file1));
+            for (Student s : studentList) {
+                bufferedWriter.write(s.getInfo());
+                bufferedWriter.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            if (bufferedWriter != null) {
+                bufferedWriter.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

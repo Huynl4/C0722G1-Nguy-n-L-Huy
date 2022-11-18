@@ -180,7 +180,7 @@ public class EmployeeService implements IEmployeeService {
     }
 
     public String getInfo(Employee employee) {
-        return employee.getId() + "," + employee.getName() + "," + employee.getDateOfBirth().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + "," + employee.getGender() + "," + employee.getIdCard() + "," + employee.getNumberPhone() + "," + employee.getEmail() + "," + employee.getLever() + "," + employee.getPosition() + "," + employee.getWage();
+        return employee.getId() + "," + employee.getName() + "," + employee.getDateOfBirth().format(formatter) + "," + employee.getGender() + "," + employee.getIdCard() + "," + employee.getNumberPhone() + "," + employee.getEmail() + "," + employee.getLever() + "," + employee.getPosition() + "," + employee.getWage();
     }
 
 }

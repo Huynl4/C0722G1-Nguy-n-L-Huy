@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class FuramaController {
     private static Scanner scanner = new Scanner(System.in);
 
-    public static void menuFurama() throws IOException {
+    public static void menuFurama() throws Exception {
         while (true) {
             System.out.println("Chào mừng đến với khu nghĩ dưỡng FURAMA, mời bạn nhập lựa chọn: ");
             System.out.println("1. Employee Management-Quản lý nhân viên");

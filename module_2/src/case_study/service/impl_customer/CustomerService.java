@@ -173,7 +173,7 @@ public class CustomerService implements ICustomerService {
         Customer customer;
         while ((line = bufferedReader.readLine()) != null) {
             info = line.split(",");
-            customer = new Customer(info[0], info[1], LocalDate.parse(info[2]), info[3], info[4], info[5], info[6], info[7], info[8]);
+            customer = new Customer(info[0], info[1], LocalDate.parse(info[2], formatter), info[3], info[4], info[5], info[6], info[7], info[8]);
             customerList.add(customer);
         }
         bufferedReader.close();
@@ -192,6 +192,6 @@ public class CustomerService implements ICustomerService {
     }
 
     public String getInfo(Customer customer) {
-        return customer.getId() + "," + customer.getName() + "," + customer.getDateOfBirth().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + "," + customer.getGender() + "," + customer.getIdCard() + "," + customer.getNumberPhone() + "," + customer.getEmail() + "," + customer.getTypeOfGuest() + "," + customer.getAddress();
+        return customer.getId() + "," + customer.getName() + "," + customer.getDateOfBirth().format(formatter) + "," + customer.getGender() + "," + customer.getIdCard() + "," + customer.getNumberPhone() + "," + customer.getEmail() + "," + customer.getTypeOfGuest() + "," + customer.getAddress();
     }
 }

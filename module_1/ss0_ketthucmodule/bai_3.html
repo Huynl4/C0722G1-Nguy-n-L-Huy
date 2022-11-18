@@ -11,24 +11,70 @@
 <!--Gợi ý đây là dãy số fibonaci: 0,1,1,2,3,5,8,13,21,…..-->
 </body>
 <script>
-    let fibo = [0, 1, 1, 2, 3, 5, 8, 13, 21];
-    let size = +prompt("nhập độ dài mảng");
-    let arr = [];
-    let arr1 = [];
-    for (let i = 0; i < size; i++) {
-        arr1[i] = +prompt('nhập phần tử');
+    // let fibo = [0, 1, 1, 2, 3, 5, 8, 13, 21];
+    // let size = +prompt("nhập độ dài mảng");
+    // let arr = [];
+    // let arr1 = [];
+    // for (let i = 0; i < size; i++) {
+    //     arr1[i] = +prompt('nhập phần tử');
+    // }
+    //
+    //
+    // function kiemTra(arr2) {
+    //     for (let i = 0; i < fibo.length; i++) {
+    //         if (fibo.includes(arr2[i])) {
+    //             arr.push(arr2[i]);
+    //         }
+    //     }
+    //     return arr;
+    // }
+    //
+    // alert(kiemTra(arr1));
+    let mang = [3, 5, 89, 144, 15, 12, 60, 98];
+
+
+    function soLonNhat(array) {
+        let max = array[0];
+        let maxIndex = 0;
+        for (let i = 0; i < array.length; i++) {
+            if (max < array[i]) {
+                max = array[i];
+                maxIndex = i;
+            }
+
+        }
+        return max;
+
+
+    }
+
+    function kiemTra(number) {
+        let fibonaci = [];
+        let soA = 0;
+        let soB = 1;
+        let soC;
+        for (let i = 0; i <= number; i++) {
+            soC = soA + soB;
+            soA = soB;
+            soB = soC;
+            fibonaci.push(soC);
+        }
+        return fibonaci;
     }
 
 
-    function kiemTra(arr2) {
-        for (let i = 0; i < fibo.length; i++) {
-            if (fibo.includes(arr2[i])) {
-                arr.push(arr2[i]);
+    function ketQua(mang1) {
+        let mangRong = [];
+        let max = soLonNhat(mang);
+
+        for (let i = 0; i < mang1.length; i++) {
+            if (kiemTra(max).indexOf(mang1[i]) !== -1) {
+                mangRong.push(mang1[i]);
             }
         }
-        return arr;
+        return mangRong;
     }
 
-    alert(kiemTra(arr1));
+    alert(ketQua(mang));
 </script>
 </html>

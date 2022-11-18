@@ -1,12 +1,14 @@
 package ss16_io_text_file.exercise.exercise3.controler;
 
+import ss16_io_text_file.exercise.exercise3.utils.exception.PersonException;
+
 import java.io.IOException;
 import java.util.Scanner;
 
 public class PersonController {
     private static Scanner scanner = new Scanner(System.in);
 
-    public static void menuPerson() throws IOException {
+    public static void menuPerson() throws IOException, PersonException {
         while (true) {
             System.out.println("Chào mừng bạn đến với chương trình quản lý Codegym");
             System.out.println("1. Học sinh");

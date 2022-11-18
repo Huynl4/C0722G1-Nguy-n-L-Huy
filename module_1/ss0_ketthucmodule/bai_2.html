@@ -21,7 +21,7 @@
     function chuyenDoi(str) {
 
         if (!str.includes(" ")) {
-            alert('chuỗi này chỉ được tính chỉ có 1 từ');
+            return 'chuỗi này chỉ được tính chỉ có 1 từ';
         } else {
             let array = str.split(" ");
             for (let i = 0; i < array.length; i++) {
@@ -29,11 +29,11 @@
                     array[i] = array[i][0].toUpperCase();
                 }
             }
-            alert(array.join(""));
+            return array.join("");
         }
     }
 
-    chuyenDoi(string);
+    alert(chuyenDoi(string));
     // function tuVietTat(str) {
     //     let mang = [];
     //     for (let i = 0; i < str.length; i++) {

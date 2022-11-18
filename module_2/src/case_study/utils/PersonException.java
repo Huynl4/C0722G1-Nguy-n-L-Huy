@@ -14,9 +14,14 @@ public class PersonException extends Exception {
     }
 
     public static final void nameCheck(String name) throws PersonException {
-        if (name.matches("[A-ZĐ][a-záàảạãăắằặẵâấầẫậẩéèẻẽẹêếềểễệóòỏõọôốồổỗộơớờởỡợíìỉĩịùúủũụưứửữựỵỷỹýỳ]{1,5}")) {
-            System.out.println("Nhập thành công");
-        } else throw new PersonException("Nhập không đúng định dạng");
+
+        String[] arrName = name.trim().split(" ");
+        for (String s : arrName) {
+            if (!s.matches("[A-ZĐ][a-záàảạãăắằặẵâấầẫậẩéèẻẽẹêếềểễệóòỏõọôốồổỗộơớờởỡợíìỉĩịùúủũụưứửữựỵỷỹýỳ]{1,5}")) {
+                throw new PersonException("Tên không khớp chuẩn tiếng Việt, xin nhập lại");
+            }
+        }
+        System.out.println("Nhập dữ liệu thành công");
     }
 
     public static final void genderCheck(String gender) throws PersonException {
@@ -40,7 +45,7 @@ public class PersonException extends Exception {
     }
 
     public static void emailCheck(String email) throws PersonException {
-        if (email.matches("^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\\\\\\\\.[A-Za-z0-9]+)$")) {
+        if (email.matches("[A-Za-z0-9]{3,}[@](gmail.com|codegym.edu.(vn|com)|yahoo.com)")) {
             System.out.println("Nhập thành công");
         } else throw new PersonException("Nhập sai định dạng");
     }
@@ -49,9 +54,9 @@ public class PersonException extends Exception {
         LocalDate presentDate = LocalDate.now().plusYears(-18);
         LocalDate maxDate = LocalDate.now().plusYears(-100);
         if (!birthday.isBefore(presentDate)) {
-            throw new PersonException("Khách hàng phải trên 18 tuổi, nhập lại.");
+            throw new PersonException("phải trên 18 tuổi, nhập lại.");
         } else if (!birthday.isAfter(maxDate)) {
-            throw new PersonException("khách hàng phải dưới 100 tuổi, nhập lại.");
-        } else System.out.println("Input Date of Birth Succeeded");
+            throw new PersonException(" phải dưới 100 tuổi, nhập lại.");
+        } else System.out.println("Nhập ngày tháng năm khách hàng thành công");
     }
 }

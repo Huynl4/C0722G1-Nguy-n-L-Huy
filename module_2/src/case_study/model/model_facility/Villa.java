@@ -2,17 +2,17 @@ package case_study.model.model_facility;
 
 public class Villa extends Facility {
     private String roomStandard;
-    private int areaSwim;
+    private double areaSwim;
     private int floorNumber;
 
-    public Villa(String rentaltype, int areaSwim, int floorNumber) {
+    public Villa(String rentaltype, double areaSwim, int floorNumber) {
         this.roomStandard = rentaltype;
         this.areaSwim = areaSwim;
         this.floorNumber = floorNumber;
     }
 
-    public Villa(String servicename, double area, int price, String maxPeople, String rentaltype, String rentaltype1, int areaSwim, int floorNumber) {
-        super(servicename, area, price, maxPeople, rentaltype);
+    public Villa(String serviceCode, double area, int price, int maxPeople, String rentaltype, String rentaltype1, double areaSwim, int floorNumber) {
+        super(serviceCode, area, price, maxPeople, rentaltype);
         this.roomStandard = rentaltype1;
         this.areaSwim = areaSwim;
         this.floorNumber = floorNumber;
@@ -28,7 +28,7 @@ public class Villa extends Facility {
         this.roomStandard = roomStandard;
     }
 
-    public int getAreaSwim() {
+    public double getAreaSwim() {
         return areaSwim;
     }
 

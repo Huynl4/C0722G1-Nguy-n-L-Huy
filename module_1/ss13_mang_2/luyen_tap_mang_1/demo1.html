@@ -2,9 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+
 </body>
+<script>
+
+    let arr = [];
+    for (let i = 0; i >= 0; i++) {
+        let checkInput = confirm('Bạn có muốn nhập số tiếp k?');
+        if (checkInput) {
+            let isNumber = +prompt('nhập phần tử thứ ' + [i]);
+            if (isNaN(isNumber) || isNumber == "") {
+                break;
+            } else {
+                arr[i] = isNumber;
+            }
+        } else {
+            break;
+        }
+
+    }
+    document.write(arr + "<br>");
+    let sum = eval(arr.join('+'));
+    document.write(sum);
+
+</script>
 </html>

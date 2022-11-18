@@ -6,7 +6,7 @@ import case_study.model.model_facility.Facility;
 import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         FuramaController.menuFurama();
     }
 }

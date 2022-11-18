@@ -1,6 +1,7 @@
 package ss16_io_text_file.exercise.exercise3.model;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Teacher extends Person {
     private String technique;
@@ -32,7 +33,8 @@ public class Teacher extends Person {
                 '}' + super.toString();
     }
 
+    @Override
     public String getInfo() {
-        return String.format("%s,%s,%s,%s", this.getCode(), this.getName(), this.getGender(), this.getDateOfBirth(), this.getTechnique());
+        return String.format("%s,%s,%s,%s", this.getCode(), this.getName(), this.getGender(), this.getDateOfBirth().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")), this.getTechnique());
     }
 }

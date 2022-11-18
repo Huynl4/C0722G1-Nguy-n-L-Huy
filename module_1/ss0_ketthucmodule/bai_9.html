@@ -14,9 +14,20 @@
 </body>
 <script>
     let kiTu = prompt("nhập vào chuỗi kí tự");
-    let kiemTra = kiTu.split("");
-    for (let i = 0; i < ; i++) {
-        
+    let kiTu1 = kiTu.toLowerCase();
+
+    let kiemTra = kiTu1.split("");
+    alert(kiemTra.reverse());
+    for (let i = 0; i < kiemTra.length; i++) {
+        if (kiemTra[i] != "") {
+            kiemTra[i] = kiemTra[i].toUpperCase();
+        }
     }
+    alert(kiemTra.join(""));
+    for (let i = 0; i < kiemTra.length; i++) {
+        kiemTra[i] = kiemTra[i].toLowerCase();
+    }
+    alert(kiemTra.join(""));
+
 </script>
 </html>

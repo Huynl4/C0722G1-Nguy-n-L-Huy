@@ -2,9 +2,64 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<!--cho 1 mảng số nguyên.-->
+<!-- -tính tổng các phần tử có trong mảng.-->
+<!-- -kiểm tra xem trong mảng đó có bao nhiêu số nguyên tố.-->
+<!-- -kiểm tra kiểm trong mảng đó có số âm không. nếu có trả về TRUE, không trả về FALSE-->
+
 </body>
+<script>
+    let num = [1, 2, 3, -4, 5, 7];
+    let tong = 0;
+    for (let i = 0; i < num.length; i++) {
+        tong = tong + num[i];
+    }
+    alert("tổng các phần tử = " + tong);
+
+
+    let count = 0;
+
+    function kiemTra(number) {
+
+        if (number < 2) {
+            return false;
+        }
+        for (let i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i === 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    for (let i = 0; i < num.length; i++) {
+        if (kiemTra(num[i])) {
+            count++;
+        }
+    }
+    document.write("có" + count + "số nguyên tố");
+
+
+    function check(mang) {
+        let count1 = 0;
+        for (let i = 0; i < mang.length; i++) {
+            if (num[i] > 0) {
+                count1++;
+            }
+            if (count1 > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+    }
+
+    check(num);
+
+
+</script>
 </html>

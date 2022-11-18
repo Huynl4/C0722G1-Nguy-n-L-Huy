@@ -1,6 +1,9 @@
 package ss16_io_text_file.exercise.exercise3.utils.exception;
 
+import ss16_io_text_file.exercise.exercise3.model.Student;
+
 import java.time.LocalDate;
+import java.util.List;
 
 public class PersonException extends Exception {
     public PersonException(String message) {
@@ -14,7 +17,7 @@ public class PersonException extends Exception {
     }
 
     public static void genderCheck(String gender) throws PersonException {
-        if (gender.matches("(Nam|Nữ)")) {
+        if (gender.matches("(Nam|Nữ| nam| nữ| LGBT)")) {
             System.out.println("Nhập thành công ");
         } else throw new PersonException("Nhập không đúng định dạng.");
     }
@@ -30,9 +33,22 @@ public class PersonException extends Exception {
         System.out.println("Nhập dữ liệu thành công");
     }
 
-//    public static void dateCheck(LocalDate date) throws PersonException {
-//        if (date.matches("^(0?[1-9]|[12][0-9]|3[01])[\\\\/\\\\-](0?[1-9]|1[012])[\\\\/\\\\-]\\\\d{4}$")) {
-//            System.out.println("Nhập thành công.");
-//        } else throw new PersonException("Nhập sai, nhập lại..");
-//    }
+    public static void dateCheck(LocalDate birthday) throws PersonException {
+        LocalDate presentDate = LocalDate.now().plusYears(-18);
+        LocalDate maxDate = LocalDate.now().plusYears(-100);
+        if (!birthday.isBefore(presentDate)) {
+            throw new PersonException("nhập sai định dạng, nhập lại.");
+        } else if (!birthday.isAfter(maxDate)) {
+            throw new PersonException("nhập sai định dạng, nhập lại.");
+        } else System.out.println("Nhập ngày tháng thành công");
+    }
+
+    public static boolean isCheckDuplicetedId(String code, List<Student> studentList) {
+        for (Student student : studentList) {
+            if (student.getCode().equals(code)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

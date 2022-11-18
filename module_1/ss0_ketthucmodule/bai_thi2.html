@@ -2,9 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+
 </body>
+<script>
+    let size = +prompt("nhập độ dài");
+    let arr = [];
+    let result = [];
+    for (let i = 0; i < size; i++) {
+        arr[i] = +prompt("nhập vào phần tử");
+    }
+    alert(arr);
+
+    function indexMin(arr) {
+        let min = arr[0];
+        for (let i = 0; i < arr.length; i++) {
+            if (min < arr[i]) {
+                min = arr[i];
+            }
+        }
+        return arr.indexOf(min);
+    }
+
+
+    function indexMax(arr) {
+        let max = arr[0];
+        for (let i = 0; i < arr.length; i++) {
+            if (max > arr[i]) {
+                max = arr[i];
+            }
+        }
+        return arr.indexOf(max);
+    }
+
+    result.push(indexMax(arr));
+    result.push(indexMin(arr));
+    alert(result);
+
+</script>
 </html>
