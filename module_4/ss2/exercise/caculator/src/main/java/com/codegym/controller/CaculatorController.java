@@ -21,7 +21,7 @@ public class CaculatorController {
     @PostMapping("/caculate")
     public String caculat(@RequestParam double num1, double num2, String choise, Model model) {
         double result = iCaculatorService.result(num1, num2, choise);
-        model.addAttribute("result", result);
+        model.addAttribute("result", result); 
         return "/index";
 
     }
