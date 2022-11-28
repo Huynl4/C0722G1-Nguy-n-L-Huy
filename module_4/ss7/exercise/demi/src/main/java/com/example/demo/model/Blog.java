@@ -17,11 +17,17 @@ public class Blog {
     public Blog() {
     }
 
-    public Blog(String title, String content, String author, String date) {
+
+    @ManyToOne
+    private Category category;
+
+    public Blog(int id, String title, String content, String author, String date, Category category) {
+        this.id = id;
         this.title = title;
         this.content = content;
         this.author = author;
         this.date = date;
+        this.category = category;
     }
 
     public int getId() {
@@ -62,5 +68,13 @@ public class Blog {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

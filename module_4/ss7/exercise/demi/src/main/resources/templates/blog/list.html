@@ -10,9 +10,23 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
+
+<!--<form action="/blog" class="d-flex" role="search" th:value="${name}">-->
+<!--    <input type="text" class="form-control me-2" name="search" placeholder="Search" aria-label="Search">-->
+<!--    <button class="btn btn-outline-success" type="submit" style="width: 300px">Search</button>-->
+<!--</form>-->
+
+
 <h1 style="background-color:cornflowerblue">-----Blog-----</h1>
 <a href="/create" class="btn btn-info">Create new Blog</a>
+<div>
+    <form action="/blog">
+        <input type="text" th:placeholder="search" name="name" th:value="${name}">
+        <button class="btn btn-outline-success" type="submit" style="font-size: 15px">search</button>
+    </form>
 
+
+</div>
 <th:block th:if="${message}">
     <p th:text="${message}"></p>
 </th:block>
@@ -23,8 +37,10 @@
         <th>Content</th>
         <th>Author</th>
         <th>Date</th>
-        <th>Action</th>
-        <th>Action</th>
+        <th>Category</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>View</th>
     </tr>
     </thead>
     <th:block th:each="blog : ${blogList}">
@@ -33,8 +49,15 @@
             <td th:text="${blog.content}"></td>
             <td th:text="${blog.author}"></td>
             <td th:text="${blog.date}"></td>
+            <td th:text="${blog.category.getName()}"></td>
             <td><a th:href="@{/edit/__${blog.id}__ }" class="btn btn-primary">Edit</a></td>
             <td><a th:href="@{/delete/__${blog.id}__ }" class="btn btn-danger">Delete</a></td>
+            <th><a th:href="@{/{id}/view(id=${blog.getId()})}" class="btn btn-warning">View</a></th>
+
+<!--            <td><a th:attr="onclick=|infoDelete('${blog.id}','${blog.title}')|"-->
+<!--                   class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">-->
+<!--                Delete-->
+<!--            </a></td>-->
         </tr>
     </th:block>
 </table>
