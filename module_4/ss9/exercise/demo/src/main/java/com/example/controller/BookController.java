@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.Optional;
+
 @Controller
 @RequestMapping("/book")
 public class BookController {
@@ -34,6 +36,7 @@ public class BookController {
         model.addAttribute("book", book);
         return "/book/view";
     }
+
     @PostMapping("/save")
     private String saveBook(@ModelAttribute Book book, RedirectAttributes redirectAttributes) {
         book.setCount(book.getCount() - 1);
@@ -43,5 +46,25 @@ public class BookController {
         oderService.save(oder);
         redirectAttributes.addFlashAttribute("success", oder.getCodeBook());
         return "redirect:/book";
+    }
+
+    @GetMapping("/pay/{id}")
+    public String showPay(@PathVariable Long id, Model model) {
+        Book book = bookService.findById(id);
+        model.addAttribute("book", book);
+        return "/book/pay";
+    }
+
+    @PostMapping("/pay")
+    public String payBook(@ModelAttribute("payBook") Oder oder, RedirectAttributes redirectAttributes) {
+        Oder oderPay = new Oder();
+        if (oderPay != null) {
+            Book book = bookService.findById(oder.getId());
+            bookService.save(book);
+            oderService.remove(oderPay);
+            redirectAttributes.addFlashAttribute("mess", "Trả sách thành công");
+            return "redirect:/book";
+        }
+        return "/error";
     }
 }

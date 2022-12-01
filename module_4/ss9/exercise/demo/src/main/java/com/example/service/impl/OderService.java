@@ -15,4 +15,9 @@ public class OderService implements IOderService {
     public void save(Oder oder) {
         oderRepository.save(oder);
     }
+
+    @Override
+    public void remove(Oder oder) {
+        oderRepository.delete(oder);
+    }
 }

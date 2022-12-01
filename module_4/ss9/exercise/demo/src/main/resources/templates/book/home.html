@@ -22,12 +22,14 @@
         <th>Tên Sách</th>
         <th>Số Lượng</th>
         <th>Thuê</th>
+        <th>Trả</th>
     </tr>
 <tr th:each="list,var:${books}">
     <td th:text="${var.count}"></td>
     <td th:text="${list.name}"></td>
     <td th:text="${list.count}"></td>
     <td><a th:href="@{/book/oder/__${list.id}__ }" class="btn btn-primary">Thuê</a></td>
+    <td><a href="/book/pay" class="btn btn-warning">Trả</a></td>
 </tr>
 </table>
 </body>
