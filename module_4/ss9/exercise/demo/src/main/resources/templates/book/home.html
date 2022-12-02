@@ -29,7 +29,7 @@
     <td th:text="${list.name}"></td>
     <td th:text="${list.count}"></td>
     <td><a th:href="@{/book/oder/__${list.id}__ }" class="btn btn-primary">Thuê</a></td>
-    <td><a href="/book/pay" class="btn btn-warning">Trả</a></td>
+    <td><a th:href="@{/book/pay/__${list.id}__ }" class="btn btn-warning">Trả</a></td>
 </tr>
 </table>
 </body>

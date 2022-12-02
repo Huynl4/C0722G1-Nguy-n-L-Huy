@@ -10,16 +10,13 @@ public class Song {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotEmpty(message = "Tên bài hát không được trống")
-    @Size(min = 1, max = 800)
+
     private String nameSong;
 
-    @NotEmpty(message = "Tên ca sĩ không được để trống")
-    @Size(min = 1, max = 300)
+
     private String singer;
 
-    @NotEmpty(message = "Thể loại nhạc không được để trống")
-    @Size(max = 300)
+
     private String music;
 
     public Song() {

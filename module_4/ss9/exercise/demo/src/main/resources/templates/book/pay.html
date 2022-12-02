@@ -12,10 +12,15 @@
 <body>
 <h1>Pay book</h1>
 <form th:action="@{/book/pay}" th:object="${book}" method="post">
-    <div>
+    <div hidden>
         <span>Mã mượn sách:</span>
-        <input type="text" th:field="*{borrowCode}">
+        <input type="text" th:field="*{id}">
     </div>
+    <div>
+        <span>số sách:</span>
+        <input type="text" th:field="*{count}">
+    </div>
+
     <input type="submit" value="Pay book">
 </form>
 

@@ -13,13 +13,19 @@
 </head>
 <body>
 <h1>MUSIC</h1>
-<a th:href="@{/song/create}">Thêm mới bài hát</a>
+<a th:href="@{/song/create}" class="btn btn-warning">Thêm mới bài hát</a>
+<div th:if="${mess}">
+    <p style="color: cornflowerblue; font-weight: bold" th:text="${mess}"></p>
+</div>
 <table class="table table-success table-striped">
     <tr>
         <td>ID</td>
         <td>Tên bài hát</td>
         <td>Tên ca sĩ</td>
         <td>Thể loại nhạc</td>
+        <td>Cập nhật</td>
+        <td>Xóa</td>
+        <td>Chi tiết</td>
     </tr>
     <th:block th:each="song : ${songs}">
         <tr>
@@ -27,8 +33,47 @@
             <td th:text="${song.getNameSong()}"></td>
             <td th:text="${song.getSinger()}"></td>
             <td th:text="${song.getMusic()}"></td>
+            <td><a th:href="@{/song/edit/__${song.id}__ }" class="btn btn-primary">Edit</a></td>
+            <!--            <td><a th:href="@{/song/edit2(id=${song.id})}" class="btn btn-primary">Edit</a></td>-->
+            <td>
+                <a th:attr="onclick=|infoDelete('${song.id}','${song.nameSong}')|"
+                   class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                    Delete
+                </a>
+            </td>
+            <th><a th:href="@{song/view/__${song.id}__}" class="btn btn-warning">View</a></th>
         </tr>
     </th:block>
 </table>
+<!-- Modal Delete -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form th:action="@{/song/delete}" th:method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Delete Song</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input name="deleteId" hidden id="deleteId">
+                    <pre>Are you want to delete song ?</pre>
+                    <pre style="color: darkred" id="deleteName"></pre>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--phân trang-->
 </body>
+<script>
+    function infoDelete(id, name) {
+        document.getElementById("deleteId").value = id;
+        document.getElementById("deleteName").innerText = name;
+    }
+</script>
 </html>

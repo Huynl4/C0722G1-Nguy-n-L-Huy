@@ -25,7 +25,7 @@ public class BlogController {
     private ICategoryService categoryService;
 
     @GetMapping("/blog")
-    public String showAllAndFindList(@PageableDefault(page = 0,size = 3, sort = ) Pageable pageable,
+    public String showAllAndFindList(@PageableDefault(page = 0, size = 3) Pageable pageable,
                                      @RequestParam(defaultValue = "") String name, Model model) {
 //        Page<Blog> allBlogSortedByName = blogService.findAll(Sort.by("name"));
 //        Pageable sortedByName =

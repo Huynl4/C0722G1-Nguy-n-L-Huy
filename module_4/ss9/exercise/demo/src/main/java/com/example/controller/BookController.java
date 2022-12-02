@@ -43,6 +43,7 @@ public class BookController {
         bookService.save(book);
         int borrowCode = ((int) (Math.random() * 1000));
         Oder oder = new Oder(borrowCode, book);
+        oder.setCodeBook(borrowCode);
         oderService.save(oder);
         redirectAttributes.addFlashAttribute("success", oder.getCodeBook());
         return "redirect:/book";
@@ -56,7 +57,7 @@ public class BookController {
     }
 
     @PostMapping("/pay")
-    public String payBook(@ModelAttribute("payBook") Oder oder, RedirectAttributes redirectAttributes) {
+    public String payBook(@ModelAttribute("book") Oder oder, RedirectAttributes redirectAttributes) {
         Oder oderPay = new Oder();
         if (oderPay != null) {
             Book book = bookService.findById(oder.getId());
@@ -65,6 +66,7 @@ public class BookController {
             redirectAttributes.addFlashAttribute("mess", "Trả sách thành công");
             return "redirect:/book";
         }
+
         return "/error";
     }
 }

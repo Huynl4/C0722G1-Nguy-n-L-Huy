@@ -4,6 +4,7 @@ import com.example.demo.model.Product;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class CartDto {
     private Map<ProductDto, Integer> productMap = new HashMap<>();
@@ -26,5 +27,24 @@ public class CartDto {
         } else {
             productMap.put(productDto, 1);
         }
+    }
+    public void removeProduct(ProductDto productDto) {
+        if (productMap.containsKey(productDto)) {
+            Integer currentValue = productMap.get(productDto);
+            productMap.replace(productDto, currentValue + -1);
+        }
+    }
+
+    public Double getTotal() {
+        double total = 0;
+        Set<ProductDto> set = productMap.keySet();
+        for (ProductDto key : set) {
+            total += key.getPrice() * productMap.get(key);
+        }
+        return total;
+    }
+
+    public void delete() {
+        productMap.clear();
     }
 }

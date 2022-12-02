@@ -12,28 +12,53 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-<h1>Hãng Máy Bay</h1>
-
-<table class="table table-warning table-striped-columns">
-    <tr>
-        <th>STT</th>
-        <th>Tên</th>
-        <th>Giá</th>
-        <th>Ảnh</th>
-        <th>Miêu tả</th>
-        <th>Giỏ Hàng</th>
-    </tr>
-    <tr th:each="list,var:${productList}">
-        <td th:text="${var.count}"></td>
-        <td th:text="${list.name}"></td>
-        <td th:text="${list.price}+ USD"></td>
-        <td><img th:src="@{${list.photo}}" style="height: 50px;width: 50px">
-        <td th:text="${list.description}"></td>
-        <td><a th:href="@{/shop/add/{id}/(id=${list.id})}">
-            <buton class="btn btn-warning">Thêm vào giỏ hàng</buton>
-        </a></td>
-
-    </tr>
-</table>
+<h1 style="margin-left: 25%">Hãng Máy Bay</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h3 style="color: burlywood" th:if="${mess!= null}" th:text="${mess}"></h3>
+            <table class="table table-warning table-striped-columns">
+                <tr>
+                    <th>STT</th>
+                    <th>Tên</th>
+                    <th>Giá</th>
+                    <th>Ảnh</th>
+                    <th>Miêu tả</th>
+                    <th>Hành động</th>
+                    <th>Giỏ Hàng</th>
+                </tr>
+                <tbody>
+                <tr th:each="list,var:${productList}">
+                    <td th:text="${var.count}"></td>
+                    <td th:text="${list.name}"></td>
+                    <td th:text="${list.price}+ USD"></td>
+                    <td>
+                        <a th:href="@{/shop/detail/{id}(id=${list.id})}">
+                            <img th:src="@{${list.photo}}" style="width: 100%">
+                        </a>
+                    </td>
+<!--                    <td><img th:src="@{${list.photo}}" style="height: 50px;width: 50px">-->
+                    <td th:text="${list.description}"></td>
+                    <td>
+                        <a class="btn btn-success" role="button" th:href="@{/shop/add/__${list.id}__}">+</a>
+                    </td>
+                    <td><a th:href="@{/shop/add/{id}/(id=${list.id})}">
+                        <buton class="btn btn-warning">Thêm vào giỏ hàng</buton>
+                    </a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4" th:if="${historyProduct}">
+            <div class="card sticky-top border-0">
+                <img th:src="${historyProduct.photo}" class="card-img-top" alt="">
+                <div class="card-body">
+                    <h4 class="card-title" th:text="${historyProduct.name}"></h4>
+                    <p class="card-title" th:text="${historyProduct.price}"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
