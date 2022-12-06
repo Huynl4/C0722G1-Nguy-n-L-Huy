@@ -12,24 +12,18 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-<!--<input type="text" id="author">-->
-<!--<button class="btn-danger" id="btnSearch">Tìm kiếm</button>-->
-<!--<input id="STT" value="1" hidden>-->
 
 
 <nav class="navbar bg-light">
     <div class="container-fluid">
         <div class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="author">
-            <button class="btn btn-outline-success" type="submit"  id="btnSearch">Search</button>
+            <button class="btn btn-outline-success" type="submit" id="btnSearch">Search</button>
             <input id="STT" value="1" hidden>
         </div>
     </div>
 </nav>
 
-<!--<input class="form-control me-2 w-25" type="search" placeholder="Search" aria-label="Search" id="author">-->
-<!--<button class="btn btn-outline-success " type="submit" id="btnSearch">Search</button>-->
-<!--<input id="STT" value="1" hidden>-->
 
 <table class="table">
     <thead class="table-active">
@@ -46,7 +40,7 @@
 
     </tbody>
 </table>
-<button class="btn btn-success" id="showMore"> Xem thêm</button>
+<button class="btn btn-warning" id="more"> More</button>
 <script
         src="https://code.jquery.com/jquery-3.6.1.js"
         integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
@@ -55,7 +49,7 @@
     var pageNumber = 0;
     $(document).ready(function () {
         getPageBlog(pageNumber);
-        $("#showMore").click(function () {
+        $("#more").click(function () {
             pageNumber++;
             getPageBlog(pageNumber);
         })
@@ -69,6 +63,7 @@
     });
 
     function getPageBlog(pageNumber) {
+        // gọi ajax
         let author = $("#author").val();
         $.ajax({
             headers: {
@@ -78,22 +73,23 @@
             type: "GET",
             url: "http://localhost:8080/blogs?page=" + pageNumber + "&name=" + author
             ,
+            // xử lý khi thành công
             success: function (data) {
                 console.log(data);
-                let blogList = data.content;
-                console.log(blogList);
+                let blogs = data.content;
+                console.log(blogs);
                 let htmlStr = '';
 
-                for (let i = 0; i < blogList.length; i++) {
+                for (let i = 0; i < blogs.length; i++) {
                     let stt = $("#STT").val();
                     $("#STT").val(parseInt(stt) + 1);
                     htmlStr += `<tr>
                         <td>${stt}</td>
-                        <td>${blogList[i].title}</td>
-                        <td>${blogList[i].content}</td>
-                        <td>${blogList[i].author}</td>
-                        <td>${blogList[i].date}</td>
-                        <td>${blogList[i].category.names}</td>
+                        <td>${blogs[i].title}</td>
+                        <td>${blogs[i].content}</td>
+                        <td>${blogs[i].author}</td>
+                        <td>${blogs[i].date}</td>
+                        <td>${blogs[i].category.names}</td>
                     </tr>`;
                 }
                 $("#bodyBlog").append(htmlStr);
