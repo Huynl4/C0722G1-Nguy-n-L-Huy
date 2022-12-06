@@ -23,7 +23,7 @@ public class BlogRestController {
     private ICategoryService iCategoryService;
 
     @GetMapping
-    public ResponseEntity<Page<Blog>> getList(@PageableDefault(page = 0, size = 2) Pageable pageable,
+    public ResponseEntity<Page<Blog>> getList(@PageableDefault(page = 0, size = 3) Pageable pageable,
                                               @RequestParam(required = false, defaultValue = "") String name) {
         Page<Blog> blogList = iBlogService.findByAuthorContaining(name,pageable);
 

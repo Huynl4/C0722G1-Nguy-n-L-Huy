@@ -26,7 +26,7 @@
 
 
 <table class="table">
-    <thead class="table-active">
+    <thead class="table-striped table-condensed">
     <tr>
         <th>STT</th>
         <th>Title</th>
@@ -46,6 +46,20 @@
         integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
         crossorigin="anonymous"></script>
 <script>
+    // $("#save").click(function () {
+    //     //lay du lieu
+    //     let title = $('#title').val();
+    //     let content = $('#content').val();
+    //     let author = $('#author').val();
+    //     let date = $('#date').val();
+    //     let category = $('#category').val();
+    //     let blog = {
+    //         title: title,
+    //         content: content,
+    //         author: author,
+    //         date: date,
+    //         category: category
+    //     };
     var pageNumber = 0;
     $(document).ready(function () {
         getPageBlog(pageNumber);
