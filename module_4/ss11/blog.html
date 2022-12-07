@@ -92,7 +92,7 @@
                 console.log(data);
                 let blogs = data.content;
                 console.log(blogs);
-                let htmlStr = '';
+                let str = '';
 
                 for (let i = 0; i < blogs.length; i++) {
                     let stt = $("#STT").val();
@@ -106,8 +106,8 @@
                         <td>${blogs[i].category.names}</td>
                     </tr>`;
                 }
-                $("#bodyBlog").append(htmlStr);
-                console.log(htmlStr);
+                $("#bodyBlog").append(str);
+                console.log(str);
             },
             error: function (resultError) {
             }
