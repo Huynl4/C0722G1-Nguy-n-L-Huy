@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -23,9 +25,9 @@
         <td>Tên bài hát</td>
         <td>Tên ca sĩ</td>
         <td>Thể loại nhạc</td>
-        <td>Cập nhật</td>
-        <td>Xóa</td>
-        <td>Chi tiết</td>
+        <td></td>
+        <td></td>
+        <td></td>
     </tr>
     <th:block th:each="song : ${songs}">
         <tr>
@@ -33,7 +35,7 @@
             <td th:text="${song.getNameSong()}"></td>
             <td th:text="${song.getSinger()}"></td>
             <td th:text="${song.getMusic()}"></td>
-            <td><a th:href="@{/song/edit/__${song.id}__ }" class="btn btn-primary">Edit</a></td>
+            <td sec:authorize="hasRole('ADMIN')"><a th:href="@{/song/edit/__${song.id}__ }" class="btn btn-primary">Edit</a></td>
             <!--            <td><a th:href="@{/song/edit2(id=${song.id})}" class="btn btn-primary">Edit</a></td>-->
             <td>
                 <a th:attr="onclick=|infoDelete('${song.id}','${song.nameSong}')|"
