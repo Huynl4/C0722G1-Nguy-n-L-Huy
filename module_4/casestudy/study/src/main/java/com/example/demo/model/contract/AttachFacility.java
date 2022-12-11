@@ -16,14 +16,14 @@ public class AttachFacility {
     private String status;
 
 
-    @ManyToOne
-    private ContractDetail contractDetail;
+    @OneToMany(mappedBy = "attachFacility")
+    private Set<ContractDetail> contractDetail;
 
 
     public AttachFacility() {
     }
 
-    public AttachFacility(Long id, String name, double cost, String unit, String status, ContractDetail contractDetail) {
+    public AttachFacility(Long id, String name, double cost, String unit, String status, Set<ContractDetail> contractDetail) {
         this.id = id;
         this.name = name;
         this.cost = cost;
@@ -72,11 +72,11 @@ public class AttachFacility {
         this.status = status;
     }
 
-    public ContractDetail getContractDetail() {
+    public Set<ContractDetail> getContractDetail() {
         return contractDetail;
     }
 
-    public void setContractDetail(ContractDetail contractDetail) {
+    public void setContractDetail(Set<ContractDetail> contractDetail) {
         this.contractDetail = contractDetail;
     }
 }

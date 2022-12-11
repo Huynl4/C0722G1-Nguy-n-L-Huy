@@ -20,8 +20,8 @@ public class ContractDetail {
     private Contract contract;
 
 
-    @OneToMany(mappedBy = "contractDetail")
-    private Set<AttachFacility> facilitySet;
+    @ManyToOne
+    private AttachFacility attachFacility;
 
 
     public ContractDetail() {
@@ -51,11 +51,11 @@ public class ContractDetail {
         this.contract = contract;
     }
 
-    public Set<AttachFacility> getFacilitySet() {
-        return facilitySet;
+    public AttachFacility getAttachFacility() {
+        return attachFacility;
     }
 
-    public void setFacilitySet(Set<AttachFacility> facilitySet) {
-        this.facilitySet = facilitySet;
+    public void setAttachFacility(AttachFacility attachFacility) {
+        this.attachFacility = attachFacility;
     }
 }

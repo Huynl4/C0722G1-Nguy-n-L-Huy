@@ -6,15 +6,14 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "customerType")
 public class CustomerType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
 
-    @OneToMany(mappedBy = "customerType",cascade = CascadeType.REMOVE)
-    @JsonBackReference
+    @OneToMany(mappedBy = "customerType")
+
     private Set<Customer> customers;
 
     public CustomerType() {

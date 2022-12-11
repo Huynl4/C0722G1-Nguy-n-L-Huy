@@ -1,37 +1,39 @@
-package com.example.demo.model.customer;
+package com.example.demo.dto;
 
+import com.example.demo.model.customer.CustomerType;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 
-
-import com.example.demo.model.contract.Contract;
-
-import javax.persistence.*;
-import java.util.Set;
-
-
-@Entity
-public class Customer {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class CustomerDto implements Validator {
     private Long id;
-
+    @NotEmpty(message = "tên không được để trống")
+    @Pattern(regexp = "[A-Za-z ]+", message = "Nhập sai định dạng33")
     private String name;
+
     private String dateOfBirth;
     private String gender;
     private String idCard;
     private String phoneNumber;
     private String email;
     private String address;
-
-    @ManyToOne()
-    @JoinColumn(name = "customer_type_id", referencedColumnName = "id")
     private CustomerType customerType;
 
+    public CustomerDto() {
+    }
 
-    @OneToMany(mappedBy = "customer")
-    private Set<Contract> contract;
-
-    public Customer() {
+    public CustomerDto(Long id, @NotEmpty(message = "tên không được để trống") @Pattern(regexp = "[A-Za-z ]+", message = "Nhập sai định dạng33") String name, String dateOfBirth, String gender, String idCard, String phoneNumber, String email, String address, CustomerType customerType) {
+        this.id = id;
+        this.name = name;
+        this.dateOfBirth = dateOfBirth;
+        this.gender = gender;
+        this.idCard = idCard;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.address = address;
+        this.customerType = customerType;
     }
 
     public Long getId() {
@@ -106,11 +108,13 @@ public class Customer {
         this.customerType = customerType;
     }
 
-    public Set<Contract> getContract() {
-        return contract;
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return false;
     }
 
-    public void setContract(Set<Contract> contract) {
-        this.contract = contract;
+    @Override
+    public void validate(Object target, Errors errors) {
+
     }
 }
