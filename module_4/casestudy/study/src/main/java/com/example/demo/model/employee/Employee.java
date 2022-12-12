@@ -1,6 +1,7 @@
 package com.example.demo.model.employee;
 
 import com.example.demo.model.contract.Contract;
+import com.example.demo.model.user.User;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -29,8 +30,14 @@ public class Employee {
     @OneToMany(mappedBy = "employee")
     private Set<Contract> contract;
 
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private User users;
+
+
     public Employee() {
     }
+
 
     public Long getId() {
         return id;

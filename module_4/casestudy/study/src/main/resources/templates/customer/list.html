@@ -50,7 +50,7 @@
     </tr>
     <th:block th:each="customer : ${customers}">
         <tr>
-            <td th:text="${customer.getId()}"></td>
+            <td th:text="${customer.id}"></td>
             <td th:text="${customer.getName()}"></td>
             <td th:text="${customer.getDateOfBirth()}"></td>
             <td th:if="${customer.getGender()=='1'}">Nam</td>
@@ -122,7 +122,7 @@
             </li>
 
             <li class="page-item">
-                <a class="page-link" th:href="@{/customer/(page=${customers.number+1})}" th:if="${customers.hasNext()}">&raquo;</a>
+                <a class="page-link" th:href="@{/customer/(page=${customers.number+1},name=${name})}" th:if="${customers.hasNext()}">&raquo;</a>
             </li>
             <li class="page-item disabled" th:unless="${customers.hasNext()}">
                 <a class="page-link">&raquo;</a>

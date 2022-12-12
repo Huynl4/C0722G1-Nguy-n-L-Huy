@@ -27,6 +27,12 @@ public class CustomerController {
     @Autowired
     private ICustomerTypeService customerTypeService;
 
+//    @ModelAttribute("customerTypes")
+//    public List<CustomerType> getListCustomerType() {
+//        return customerTypeService.findAll();
+//
+//    }
+
     //
 //    @GetMapping
 //    public String showForm(Model model, @PageableDefault(page = 0, size = 3) Pageable pageable) {
@@ -35,11 +41,11 @@ public class CustomerController {
 //        return "customer/list";
 //    }
     @GetMapping
-    public String showForm(@RequestParam(required = false, defaultValue = "") String name,
+    public String showList(@RequestParam(required = false, defaultValue = "") String name,
                            @RequestParam(required = false, defaultValue = "") String email,
                            @RequestParam(required = false, defaultValue = "") String customerTypeId,
                            Model model, @PageableDefault(page = 0, size = 4) Pageable pageable) {
-        Page<Customer> customers = customerService.search(pageable, name, email,customerTypeId);
+        Page<Customer> customers = customerService.search(pageable, name, email, customerTypeId);
         model.addAttribute("customers", customers);
         model.addAttribute("name", name);
         model.addAttribute("email", email);
@@ -62,7 +68,6 @@ public class CustomerController {
 
         new CustomerDto().validate(customerDto, bindingResult);
         if (bindingResult.hasErrors()) {
-//            model.addAttribute("customers", customerService.findAll(pageable));
             return "customer/create";
         }
         Customer customer = new Customer();
@@ -84,8 +89,10 @@ public class CustomerController {
     }
 
     @PostMapping("/edit")
-    public String editCustomer(@Validated @ModelAttribute("customerDto") CustomerDto customerDto, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+    public String editCustomer(@Validated @ModelAttribute("customerDto") CustomerDto customerDto, BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
+            List<CustomerType> customerTypes = customerTypeService.findAll();
+            model.addAttribute("customerTypes", customerTypes);
             return "customer/edit";
         }
         Customer customer = new Customer();
