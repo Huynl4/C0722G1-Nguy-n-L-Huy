@@ -15,10 +15,11 @@
 </head>
 <body>
 <h1 style="text-align: center;background-color: cornflowerblue">CONTRACT</h1>
+<a href="/contract/create" class="btn btn-warning">Thêm mới hợp đồng</a>
 <a th:href="@{/}" class="btn btn-warning">trang chủ</a>
-<!--<div th:if="${mess}">-->
-<!--    <p style="color: cornflowerblue; font-weight: bold" th:text="${mess}"></p>-->
-<!--</div>-->
+<div th:if="${mess}">
+    <p style="color: cornflowerblue; font-weight: bold" th:text="${mess}"></p>
+</div>
 <table class="table table-success table-striped">
     <tr>
         <td>Stt</td>
@@ -33,21 +34,37 @@
     <th:block th:each="contract : ${contracts}">
         <tr>
             <td th:text="${contract.id}"></td>
-            <td th:text="${contract.facility.name}"></td>
-            <td th:text="${contract.customer.name}"></td>
+            <td th:text="${contract.facilityName}"></td>
+            <td th:text="${contract.customerName}"></td>
             <td th:text="${contract.startDate}"></td>
             <td th:text="${contract.endDate}"></td>
             <td th:text="${contract.deposit}"></td>
-            <td><a th:href="@{/contract/edit/}" class="btn btn-primary">Thêm</a></td>
-<!--            <td>-->
-<!--                <a th:attr="onclick=|infoDelete('${customer.id}','${customer.name}')|"-->
-<!--                   class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">-->
-<!--                    Danh sách các dịch vụ đi kèm-->
-<!--                </a>-->
-<!--            </td>-->
+            <td th:text="${contract.total}"></td>
+            <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                +
+            </button></td>
+            <td><a th:href="@{/contract}" class="btn btn-info">Danh sách hợp đồng chi tiết</a></td>
+
         </tr>
     </th:block>
 </table>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Thêm mới hợp đồng chi tiết</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-primary">Lưu</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!--phân trang-->
 <div>
     <nav aria-label="..." class="justify-content-center d-flex">

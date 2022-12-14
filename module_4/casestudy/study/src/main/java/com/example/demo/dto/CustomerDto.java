@@ -16,7 +16,11 @@ public class CustomerDto implements Validator {
     private String dateOfBirth;
     private String gender;
     private String idCard;
+    @NotEmpty(message = "số điện thoại sai dạng")
+    @Pattern(regexp = "^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$", message = "nhập lại số đt")
     private String phoneNumber;
+    @NotEmpty(message = "email không được để trống")
+    @Pattern(regexp = "^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)$", message = "Địa chỉ email không đúng định dạng")
     private String email;
     private String address;
     private CustomerType customerType;

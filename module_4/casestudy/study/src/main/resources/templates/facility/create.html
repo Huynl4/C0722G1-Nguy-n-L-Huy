@@ -12,74 +12,105 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-<h1>Thêm mới dịch vụ</h1>
-<p>
+<h1 style="margin-left: 30%">Thêm mới dịch vụ</h1>
+<p style="margin-left: 30%">
     <a href="/facility/" class="btn btn-warning">Danh sách dịch vụ</a>
 </p>
 <form th:action="@{/facility/create}" th:object="${facilityDto}" method="post">
-    <table class="table table-success table-striped">
-        <tr>
-            <td>Tên dịch vụ:</td>
-            <td><input th:field="*{name}"></td>
-            <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
-        </tr>
-        <tr>
-            <td>Diện tích:</td>
-            <td><input th:field="*{area}"></td>
-            <td th:if="${#fields.hasErrors('area')}" th:errors="*{area}">Name Error</td>
-        </tr>
-        <tr>
-            <td>Giá:</td>
-            <td><input th:field="*{cost}"></td>
-            <td th:if="${#fields.hasErrors('cost')}" th:errors="*{cost}">Name Error</td>
-        </tr>
-        <tr>
-            <td>Số người:</td>
-            <td><input th:field="*{maxPeople}"></td>
-            <td th:if="${#fields.hasErrors('maxPeople')}" th:errors="*{maxPeople}">Name Error</td>
-        </tr>
-        <tr>
-            <td>Mô tả:</td>
-            <td><input th:field="*{desciption}"></td>
-            <td th:if="${#fields.hasErrors('desciption')}" th:errors="*{desciption}">Name Error</td>
-        </tr>
-        <tr>
-            <td>Diện tích hồ bơi:</td>
-            <td><input th:field="*{poolArea}"></td>
-            <td th:if="${#fields.hasErrors('poolArea')}" th:errors="*{poolArea}">Name Error</td>
-        </tr>
-        <tr>
-            <td>Số tầng:</td>
-            <td><input th:field="*{numberOfFloors}" th:type="number" min="0"></td>
-            <td th:if="${#fields.hasErrors('numberOfFloors')}" th:errors="*{numberOfFloors}">Name Error</td>
-        </tr>
-        <tr>
-            <td>Dịch vụ miễn phí:</td>
-            <td><input th:field="*{facilityFree}"></td>
-            <td th:if="${#fields.hasErrors('facilityFree')}" th:errors="*{facilityFree}">Name Error</td>
-        </tr>
-        <tr>
-            <td>Loại dịch vụ:</td>
-            <td colspan="2"><select th:field="*{facilityType}">
-                <option th:each="facility:${facilityType}"
-                        th:value="${facility.id}"
-                        th:text="${facility.name}">
-                </option>
-            </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Kiểu thuê:</td>
-            <td colspan="2"><select th:field="*{rentType}">
-                <option th:each="facility:${rentTypes}"
-                        th:value="${facility.id}"
-                        th:text="${facility.name}">
-                </option>
-            </select>
-            </td>
-        </tr>
-    </table>
-    <input class="btn btn-success" type="submit" value="Xác nhận"/>
+    <div style="width: 50%;margin-left: 30%">
+        <div class="mb-3 mt-3">
+            <label th:for="name" class="form-label">Tên dịch vụ:</label>
+            <input type="text" class="form-control" th:field="*{name}">
+        </div>
+        <div class="mb-3 mt-3">
+            <label th:for="area" class="form-label">Diện tích:</label>
+            <input type="text" class="form-control" placeholder="diện tích..." th:field="*{area}">
+        </div>
+        <div class="mb-3 mt-3">
+            <label th:for="cost" class="form-label">Chi phí thuê:</label>
+            <input type="text" class="form-control" placeholder="chi phí thuê..." th:field="*{cost}">
+        </div>
+        <div class="mb-3 mt-3">
+            <label th:for="maxPeople" class="form-label">Số lượng người</label>
+            <input type="text" class="form-control" placeholder="số lượng người..." th:field="*{maxPeople}">
+        </div>
+        <div class="mb-3 mt-3" id="standardRooms">
+            <label th:for="standardRoom" class="form-label">Tiêu chuẩn phòng:</label>
+            <input type="text" class="form-control" placeholder="tiêu chuẩn phòng..." th:field="*{standardRoom}">
+        </div>
+        <div class="mb-3 mt-3" id="desciption">
+            <label th:for="standardRoom" class="form-label">Mô tả:</label>
+            <input type="text" class="form-control" placeholder="mô tả chi tiết..." th:field="*{desciption}">
+        </div>
+
+        <div class="mb-3 mt-3" id="poolArea">
+            <label th:for="standardRoom" class="form-label">Diện tích hồ bơi:</label>
+            <input type="text" class="form-control" placeholder="diện tích hồ bơi..." th:field="*{poolArea}">
+        </div>
+        <div class="mb-3 mt-3" id="numberOfFloors">
+            <label th:for="standardRoom" class="form-label">Số tầng:</label>
+            <input type="text" class="form-control" placeholder="số tầng..." th:field="*{numberOfFloors}">
+        </div>
+        <div class="mb-3 mt-3" id="facilityFree">
+            <label th:for="standardRoom" class="form-label">Dịch vụ miễn phí:</label>
+            <input type="text" class="form-control" placeholder="dịch vụ miễn phí...
+" th:field="*{facilityFree}">
+        </div>
+
+        <select class="form-select" aria-label="Default select example" th:field="*{rentType}">
+            <option value="">Kiểu thuê</option>
+            <option th:each="facility:${rentTypes}"
+                    th:value="${facility.id}"
+                    th:text="${facility.name}">
+            </option>
+        </select>
+
+        <select class="form-select" aria-label="Default select example" th:field="*{facilityType}"
+                id="typeFacility" onchange="selectFacilityType();">
+            <option value="">Loại dịch vụ</option>
+            <option th:each="facility:${facilityType}"
+                    th:value="${facility.id}"
+                    th:text="${facility.name}">
+            </option>
+        </select>
+        <button type="submit" class="btn btn-primary">Xác nhận</button>
+    </div>
 </form>
 </body>
+<script>
+    function selectFacilityType() {
+        let x = document.getElementById("typeFacility").value
+        debugger
+        switch (x) {
+            case "1":
+                document.getElementById("facilityFree").style.display = "none";
+                document.getElementById("standardRooms").style.display = "block";
+                document.getElementById("desciption").style.display = "block";
+                document.getElementById("numberOfFloors").style.display = "block";
+                document.getElementById("poolArea").style.display = "block";
+                break;
+            case "2":
+                document.getElementById("poolArea").style.display = "none";
+                document.getElementById("facilityFree").style.display = "none";
+                document.getElementById("standardRooms").style.display = "block";
+                document.getElementById("desciption").style.display = "block";
+                document.getElementById("numberOfFloors").style.display = "block";
+                break;
+            case "3":
+                document.getElementById("standardRooms").style.display = "none";
+                document.getElementById("desciption").style.display = "none";
+                document.getElementById("numberOfFloors").style.display = "none";
+                document.getElementById("poolArea").style.display = "none";
+                document.getElementById("facilityFree").style.display = "block";
+                break;
+            default:
+                document.getElementById("standardRooms").style.display = "block";
+                document.getElementById("desciption").style.display = "block";
+                document.getElementById("numberOfFloors").style.display = "block";
+                document.getElementById("poolArea").style.display = "block";
+                document.getElementById("facilityFree").style.display = "block";
+                break;
+        }
+    }
+</script>
 </html>

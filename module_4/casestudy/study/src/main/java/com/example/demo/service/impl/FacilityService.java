@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -33,5 +34,10 @@ public class FacilityService implements IFacilityService {
     @Override
     public Page<Facility> search(Pageable pageable, String name, String facilityType) {
         return facilityRepository.search(pageable, name, facilityType);
+    }
+
+    @Override
+    public List<Facility> findAll(Pageable pageable) {
+        return facilityRepository.findAll();
     }
 }
