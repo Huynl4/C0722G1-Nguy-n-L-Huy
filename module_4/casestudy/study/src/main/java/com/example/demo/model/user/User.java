@@ -14,26 +14,19 @@ public class User {
     private String password;
     private boolean isEnabled;
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "user_role",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id")
-    )
+
     private List<Role> roles;
 
-
-    @OneToOne(cascade = CascadeType.ALL)
-    private Employee employee;
 
     public User() {
     }
 
-    public Employee getEmployee() {
-        return employee;
+    public boolean isEnabled() {
+        return isEnabled;
     }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    public void setEnabled(boolean enabled) {
+        isEnabled = enabled;
     }
 
     public Long getId() {
@@ -58,14 +51,6 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public boolean isEnabled() {
-        return isEnabled;
-    }
-
-    public void setEnabled(boolean enabled) {
-        isEnabled = enabled;
     }
 
     public List<Role> getRoles() {

@@ -31,13 +31,8 @@ public class Employee {
     private Set<Contract> contract;
 
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private User users;
-
-
     public Employee() {
     }
-
 
     public Long getId() {
         return id;
